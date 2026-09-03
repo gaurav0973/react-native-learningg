@@ -3,17 +3,28 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "react-native run-android --active-arch-only",
+    "android:debug-optimized": "react-native run-android --mode debugOptimized --active-arch-only",
+    "android:standard": "react-native run-android",
     "ios": "react-native run-ios",
-    "lint": "eslint .",
-    "start": "react-native start",
-    "test": "jest"
+    "start": "react-native start --client-logs",
+    "test": "jest",
+    "build:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "android:clean": "cd android && gradlew.bat clean",
+    "android:build:debug": "cd android && gradlew.bat assembleDebug --continue",
+    "android:build:apk": "cd android && gradlew.bat assembleRelease --continue",
+    "android:build:aab": "cd android && gradlew.bat bundleRelease --continue",
+    "android:build:clean": "cd android && gradlew.bat clean && gradlew.bat assembleRelease --continue",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "validate": "npm run lint && prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
+    "@react-native/new-app-screen": "0.87.1",
     "react": "19.2.3",
     "react-native": "0.87.1",
-    "@react-native/new-app-screen": "0.87.1",
-    "react-native-safe-area-context": "^5.5.2"
+    "react-native-safe-area-context": "^5.9.1"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

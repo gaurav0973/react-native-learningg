@@ -84,6 +84,15 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+
+        externalNativeBuild {
+            cmake {
+                // The NDK path contains a space, so CMake passes the compiler as its 8.3 short
+                // name (CLANG_~1.EXE). The NDK's -no-canonical-prefixes then prevents clang from
+                // resolving that back to clang++, so it links in C mode and drops libc++.
+                cppFlags "-canonical-prefixes"
+            }
+        }
     }
     signingConfigs {
         debug {
