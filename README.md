@@ -21,3 +21,6 @@
     - StatusBar => 📶  4G  🔋  87%     => this belongs to Android/IOS not my app
     - Mobile keyboard behavior
     - Controlled components using useState
+
+- UI so far
+![App screenshot](./public/1.jpg)

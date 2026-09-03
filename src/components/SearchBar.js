@@ -24,14 +24,13 @@ export function SearchBar() {
            pointerEvents="none"
         > */}
         <TextInput
-           
-           style={styles.input}
-           placeholder="Search for food or restaurants"
-           placeholderTextColor="#000"
-           value={searchText}
-           onChangeText={setSearchText}
-         />
-        </View>
+          style={styles.input}
+          placeholder="Search for food or restaurants"
+          placeholderTextColor="#000"
+          value={searchText}
+          onChangeText={setSearchText}
+        />
+      </View>
       {/* </View> */}
     </Pressable>
   );
