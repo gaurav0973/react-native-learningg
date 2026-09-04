@@ -20,11 +20,8 @@ export function RestaurantCard({ restaurant }) {
 
       <View style={styles.content}>
         <Text style={styles.name}>{restaurant.name}</Text>
-
         <Text style={styles.cuisine}>{restaurant.cuisine}</Text>
-
         <Text style={styles.price}>{restaurant.price}</Text>
-
         <View style={styles.offerBadge}>
           <Text style={styles.offerText}>{restaurant.offer}</Text>
         </View>
@@ -104,5 +101,3 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
 });
-
-
