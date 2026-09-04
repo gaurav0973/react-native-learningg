@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import {categories} from '../data/categories'
-import {CategoryChip} from './CategoryChip'
+import { categories } from '../data/categories';
+import { CategoryChip } from './CategoryChip';
 
 export function CategoriesRow() {
   return (
@@ -27,4 +27,3 @@ const styles = StyleSheet.create({
     paddingRight: 20,
   },
 });
-

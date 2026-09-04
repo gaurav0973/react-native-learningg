@@ -32,6 +32,22 @@ Concepts
 - ScrollView => for scrolling
     - by default => vertial scrolling 
     - horizontal scrolling 
-- map() for rendering UI
+- map() for rendering UI => Why map here ? 
 - Reusable CategoryChip component
-- First-principles difference: ScrollView vs FlatList
+- First-principles difference:
+    ScrollView
+        - Small static list
+        - loads everything at the same time 
+    FlatList
+        - Large dynamic lists
+        - only create relevent ones , and crrearte on the go when we go in there
+
+
+Concepts
+- Image component
+- Local assets (src/assets/images)
+- Remote vs Local images
+- resizeMode
+- Dimensions API
+- Responsive UI
+- ScrollView with pagingEnabled (our first carousel)

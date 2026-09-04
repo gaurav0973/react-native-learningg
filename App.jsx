@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import {Header} from "./src/components/Header"
 import {SearchBar} from "./src/components/SearchBar"
 import {CategoriesRow} from "./src/components/CategoriesRow"
+import {BannerCarousel} from "./src/components/BannerCarousel"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Header/>
         <SearchBar/>
         <CategoriesRow />
+        <BannerCarousel />
       </View>
     </SafeAreaView>
   );
