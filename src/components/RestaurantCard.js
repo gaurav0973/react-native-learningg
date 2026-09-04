@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import {BackgroundImage} from './BackgroundImage'
 
 export function RestaurantCard({ restaurant }) {
   return (
     <View style={styles.card}>
-      <ImageBackground
+      <BackgroundImage
         source={restaurant.image}
         style={styles.image}
         imageStyle={styles.imageRadius}
@@ -16,7 +17,7 @@ export function RestaurantCard({ restaurant }) {
         <View style={styles.deliveryBadge}>
           <Text style={styles.badgeText}>{restaurant.deliveryTime}</Text>
         </View>
-      </ImageBackground>
+      </BackgroundImage>
 
       <View style={styles.content}>
         <Text style={styles.name}>{restaurant.name}</Text>

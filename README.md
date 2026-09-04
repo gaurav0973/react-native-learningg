@@ -73,3 +73,6 @@ Concepts
 - overflow: "hidden"
 - Reusable RestaurantCard
 - Static restaurant data architecture
+
+- UI so far
+![App screenshot](./public/2.jpg)
