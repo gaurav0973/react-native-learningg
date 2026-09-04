@@ -22,16 +22,14 @@ export function RestaurantFeed() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 24,
+    marginTop: 30,
   },
-
   title: {
     fontSize: 24,
     fontWeight: '700',
     marginBottom: 20,
     flexShrink: 0,
   },
-
   list: {
     flex: 1,
   },

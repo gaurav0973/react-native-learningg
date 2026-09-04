@@ -5,6 +5,7 @@ export function BackgroundImage({
   source,
   style,
   imageStyle,
+  contentStyle,
   resizeMode = 'cover',
   children,
 }) {
@@ -12,11 +13,10 @@ export function BackgroundImage({
     <View style={[styles.container, style]}>
       <Image
         source={source}
-        style={[StyleSheet.absoluteFillObject, imageStyle]}
+        style={[styles.image, imageStyle]}
         resizeMode={resizeMode}
       />
-
-      <View style={styles.content}>{children}</View>
+      <View style={[styles.content, contentStyle]}>{children}</View>
     </View>
   );
 }
@@ -24,6 +24,11 @@ export function BackgroundImage({
 const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
+  },
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    width: '100%',
+    height: '100%',
   },
   content: {
     ...StyleSheet.absoluteFillObject,

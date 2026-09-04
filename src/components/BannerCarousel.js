@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Dimensions,
 } from "react-native";
-import bannerData from "../data/bannerData";
+import { bannerData } from '../data/bannerData';
 
 
 const screenWidth = Dimensions.get("window").width;

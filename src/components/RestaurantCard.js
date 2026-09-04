@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import {BackgroundImage} from './BackgroundImage'
+import { BackgroundImage } from './BackgroundImage';
 
 export function RestaurantCard({ restaurant }) {
   return (
@@ -8,7 +8,7 @@ export function RestaurantCard({ restaurant }) {
       <BackgroundImage
         source={restaurant.image}
         style={styles.image}
-        imageStyle={styles.imageRadius}
+        contentStyle={styles.imageContent}
       >
         <View style={styles.ratingBadge}>
           <Text style={styles.badgeText}>⭐ {restaurant.rating}</Text>
@@ -38,12 +38,13 @@ const styles = StyleSheet.create({
 
   image: {
     height: 180,
-    justifyContent: 'space-between',
-    padding: 12,
+    width: '100%',
+    borderRadius: 18,
   },
 
-  imageRadius: {
-    borderRadius: 18,
+  imageContent: {
+    justifyContent: 'space-between',
+    padding: 12,
   },
 
   ratingBadge: {

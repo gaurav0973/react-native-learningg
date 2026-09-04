@@ -5,7 +5,7 @@ import b4 from '../assets/images/b4.jpg';
 import b5 from '../assets/images/b5.jpg';
 import b6 from '../assets/images/b6.jpg';
 
-const bannerData = [
+export const bannerData = [
   {
     id: 1,
     image: b1,
@@ -31,5 +31,3 @@ const bannerData = [
     image: b6,
   },
 ];
-
-export default bannerData;
