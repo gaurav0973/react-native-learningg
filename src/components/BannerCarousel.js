@@ -15,6 +15,7 @@ export function BannerCarousel() {
   return (
     <ScrollView
       horizontal
+      style={styles.scrollView}
       showsHorizontalScrollIndicator={false}
     >
       {bannerData.map((banner) => (
@@ -31,6 +32,10 @@ export function BannerCarousel() {
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flexGrow: 0,
+    flexShrink: 0,
+  },
   bannerCard: {
     width: screenWidth-40,
     height: 180,

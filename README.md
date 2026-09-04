@@ -41,6 +41,7 @@ Concepts
     FlatList
         - Large dynamic lists
         - only create relevent ones , and crrearte on the go when we go in there
+        - This process is called Virtualization
 
 
 Concepts
@@ -51,3 +52,24 @@ Concepts
 - Dimensions API
 - Responsive UI
 - ScrollView with pagingEnabled (our first carousel)
+
+
+Concepts
+- FlatList (deep dive from first principles)
+    - FlatList only renders what's visible + a small buffer.
+    - Process is called Virtualization
+    ```jsx
+        <FlatList
+            data={restaurants} // => about the data array  => [{}, {}, {}, {}]
+            renderItem={...} // => For every restaurant object, create this UI
+            keyExtractor={...} // => unique identifier
+            showsVerticalScrollIndicator={false} // are vo scrollbar wala hai ye kuch 
+        />
+    ```
+- ImageBackground 
+    - why not imaages => becauee badges ye texts image ke upar aayega
+    - in here => image becomes the container
+- position: "absolute"
+- overflow: "hidden"
+- Reusable RestaurantCard
+- Static restaurant data architecture

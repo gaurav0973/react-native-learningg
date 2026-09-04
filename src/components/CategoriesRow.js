@@ -21,6 +21,7 @@ export function CategoriesRow() {
 const styles = StyleSheet.create({
   scrollView: {
     flexGrow: 0,
+    flexShrink: 0,
   },
   container: {
     paddingVertical: 20,
