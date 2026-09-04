@@ -4,6 +4,7 @@ import { StatusBar, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {Header} from "./src/components/Header"
 import {SearchBar} from "./src/components/SearchBar"
+import {CategoriesRow} from "./src/components/CategoriesRow"
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <View style={styles.container}>
         <Header/>
         <SearchBar/>
+        <CategoriesRow />
       </View>
     </SafeAreaView>
   );

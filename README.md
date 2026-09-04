@@ -18,9 +18,20 @@
 - Concpets 
     - TextInput
     - Pressable
+        => thinking in terms of press => similer to Onclick , isme alag se lagana padta hai
     - StatusBar => 📶  4G  🔋  87%     => this belongs to Android/IOS not my app
     - Mobile keyboard behavior
     - Controlled components using useState
 
 - UI so far
 ![App screenshot](./public/1.jpg)
+
+
+
+Concepts 
+- ScrollView => for scrolling
+    - by default => vertial scrolling 
+    - horizontal scrolling 
+- map() for rendering UI
+- Reusable CategoryChip component
+- First-principles difference: ScrollView vs FlatList
