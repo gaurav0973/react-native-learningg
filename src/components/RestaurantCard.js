@@ -1,10 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { BackgroundImage } from './BackgroundImage';
 
-export function RestaurantCard({ restaurant }) {
+export function RestaurantCard({ restaurant, navigation }) {
   return (
-    <View style={styles.card}>
+    <Pressable
+      onPress={
+        () => navigation.navigate("Restaurant", {
+          restaurant
+        })
+      }
+    >
+       <View style={styles.card}>
       <BackgroundImage
         source={restaurant.image}
         style={styles.image}
@@ -28,6 +35,7 @@ export function RestaurantCard({ restaurant }) {
         </View>
       </View>
     </View>
+    </Pressable>
   );
 }
 
