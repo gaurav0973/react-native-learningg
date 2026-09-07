@@ -7,6 +7,7 @@ import { SearchBar } from '../components/SearchBar';
 import { CategoriesRow } from '../components/CategoriesRow';
 import { BannerCarousel } from '../components/BannerCarousel';
 import { restaurantData } from '../data/restaurantData';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function HomeScreen({navigation, routes}) {
   // console.log("============NAVIGATION============")
@@ -20,6 +21,7 @@ export function HomeScreen({navigation, routes}) {
   };
 
   return (
+    <SafeAreaView style={styles.safeArea}>
     <FlatList
       data={restaurantData}
       renderItem={renderRestaurant}
@@ -40,10 +42,14 @@ export function HomeScreen({navigation, routes}) {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.contentContainer}
     />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+  },
   headerContainer: {
     paddingTop: 20,
   },

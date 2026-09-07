@@ -16,7 +16,7 @@ export function AppNavigator() {
   return (
     <NavigationContainer>
       <Stack.Navigator  
-      // screenOptions={{ headerShown: false }}
+      screenOptions={{ headerShown: false }}
       >
         {/* <Stack.Screen
                     name="Test"
