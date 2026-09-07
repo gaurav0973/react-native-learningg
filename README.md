@@ -93,3 +93,79 @@ NOTE:
         - The title "Restaurant" (from the screen name)
 ![App screenshot](./public/3.jpg)
      
+
+
+Concepts
+- state Driven UI => UI is a function of state => change the state to change something in the UI
+- conditional rendering
+- local state 
+    - Lives inside one component 
+    - cannot be accessed by other screens 
+- react re-render 
+    - Component function runs again 
+    - react compares old UI with new UI
+    - only changed native view updates in the screen
+
+Concpets 
+- prop drilling
+    - parent sends props, child receive props => child cannot directly use parent data
+    - Now Auth aaya => everyone needs user data => every child needs user data
+    - Passing props through components that I don't even use them
+    - Data travels through unnecessary middle components
+
+- context API arrives
+    - insted of passing data through each componet, create a global state
+    - New Thought process   
+        - Provider stores data 
+        - consumers reads data
+    - Context Solves Exactly One Problem=> Avoid props drilling 
+    - Just provide shared values 
+    - Examples 
+        - Authentication 
+        - theme
+    -Problem: 
+        - Unnecessary Re-renders
+            - Everything lives inside one provider => app increases
+            - theme , user, cart , orders, location, wishlist, location, notification
+            - Now only card bagge changes => Every consumer can re-render when the provider value changes
+        - Scaling Context Becomes Difficult 
+            - ```jsx
+                <AuthProvider>
+                    <ThemeProvider>
+                        <CartProvider>
+                        <LocationProvider>
+                            <NotificationProvider>
+                            <App/>
+                            </NotificationProvider>
+                        </LocationProvider>
+                        </CartProvider>
+                    </ThemeProvider>
+                </AuthProvider>
+              ```
+              - This is called Provider Hell => still managable but application becomes even larger
+
+- Why Redux Was Introduced
+    - Conetxt API existes , large application struggles with debuging, multiple teams working togethere 
+    - Redux came to solve application state managenment 
+    - Note karne wali baat ye hai ki, context API for shares values , and redux manages appliation state4
+    - Redux 
+        - Bahut satr provider ki jagah par ek centralisaed store banao => store
+            - Everything reads from one store.
+            - Everything writes to one store.
+    - Problem
+        - became very verbose => to chaneg one value , need to change 
+            - action.js
+            - reducer.js
+            - constant.js
+            - store.js
+        - Developer wants something simpler
+
+- zustand was interoduced 
+- Evolution
+    - useState => one compoent 
+    - props => parent sends it to children
+    - context API => let access to shared values without prop drilling 
+    - redux => centralied store => where state chanegs happend through
+        - action 
+        - reducer
+    - zustand => llightweight gloabal store
