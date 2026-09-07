@@ -105,6 +105,9 @@ Concepts
     - Component function runs again 
     - react compares old UI with new UI
     - only changed native view updates in the screen
+![App screenshot](./public/4.jpg)
+![App screenshot](./public/5.jpg)
+
 
 Concpets 
 - prop drilling
