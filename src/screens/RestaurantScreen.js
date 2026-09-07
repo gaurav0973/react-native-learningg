@@ -3,6 +3,9 @@ import {View, Text, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export function RestaurantScreen({ route }) {
+  // console.log("============ROUTE IN RESTAURANT SCREEN============")
+  // console.log('route:', route);
+  // console.log('route.params:', route.params);
   const { restaurant } = route.params;
   return (
     <SafeAreaView style={styles.safeArea}>

@@ -5,36 +5,36 @@ import { BackgroundImage } from './BackgroundImage';
 export function RestaurantCard({ restaurant, navigation }) {
   return (
     <Pressable
-      onPress={
-        () => navigation.navigate("Restaurant", {
-          restaurant
+      onPress={() =>
+        navigation.navigate('Restaurant', {
+          restaurant,
         })
       }
     >
-       <View style={styles.card}>
-      <BackgroundImage
-        source={restaurant.image}
-        style={styles.image}
-        contentStyle={styles.imageContent}
-      >
-        <View style={styles.ratingBadge}>
-          <Text style={styles.badgeText}>⭐ {restaurant.rating}</Text>
-        </View>
+      <View style={styles.card}>
+        <BackgroundImage
+          source={restaurant.image}
+          style={styles.image}
+          contentStyle={styles.imageContent}
+        >
+          <View style={styles.ratingBadge}>
+            <Text style={styles.badgeText}>⭐ {restaurant.rating}</Text>
+          </View>
 
-        <View style={styles.deliveryBadge}>
-          <Text style={styles.badgeText}>{restaurant.deliveryTime}</Text>
-        </View>
-      </BackgroundImage>
+          <View style={styles.deliveryBadge}>
+            <Text style={styles.badgeText}>{restaurant.deliveryTime}</Text>
+          </View>
+        </BackgroundImage>
 
-      <View style={styles.content}>
-        <Text style={styles.name}>{restaurant.name}</Text>
-        <Text style={styles.cuisine}>{restaurant.cuisine}</Text>
-        <Text style={styles.price}>{restaurant.price}</Text>
-        <View style={styles.offerBadge}>
-          <Text style={styles.offerText}>{restaurant.offer}</Text>
+        <View style={styles.content}>
+          <Text style={styles.name}>{restaurant.name}</Text>
+          <Text style={styles.cuisine}>{restaurant.cuisine}</Text>
+          <Text style={styles.price}>{restaurant.price}</Text>
+          <View style={styles.offerBadge}>
+            <Text style={styles.offerText}>{restaurant.offer}</Text>
+          </View>
         </View>
       </View>
-    </View>
     </Pressable>
   );
 }

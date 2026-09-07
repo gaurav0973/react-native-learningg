@@ -82,10 +82,14 @@ Concepts
 Concepts
 - What is React Navigation?
     => change in the screen on tap
-- Why navigation is not built into React Native
-- Stack Navigator (from first principles).
-- NavigationContainer
-- createNativeStackNavigator
-- Registering screens.
-- navigation.navigate()
-- Passing data using route.params.
+    => it is just a stack 
+![Navigation](./public/navigation.png)
+NOTE: 
+    - jab mai home par hu, Stack: ["Home"]
+    - Home se mai Restaurant par gaya, Stack: ["Home", "Restaurant"]
+    - Restaurant is not the first screen, the stack navigator automatically shows:
+        - A header bar (default: headerShown: true)
+        - A back arrow on the left
+        - The title "Restaurant" (from the screen name)
+![App screenshot](./public/3.jpg)
+     

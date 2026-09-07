@@ -8,7 +8,10 @@ import { CategoriesRow } from '../components/CategoriesRow';
 import { BannerCarousel } from '../components/BannerCarousel';
 import { restaurantData } from '../data/restaurantData';
 
-export function HomeScreen({navigation}) {
+export function HomeScreen({navigation, routes}) {
+  // console.log("============NAVIGATION============")
+  // console.log('navigation:', Object.keys(navigation));
+
   const renderRestaurant = ({ item }) => {
     return <RestaurantCard 
     restaurant={item}

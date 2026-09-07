@@ -32,8 +32,8 @@ export const restaurantData = [
     cuisine: 'Pizza • Italian',
     price: '₹220 for one',
     rating: '4.4',
-    deliveryTime: '28 mins',
-    offer: 'BUY 1 GET 1',
+    deliveryTime: '25 mins',
+    offer: 'BUY 2 GET 1 FREE',
     image: b3,
   },
   {
