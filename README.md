@@ -76,3 +76,16 @@ Concepts
 
 - UI so far
 ![App screenshot](./public/2.jpg)
+
+
+
+Concepts
+- What is React Navigation?
+    => change in the screen on tap
+- Why navigation is not built into React Native
+- Stack Navigator (from first principles).
+- NavigationContainer
+- createNativeStackNavigator
+- Registering screens.
+- navigation.navigate()
+- Passing data using route.params.

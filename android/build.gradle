@@ -18,4 +18,18 @@ buildscript {
     }
 }
 
+// Must run before subprojects are fully evaluated. Fixes NDK builds when the user
+// profile path contains spaces (CMake uses CLANG_~1.EXE and drops libc++ linkage).
+subprojects { subproject ->
+    subproject.afterEvaluate {
+        if (subproject.plugins.hasPlugin("com.android.application") ||
+            subproject.plugins.hasPlugin("com.android.library")) {
+            def cmake = subproject.android.defaultConfig.externalNativeBuild?.cmake
+            if (cmake != null) {
+                cmake.cppFlags("-canonical-prefixes")
+            }
+        }
+    }
+}
+
 apply plugin: "com.facebook.react.rootproject"

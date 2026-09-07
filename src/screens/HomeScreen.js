@@ -8,9 +8,12 @@ import { CategoriesRow } from '../components/CategoriesRow';
 import { BannerCarousel } from '../components/BannerCarousel';
 import { restaurantData } from '../data/restaurantData';
 
-export function HomeScreen() {
+export function HomeScreen({navigation}) {
   const renderRestaurant = ({ item }) => {
-    return <RestaurantCard restaurant={item} />;
+    return <RestaurantCard 
+    restaurant={item}
+    navigation={navigation}
+    />;
   };
 
   return (

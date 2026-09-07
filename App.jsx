@@ -1,22 +1,16 @@
 import React from 'react';
-import { StatusBar, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { HomeScreen } from './src/screens/HomeScreen';
+import { StatusBar } from 'react-native';
+import { AppNavigator } from './src/navigation/AppNavigator';
 
 function App() {
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <>
+      {/*TODO:  why there is no safearea => read about this and the flow  */}
       <StatusBar barStyle="auto" backgroundColor="#FFFFFF" />
-      <HomeScreen />
-    </SafeAreaView>
+      <AppNavigator />
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-    backgroundColor: "#FFFFFF",
-  },
-});
 
 export default App;
