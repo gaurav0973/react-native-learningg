@@ -246,3 +246,38 @@ const [searchText, setSearchText] = useState("");
 ```
 - ![UseMemo](./public/useMemo.png)
 
+
+- Debouncing 
+    - Native Search 
+        - every key triggers api request 
+            - P => API request 
+            - I => API request 
+            - Z => API request
+            - 3 network call => imageing 1 million users => huge waste 
+    - Debounced Search
+        - P 
+        - I 
+        - Z
+        - Z
+        - wait 300ms
+        - one API request  
+    - simple 
+        - user keeps typing => timer keeps resetting 
+        - user stops typing => API call Happens
+        - this is debouncing 
+
+        ```
+        0ms      P      Start Timer
+
+        120ms    Pi     Reset Timer
+
+        230ms    Piz    Reset Timer
+
+        340ms    Pizz   Reset Timer
+
+        470ms    Pizza  Reset Timer
+
+        770ms           Timer Completes
+
+                        API Request
+        ```

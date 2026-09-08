@@ -13,9 +13,26 @@ export function HomeScreen({ navigation, routes }) {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState("");
-
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [error, setError] = useState(null);
-
+  
+ 
+  /**
+   * Debiuncing 
+   *  - searchhText => runs whenever typing changes 
+   *  - setTimeout => start times => waits 300 ms
+   *  - cleanup => cancels the previous timer
+   * so last typing ke baad , API will be called 
+   */
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearch(searchText);
+    }, 300);
+  
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchText]);
 
   useEffect(() => {
     const fetchRestaurants = () => {
@@ -44,14 +61,14 @@ export function HomeScreen({ navigation, routes }) {
    * USERFFECT : retures a catched value 
    */
   const filteredRestaurants = useMemo(() => {
-    const query = searchText.toLowerCase();
+    const query = debouncedSearch.toLowerCase();
     return restaurants.filter((restaurant) => {
       return (restaurant.name
           .toLowerCase()
           .includes(query)
       );
     });
-  }, [restaurants, searchText]);
+  }, [restaurants, debouncedSearch]);
 
   const renderRestaurant = ({ item }) => {
     return <RestaurantCard restaurant={item} navigation={navigation} />;
