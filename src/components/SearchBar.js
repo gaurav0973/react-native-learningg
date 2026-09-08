@@ -1,69 +1,34 @@
-import { useState } from 'react';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import React from 'react';
+import { View, TextInput, StyleSheet } from 'react-native';
 
-/**
- *
- * searchBar
- * - icon  textInput
- */
-export function SearchBar() {
-  const [searchText, setSearchText] = useState('');
-
-  function handlePress() {
-    console.log('Button is pressed');
-  }
-
+export function SearchBar({ searchText, setSearchText }) {
   return (
-    <Pressable onPress={handlePress}>
-      <View style={styles.container}>
-        <View style={styles.iconContainer}>
-          <View style={styles.iconCircle} />
-        </View>
-
-        {/* <View
-           pointerEvents="none"
-        > */}
-        <TextInput
-          style={styles.input}
-          placeholder="Search for food or restaurants"
-          placeholderTextColor="#000"
-          value={searchText}
-          onChangeText={setSearchText}
-        />
-      </View>
-      {/* </View> */}
-    </Pressable>
+    <View style={styles.container}>
+      <TextInput
+        placeholder="Search for restaurants or food"
+        value={searchText}
+        onChangeText={setSearchText}
+        style={styles.input}
+        placeholderTextColor="#888888"
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexShrink: 0,
-    marginTop: 24,
-    paddingHorizontal: 16,
+    marginTop: 20,
+    marginBottom: 24,
+  },
+
+  input: {
+    backgroundColor: '#F4F4F4',
+
+    borderRadius: 14,
+
+    paddingHorizontal: 18,
     paddingVertical: 14,
 
-    backgroundColor: '#F4F4F4',
-    borderRadius: 14,
-  },
-
-  iconContainer: {
-    marginRight: 12,
-  },
-
-  iconCircle: {
-    width: 18,
-    height: 18,
-    borderRadius: 9,
-    borderWidth: 2,
-    borderColor: '#777777',
-  },
-  input: {
-    flex: 1,
     fontSize: 16,
-    color: '#000000',
-    // backgroundColor: 'blue',
   },
 });

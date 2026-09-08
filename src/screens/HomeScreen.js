@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
 
 import { RestaurantCard } from '../components/RestaurantCard';
@@ -9,47 +9,51 @@ import { BannerCarousel } from '../components/BannerCarousel';
 import { restaurantData } from '../data/restaurantData';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-export function HomeScreen({navigation, routes}) {
-  // console.log("============NAVIGATION============")
-  // console.log('navigation:', Object.keys(navigation));
+export function HomeScreen({ navigation, routes }) {
   const [restaurants, setRestaurants] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [searchText, setSearchText] = useState("");
 
-const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-const [error, setError] = useState(null);
-useEffect(() => {
-  const fetchRestaurants = () => {
-    setLoading(true);
 
-    setTimeout(() => {
-      try {
-        setRestaurants(restaurantData);
+  useEffect(() => {
+    const fetchRestaurants = () => {
+      setLoading(true);
+      setTimeout(() => {
+        try {
+          setRestaurants(restaurantData);
 
-        setLoading(false);
-      } catch (err) {
-        setError("Something went wrong.");
+          setLoading(false);
+        } catch (err) {
+          setError('Something went wrong.');
 
-        setLoading(false);
-      }
-    }, 2000);
-  };
+          setLoading(false);
+        }
+      }, 2000);
+    };
 
-  fetchRestaurants();
-}, []);
+    fetchRestaurants();
+  }, []);
+
+  const filteredRestaurants = useMemo(() => {
+    const query = searchText.toLowerCase();
+    return restaurants.filter((restaurant) => {
+      return (restaurant.name
+          .toLowerCase()
+          .includes(query)
+      );
+    });
+  }, [restaurants, searchText]);
 
   const renderRestaurant = ({ item }) => {
-    return <RestaurantCard 
-    restaurant={item}
-    navigation={navigation}
-    />;
+    return <RestaurantCard restaurant={item} navigation={navigation} />;
   };
 
   if (loading) {
     return (
       <SafeAreaView style={styles.center}>
-        <Text style={styles.loadingText}>
-          Loading Restaurants...
-        </Text>
+        <Text style={styles.loadingText}>Loading Restaurants...</Text>
       </SafeAreaView>
     );
   }
@@ -57,39 +61,49 @@ useEffect(() => {
   if (error) {
     return (
       <SafeAreaView style={styles.center}>
-        <Text style={styles.errorTitle}>
-          Oops!
-        </Text>
-  
-        <Text style={styles.errorText}>
-          {error}
-        </Text>
+        <Text style={styles.errorTitle}>Oops!</Text>
+
+        <Text style={styles.errorText}>{error}</Text>
       </SafeAreaView>
     );
   }
 
   return (
     <SafeAreaView style={styles.safeArea}>
-    <FlatList
-      data={restaurants}
-      renderItem={renderRestaurant}
-      keyExtractor={item => item.id}
-      ListHeaderComponent={
-        <View style={styles.headerContainer}>
-          <Header />
+      <FlatList
+        data={filteredRestaurants}
+        renderItem={renderRestaurant}
+        keyExtractor={item => item.id}
+        ListHeaderComponent={
+          <View style={styles.headerContainer}>
+            <Header />
 
-          <SearchBar />
+            <SearchBar 
+            searchText={searchText}
+            setSearchText={setSearchText}
+            />
 
-          <CategoriesRow />
+            <CategoriesRow />
 
-          <BannerCarousel />
+            <BannerCarousel />
 
-          <Text style={styles.sectionTitle}>Top Restaurants Near You</Text>
-        </View>
-      }
-      showsVerticalScrollIndicator={false}
-      contentContainerStyle={styles.contentContainer}
-    />
+            <Text style={styles.sectionTitle}>Top Restaurants Near You</Text>
+          </View>
+        }
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.contentContainer}
+        ListEmptyComponent={
+          <View style={styles.emptySearchContainer}>
+            <Text style={styles.emptySearchTitle}>
+              No restaurants found
+            </Text>
+        
+            <Text style={styles.emptySearchSubtitle}>
+              Try searching with another keyword.
+            </Text>
+          </View>
+        }
+      />
     </SafeAreaView>
   );
 }
@@ -114,22 +128,38 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
   },
   center: {
-    flex:1,
-    justifyContent:"center",
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  loadingText: {
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  errorTitle: {
+    fontSize: 24,
+    fontWeight: '700',
+  },
+
+  errorText: {
+    color: '#E53935',
+    marginTop: 12,
+  },
+
+  // inside that
+  emptySearchContainer:{
     alignItems:"center",
+    paddingVertical:60,
   },
   
-  loadingText:{
-    fontSize:18,
-    fontWeight:"600",
-  },
-  errorTitle:{
-    fontSize:24,
+  emptySearchTitle:{
+    fontSize:22,
     fontWeight:"700",
   },
   
-  errorText:{
-    color:"#E53935",
+  emptySearchSubtitle:{
     marginTop:12,
+    color:"#666666",
   },
 });

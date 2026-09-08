@@ -230,3 +230,17 @@ Concepts
   };}, []);
     ```
     - ![ClearnUp](./public/cleanup.png)
+
+Concepts 
+- Controlled Components 
+    - controlled Input
+        - textinput jaski value comes from react state
+```jsx
+const [searchText, setSearchText] = useState("");
+
+<TextInput
+  value={searchText}
+  onChangeText={setSearchText}
+/>
+// React always knows the current value.
+```
