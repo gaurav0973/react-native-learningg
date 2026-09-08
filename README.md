@@ -244,3 +244,5 @@ const [searchText, setSearchText] = useState("");
 />
 // React always knows the current value.
 ```
+- ![UseMemo](./public/useMemo.png)
+

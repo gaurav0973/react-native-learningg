@@ -36,6 +36,13 @@ export function HomeScreen({ navigation, routes }) {
     fetchRestaurants();
   }, []);
 
+  /**
+   * Why use Memo here
+   * - every render executes restautant.filter
+   * - search changes, loading chanegs , error chanegs  categories chanegs, cart chanegs 
+   * - this filert will run ebery time 
+   * USERFFECT : retures a catched value 
+   */
   const filteredRestaurants = useMemo(() => {
     const query = searchText.toLowerCase();
     return restaurants.filter((restaurant) => {
