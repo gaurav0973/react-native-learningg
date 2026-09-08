@@ -41,10 +41,10 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 20,
     right: 20,
-    bottom: 20,
+    // top:20,
+    bottom: 30,
 
     backgroundColor: '#16A34A',
-
     borderRadius: 16,
 
     paddingHorizontal: 20,

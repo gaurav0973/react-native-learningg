@@ -174,9 +174,24 @@ Concpets
     - zustand => llightweight gloabal store
 
 
-Vacab
+Vocab
 - context =>  shared data container 
 - provider => supply shared data
 - consumer => reads shaered data
 - useContext() => hook to access context 
 ![Context](./public/context.png)
+
+
+Concepts 
+- Derived State  
+    - compute from exisiting state 
+    - prevenrt duplicate source of truth 
+- reduce() 
+    - create your own
+- Floating Components
+    - Place outside ScrollView
+    - Use position:absolute
+    - keep component fixed on screen 
+    - CSS Positioning: https://medium.com/@gauravkmaurya09/css-positioning-explained-7279b1429f05
+    - CSS FlexBox: https://medium.com/@gauravkmaurya09/mastering-flexbox-in-css-dba7f48b4373
+    
