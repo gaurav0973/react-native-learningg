@@ -281,3 +281,4 @@ const [searchText, setSearchText] = useState("");
 
                         API Request
         ```
+- ![Debouncing](./public/debouncing.png)
