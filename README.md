@@ -172,3 +172,11 @@ Concpets
         - action 
         - reducer
     - zustand => llightweight gloabal store
+
+
+Vacab
+- context =>  shared data container 
+- provider => supply shared data
+- consumer => reads shaered data
+- useContext() => hook to access context 
+![Context](./public/context.png)
