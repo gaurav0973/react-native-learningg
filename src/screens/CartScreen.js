@@ -123,33 +123,33 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   emptyContainer: {
-    flex:1,
-    justifyContent:"center",
-    alignItems:"center",
-    padding:24,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 24,
   },
-  
+
   emptyTitle: {
-    fontSize:24,
-    fontWeight:"700",
+    fontSize: 24,
+    fontWeight: '700',
   },
-  
+
   emptySubtitle: {
-    color:"#666666",
-    marginTop:12,
-    textAlign:"center",
+    color: '#666666',
+    marginTop: 12,
+    textAlign: 'center',
   },
-  
-  browseButton:{
-    marginTop:28,
-    backgroundColor:"#16A34A",
-    paddingHorizontal:24,
-    paddingVertical:14,
-    borderRadius:12,
+
+  browseButton: {
+    marginTop: 28,
+    backgroundColor: '#16A34A',
+    paddingHorizontal: 24,
+    paddingVertical: 14,
+    borderRadius: 12,
   },
-  
-  browseText:{
-    color:"#FFFFFF",
-    fontWeight:"700",
+
+  browseText: {
+    color: '#FFFFFF',
+    fontWeight: '700',
   },
 });
