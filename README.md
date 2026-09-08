@@ -194,4 +194,39 @@ Concepts
     - keep component fixed on screen 
     - CSS Positioning: https://medium.com/@gauravkmaurya09/css-positioning-explained-7279b1429f05
     - CSS FlexBox: https://medium.com/@gauravkmaurya09/mastering-flexbox-in-css-dba7f48b4373
-    
+- ![App ](./public/6.jpg)
+
+Concepts
+- What is side effect
+    - A react compoent should mainly do one thing
+        - take state => reture me the UI
+        - everything else is a side effect
+        - ![Side effect](./public/side-effect.png)
+- Componet Lifecycle
+    - Component created
+    - Mounted  => pahli baar appear component
+    - Updated(many times) => seach kiya => Homescreen change hui
+    - Unmounted => Homescreen se cart screen par gaya => homescreen unmount hua
+- useEffect
+
+    ```jsx
+    useEffect(() => {
+        // callback => code that perform side effect
+    }, [//when should this effect funciton run
+    ])
+    ```
+- dependency array []
+    - enpty => Runs on mount => perfect for API calls
+    - no dependency array => runs after every render
+    - [search] => Runs whenever searchText changes
+- Some effects need cleanup.
+  ```jsx
+  useEffect(() => {
+  const timer = setInterval(() => {
+    console.log("Tick");
+  }, 1000);
+  return () => {
+    clearInterval(timer); // runs after unmount
+  };}, []);
+    ```
+    - ![ClearnUp](./public/cleanup.png)
