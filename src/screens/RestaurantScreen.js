@@ -12,6 +12,7 @@ import { BackgroundImage } from '../components/BackgroundImage';
 import { RestaurantInfo } from '../components/RestaurantInfo';
 import { menuData } from '../data/menuData';
 import { MenuItem } from '../components/MenuItem';
+import { FloatingCartBar } from '../components/FloatingCartBar';
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -47,6 +48,8 @@ export function RestaurantScreen({ navigation, route }) {
           ))}
         </View>
       </ScrollView>
+
+      <FloatingCartBar navigation={navigation}/>
     </SafeAreaView>
   );
 }
