@@ -5,7 +5,7 @@ import { saveData, getData, STORAGE_KEYS } from '../services/storageService';
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]); // state starts empty 
+  const [cartItems, setCartItems] = useState([]); // state starts empty
   const [isHydrated, setIsHydrated] = useState(false);
 
   const addItem = item => {
@@ -58,17 +58,25 @@ export function CartProvider({ children }) {
    *  - App starts => card provider mounts =>> this useEffect will run
    *  - Read async storage => restore the cart => update the UI
    */
-  console.log("1️⃣ Render:", cartItems);
+  console.log('1️⃣ Render:', cartItems);
   // Effect A → Restore from storage
   useEffect(() => {
-    console.log("2️⃣ Restore started");
+    console.log('2️⃣ Restore started');
     const restoreCart = async () => {
-      const savedCart = await getData(STORAGE_KEYS.CART);
-      console.log("3️⃣ Storage returned:", savedCart);
-      if (savedCart) { 
-        setCartItems(savedCart);
+      try {
+        const savedCart = await getData(STORAGE_KEYS.CART);
+        console.log('3️⃣ Storage returned:', savedCart);
+        if (savedCart) {
+          setCartItems(savedCart);
+        }
+      } 
+      catch{
+        console.log("Error while hydration")
       }
-      setIsHydrated(true);
+      finally {
+        // runs jab apna await complets/error throw karega
+        setIsHydrated(true);
+      }
     };
     restoreCart();
   }, []);
@@ -80,9 +88,8 @@ export function CartProvider({ children }) {
    */
   // Effect B → Save whenever cart changes
   useEffect(() => {
-    if (!isHydrated) 
-      return;
-    console.log("4️⃣ Save effect:", cartItems);
+    if (!isHydrated) return;
+    console.log('4️⃣ Save effect:', cartItems);
     saveData(STORAGE_KEYS.CART, cartItems);
   }, [cartItems, isHydrated]);
 
