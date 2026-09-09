@@ -66,10 +66,10 @@ export function CartProvider({ children }) {
       try {
         const savedCart = await getData(STORAGE_KEYS.CART);
         // console.log('3️⃣ Storage returned:', savedCart);
-        if (savedCart) {
+        if (Array.isArray(savedCart)) { // why this ? => curropt storage like {foo: 1} => map nahi chalega isme
           setCartItems(savedCart);
         }
-      } 
+      }
       catch{
         console.log("Error while hydration")
       }
@@ -92,6 +92,9 @@ export function CartProvider({ children }) {
     // console.log('4️⃣ Save effect:', cartItems);
     saveData(STORAGE_KEYS.CART, cartItems);
   }, [cartItems, isHydrated]);
+
+  if (!isHydrated) 
+    return null
 
   return (
     <CartContext.Provider
