@@ -58,14 +58,14 @@ export function CartProvider({ children }) {
    *  - App starts => card provider mounts =>> this useEffect will run
    *  - Read async storage => restore the cart => update the UI
    */
-  console.log('1️⃣ Render:', cartItems);
+  // console.log('1️⃣ Render:', cartItems);
   // Effect A → Restore from storage
   useEffect(() => {
-    console.log('2️⃣ Restore started');
+    // console.log('2️⃣ Restore started');
     const restoreCart = async () => {
       try {
         const savedCart = await getData(STORAGE_KEYS.CART);
-        console.log('3️⃣ Storage returned:', savedCart);
+        // console.log('3️⃣ Storage returned:', savedCart);
         if (savedCart) {
           setCartItems(savedCart);
         }
@@ -89,7 +89,7 @@ export function CartProvider({ children }) {
   // Effect B → Save whenever cart changes
   useEffect(() => {
     if (!isHydrated) return;
-    console.log('4️⃣ Save effect:', cartItems);
+    // console.log('4️⃣ Save effect:', cartItems);
     saveData(STORAGE_KEYS.CART, cartItems);
   }, [cartItems, isHydrated]);
 

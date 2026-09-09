@@ -16,23 +16,25 @@ export function MenuItem({ item }) {
 
         <Text style={styles.price}>{item.price}</Text>
       </View>
-      {quantity === 0 ? (
-        <Pressable style={styles.addButton} onPress={() => addItem(item)}>
-          <Text style={styles.addText}>ADD</Text>
-        </Pressable>
-      ) : (
-        <View style={styles.counterContainer}>
-          <Pressable style={styles.counterButton} onPress={() => decreaseItem(item.id)}>
-            <Text style={styles.counterText}>−</Text>
+      <View style={styles.actionBox}>
+        {quantity === 0 ? (
+          <Pressable style={styles.addButton} onPress={() => addItem(item)}>
+            <Text style={styles.actionText}>ADD</Text>
           </Pressable>
+        ) : (
+          <View style={styles.counterContainer}>
+            <Pressable style={styles.counterButton} onPress={() => decreaseItem(item.id)}>
+              <Text style={styles.actionText}>−</Text>
+            </Pressable>
 
-          <Text style={styles.quantity}>{quantity}</Text>
+            <Text style={styles.quantity}>{quantity}</Text>
 
-          <Pressable style={styles.counterButton} onPress={() => increaseItem(item.id)}>
-            <Text style={styles.counterText}>+</Text>
-          </Pressable>
-        </View>
-      )}
+            <Pressable style={styles.counterButton} onPress={() => increaseItem(item.id)}>
+              <Text style={styles.actionText}>+</Text>
+            </Pressable>
+          </View>
+        )}
+      </View>
     </View>
   );
 }
@@ -70,48 +72,47 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  addButton: {
+  actionBox: {
+    width: 104,
+    height: 40,
     alignSelf: 'center',
-
     borderWidth: 1,
     borderColor: '#16A34A',
-
     borderRadius: 10,
-
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    overflow: 'hidden',
   },
 
-  addText: {
+  addButton: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+
+  actionText: {
     color: '#16A34A',
     fontWeight: '700',
+    fontSize: 16,
   },
+
   counterContainer: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-
-    borderWidth: 1,
-    borderColor: '#16A34A',
-
-    borderRadius: 10,
+    justifyContent: 'space-between',
   },
 
   counterButton: {
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-  },
-
-  counterText: {
-    color: '#16A34A',
-    fontWeight: '700',
-    fontSize: 18,
+    flex: 1,
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   quantity: {
+    flex: 1,
     fontWeight: '700',
     color: '#16A34A',
     fontSize: 16,
-    minWidth: 24,
     textAlign: 'center',
   },
 });
