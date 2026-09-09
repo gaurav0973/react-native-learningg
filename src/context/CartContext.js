@@ -6,6 +6,7 @@ export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]); // state starts empty 
+  const [isHydrated, setIsHydrated] = useState(false);
 
   const addItem = item => {
     setCartItems(previousCart => [
@@ -67,6 +68,7 @@ export function CartProvider({ children }) {
       if (savedCart) { 
         setCartItems(savedCart);
       }
+      setIsHydrated(true);
     };
     restoreCart();
   }, []);
@@ -78,9 +80,11 @@ export function CartProvider({ children }) {
    */
   // Effect B → Save whenever cart changes
   useEffect(() => {
+    if (!isHydrated) 
+      return;
     console.log("4️⃣ Save effect:", cartItems);
     saveData(STORAGE_KEYS.CART, cartItems);
-  }, [cartItems]);
+  }, [cartItems, isHydrated]);
 
   return (
     <CartContext.Provider
