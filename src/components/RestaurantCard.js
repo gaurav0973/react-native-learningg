@@ -6,7 +6,7 @@ export function RestaurantCard({ restaurant, navigation }) {
   return (
     <Pressable
       onPress={() =>
-        navigation.navigate('Restaurant', {
+        navigation.navigate('RestaurantScreen', {
           restaurant,
         })
       }

@@ -5,4 +5,16 @@
 
 
 
--adb uninstall com.
+
+# Uninstall old app from phone
+adb uninstall com.first
+
+# Clean native build
+npm run android:clean
+
+# Full rebuild + install on device
+npm run android
+
+
+# reset the cache 
+npx react-native start --reset-cache
