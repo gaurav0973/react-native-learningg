@@ -6,6 +6,7 @@ import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
 import { CategoriesRow } from '../components/CategoriesRow';
 import { BannerCarousel } from '../components/BannerCarousel';
+import { useDebounce } from '../hooks/useDebounce';
 import { restaurantData } from '../data/restaurantData';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -13,7 +14,6 @@ export function HomeScreen({ navigation, routes }) {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState("");
-  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [error, setError] = useState(null);
   
  
@@ -24,15 +24,7 @@ export function HomeScreen({ navigation, routes }) {
    *  - cleanup => cancels the previous timer
    * so last typing ke baad , API will be called 
    */
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(searchText);
-    }, 300);
-  
-    return () => {
-      clearTimeout(timer);
-    };
-  }, [searchText]);
+  const debouncedSearch = useDebounce(searchText, 300);
 
   useEffect(() => {
     const fetchRestaurants = () => {
