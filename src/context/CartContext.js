@@ -1,4 +1,5 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
+import { saveData, getData, STORAGE_KEYS } from '../services/storageService';
 
 // This creates an empty shared container => provider will fill this
 export const CartContext = createContext();
@@ -51,7 +52,29 @@ export function CartProvider({ children }) {
     });
   };
 
+  /**
+   * Restore cart on app launch
+   *  - App starts => card provider mounts =>> this useEffect will run
+   *  - Read async storage => restore the cart => update the UI
+   */
+  useEffect(() => {
+    const restoreCart = async () => {
+      const savedCart = await getData(STORAGE_KEYS.CART);
+      if (savedCart) {
+        setCartItems(savedCart);
+      }
+    };
+    restoreCart();
+  }, []);
 
+  /**
+   * Saves cart automatically
+   *  - whenever cartItems changes => run this function
+   *  - Pizza added => cartItem changes => useEffect runs => AsyncStorgae Updated
+   */
+  useEffect(() => {
+    saveData(STORAGE_KEYS.CART, cartItems);
+  }, [cartItems]);
 
   return (
     <CartContext.Provider

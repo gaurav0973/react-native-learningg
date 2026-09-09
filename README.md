@@ -348,3 +348,59 @@ export function useThrottle(value, interval = 300) {
 - Core Difference in 1 Sentence
   - While Debouncing delays the API call until you stop typing, Throttling forces the API call to happen at a regular pace while you are typing
 
+
+
+# Async Storage 
+- Abhi tk => App works , but agar maine close kiya, it will not work at all 
+- everything resets 
+- Why ? 
+  - because all our state lives in memory (RAM).
+  - RAM is temporary 
+  - Abhi tk kya ho rha tha ? 
+    - App open => RAM loads => cart exists 
+    - APP close => RAM cleared => cart gone
+
+- So we introduce **persistent storage**
+  - ab ye kya hai ? 
+    - react native version of local storage 
+    - Apne ko kya cahiye ? 
+      - App open => disk storage => cart saved
+      - App close => storage still exists 
+      - App open again => cart restored
+- ![Storage](./public/storage.png)
+
+- AsyncStorage
+  - key-value pair
+  - web me local storage , yaha par AsuncStorage (alomst identiccal concpets)
+  - What to store here 
+    - JWT token
+    - Cart items 
+    - useer theme 
+    - Delovery Address
+  - What not to store 
+    - Large images
+    - Videos 
+    - password in plain text
+
+  - setItem(key, value) 
+    - stores data => data strinng me hona cahiye 
+    - **JSON.stringify(value)**
+
+  - getItem(key)
+    - return string => string store karta hai, to vahi return bhi karega na 
+    - need to convert back => ***JSON.parse(value)**
+
+  - Now expose there 2 function 
+    - saveData, getData
+    - Apne provider me ab 2 use effect banane hai 
+      - Restore cart => only on mount 
+      - Save cart => whenever cart changes 
+```jsx
+useEffect(() => {
+  // Restore
+}, []);
+
+useEffect(() => {
+  // Save
+}, [cartItems]);
+```
