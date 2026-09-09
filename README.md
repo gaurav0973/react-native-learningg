@@ -404,3 +404,10 @@ useEffect(() => {
   // Save
 }, [cartItems]);
 ```
+- Problem statement actually
+- ![Hydration](./public/hydration.png)
+
+- Hydration Bug 
+  - Jargons 
+    - Hydration => App open karn epar, phone ki memory se saved data nikalkar app ke andar load karna
+    - Dehydration => Data Save Karn 

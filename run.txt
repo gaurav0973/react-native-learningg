@@ -5,4 +5,4 @@
 
 
 
--adb uninstall com.first
+-adb uninstall com.

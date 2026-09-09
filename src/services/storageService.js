@@ -12,9 +12,8 @@ const cartStorage = createAsyncStorage("cartStorage");
 //1. save data to storage
 export const saveData = async (key, value) => {
   try {
-    console.log("data saved start")
+    // console.log("data saved start")
     await cartStorage.setItem(key, JSON.stringify(value));
-    console.log("data save successful")
   } catch (error) {
     console.log('Storage Save Error', error);
   }
@@ -24,7 +23,7 @@ export const saveData = async (key, value) => {
 export const getData = async (key) => {
   try {
     const value = await cartStorage.getItem(key);
-    console.log("value", value)
+    // console.log("Data get from the localstorage: ", value)
     // if value is not null, then parse the value and return it
     if (value !== null) {
       return JSON.parse(value);
