@@ -445,3 +445,24 @@ useEffect(() => {
     - Request finishes => Hide spinner and update UI
 
 
+# Pagination 
+  - Why Pagination
+    - without this => server gives 20,000 items => phone downloads everything
+    - Problems 
+      - HHuge network usage 
+      - slow app launch 
+      - High emory consumption
+    - With pagination 
+      - server => loads furst 10 items => use scrolls => next 10 items => use scroll => next 10 items 
+      - the app downloads data only when needed
+  - Two types of pagination 
+    - Server side pagination 
+      ```http
+      GET /restaurants?page=2&limit=10
+      ```
+    - Client-side Pagination
+      ```http
+      GET https://www.fruityvice.com/api/fruit/all
+      ```
+    - Idea: Download all once into allFruits, show 10 at a time in visibleFruits, FlashList renders the window, scroll triggers slice math to append the next 10 from the warehouse
+    -  ![Pagination](./public/pagination.png)

@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { HomeStack } from './HomeStack';
-import { SearchScreen } from '../screens/SearchScreen';
+import { FruitExplorerScreen } from '../screens/FruitExplorerScreen';
 import { CartStack } from './CartStack';
 import { ProfileScreen } from '../screens/ProfileScreen';
-import { CartIcon, HomeIcon, ProfileIcon, SearchIcon } from '../data/icons';
+import { CartIcon, FruitIcon, HomeIcon, ProfileIcon } from '../data/icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,15 +27,14 @@ export function BottomTabs() {
     >
       <Tab.Screen name="Home" component={HomeStack} 
       options={{
-
         tabBarLabel: "Home",
         tabBarIcon: HomeIcon,
       }}
       />
-      <Tab.Screen name="Search" component={SearchScreen} 
+      <Tab.Screen name="Fruits" component={FruitExplorerScreen}
       options={{
-        tabBarLabel: "Search",
-        tabBarIcon: SearchIcon,
+        tabBarLabel: "Fruits",
+        tabBarIcon: FruitIcon,
       }}
       />
       <Tab.Screen name="Cart" component={CartStack} 
