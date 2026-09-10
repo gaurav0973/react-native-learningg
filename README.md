@@ -435,3 +435,13 @@ useEffect(() => {
       - scroll smoothness 
       - memeory use
   - Reason : https://shopify.github.io/flash-list/docs/recycling
+
+# Pull to refresh
+- Wha tactually happens
+  - user pulls down => spinner appers => fetch latest posts => feed update
+  - Three independent evenets here
+    - Pull => start refresh 
+    - Network request => show loading indicator 
+    - Request finishes => Hide spinner and update UI
+
+
