@@ -427,3 +427,11 @@ useEffect(() => {
     - A Lottie animation is instructions
     - A Lottie file is a JSON document describing shapes, colors, paths, timing, and movement
     - Just animation instructions.
+
+
+# FlashList 
+  - Why 
+    - Performance on long list
+      - scroll smoothness 
+      - memeory use
+  - Reason : https://shopify.github.io/flash-list/docs/recycling
