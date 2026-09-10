@@ -411,3 +411,19 @@ useEffect(() => {
   - Jargons 
     - Hydration => App open karn epar, phone ki memory se saved data nikalkar app ke andar load karna
     - Dehydration => Data Save Karn 
+
+
+
+# Lottie 
+- Why this ? 
+  - GIF => 100s of image => play one after another
+  - Problem   
+    - Heavy file 
+    - Not scalable 
+    - Poor quality on different screen Size
+
+  - How lottle solved this problem
+    - Animation Design =>> JSON file => react native renders it frame by frame 
+    - A Lottie animation is instructions
+    - A Lottie file is a JSON document describing shapes, colors, paths, timing, and movement
+    - Just animation instructions.

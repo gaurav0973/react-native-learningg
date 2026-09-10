@@ -5,7 +5,7 @@ import { RestaurantCard } from '../components/RestaurantCard';
 import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
 import { CategoriesRow } from '../components/CategoriesRow';
-import { BannerCarousel } from '../components/BannerCarousel';
+import { OfferCarousel } from '../components/OfferCarousel';
 import { useDebounce } from '../hooks/useDebounce';
 import { restaurantData } from '../data/restaurantData';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -13,16 +13,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 export function HomeScreen({ navigation, routes }) {
   const [restaurants, setRestaurants] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const [error, setError] = useState(null);
-  
- 
+
   /**
-   * Debiuncing 
-   *  - searchhText => runs whenever typing changes 
+   * Debiuncing
+   *  - searchhText => runs whenever typing changes
    *  - setTimeout => start times => waits 300 ms
    *  - cleanup => cancels the previous timer
-   * so last typing ke baad , API will be called 
+   * so last typing ke baad , API will be called
    */
   const debouncedSearch = useDebounce(searchText, 300);
 
@@ -48,17 +47,14 @@ export function HomeScreen({ navigation, routes }) {
   /**
    * Why use Memo here
    * - every render executes restautant.filter
-   * - search changes, loading chanegs , error chanegs  categories chanegs, cart chanegs 
-   * - this filert will run ebery time 
-   * USERFFECT : retures a catched value 
+   * - search changes, loading chanegs , error chanegs  categories chanegs, cart chanegs
+   * - this filert will run ebery time
+   * USERFFECT : retures a catched value
    */
   const filteredRestaurants = useMemo(() => {
     const query = debouncedSearch.toLowerCase();
-    return restaurants.filter((restaurant) => {
-      return (restaurant.name
-          .toLowerCase()
-          .includes(query)
-      );
+    return restaurants.filter(restaurant => {
+      return restaurant.name.toLowerCase().includes(query);
     });
   }, [restaurants, debouncedSearch]);
 
@@ -94,14 +90,11 @@ export function HomeScreen({ navigation, routes }) {
           <View style={styles.headerContainer}>
             <Header />
 
-            <SearchBar 
-            searchText={searchText}
-            setSearchText={setSearchText}
-            />
+            <SearchBar searchText={searchText} setSearchText={setSearchText} />
 
             <CategoriesRow />
 
-            <BannerCarousel />
+            <OfferCarousel />
 
             <Text style={styles.sectionTitle}>Top Restaurants Near You</Text>
           </View>
@@ -110,10 +103,8 @@ export function HomeScreen({ navigation, routes }) {
         contentContainerStyle={styles.contentContainer}
         ListEmptyComponent={
           <View style={styles.emptySearchContainer}>
-            <Text style={styles.emptySearchTitle}>
-              No restaurants found
-            </Text>
-        
+            <Text style={styles.emptySearchTitle}>No restaurants found</Text>
+
             <Text style={styles.emptySearchSubtitle}>
               Try searching with another keyword.
             </Text>
@@ -164,18 +155,18 @@ const styles = StyleSheet.create({
   },
 
   // inside that
-  emptySearchContainer:{
-    alignItems:"center",
-    paddingVertical:60,
+  emptySearchContainer: {
+    alignItems: 'center',
+    paddingVertical: 60,
   },
-  
-  emptySearchTitle:{
-    fontSize:22,
-    fontWeight:"700",
+
+  emptySearchTitle: {
+    fontSize: 22,
+    fontWeight: '700',
   },
-  
-  emptySearchSubtitle:{
-    marginTop:12,
-    color:"#666666",
+
+  emptySearchSubtitle: {
+    marginTop: 12,
+    color: '#666666',
   },
 });
