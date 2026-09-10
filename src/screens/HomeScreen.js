@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { View, Text, StyleSheet, RefreshControl } from 'react-native';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
+import { View, Text, StyleSheet, RefreshControl, Animated } from 'react-native';
 import { RestaurantCard } from '../components/RestaurantCard';
 import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
@@ -18,18 +18,27 @@ export function HomeScreen({ navigation, routes }) {
   const [error, setError] = useState(null);
   const [refreshing, setRefreshing] = useState(false);
 
+  // Opacity = 0 => invisible 
+  const opacity = useRef(new Animated.Value(0)).current;
+  useEffect(() => {
+    Animated.timing(opacity,{
+      toValue:1,
+      duration:600,
+      useNativeDriver:true, //Run opacity animation on native thread.
+    }).start();
+  },[opacity]);
+
   const handleRefresh = async () => {
+    setRefreshing(true);
 
-    setRefreshing(true)
+    await new Promise(resolve => {
+      return setTimeout(resolve, 2000);
+    });
 
-    await new Promise((resolve) => {
-      return setTimeout(resolve, 2000)
-    })
-
-    setRestaurants([...refreshRestaurantData])
+    setRestaurants([...refreshRestaurantData]);
 
     setRefreshing(false);
-  }
+  };
 
   /**
    * Debiuncing
@@ -72,9 +81,15 @@ export function HomeScreen({ navigation, routes }) {
       return restaurant.name.toLowerCase().includes(query);
     });
   }, [restaurants, debouncedSearch]);
-
+  const fadeStyle = {
+    opacity,
+  };
   const renderRestaurant = ({ item }) => {
-    return <RestaurantCard restaurant={item} navigation={navigation} />;
+    return (
+      <Animated.View style={fadeStyle}>
+      <RestaurantCard restaurant={item} navigation={navigation} />
+      </Animated.View>
+    );
   };
 
   if (loading) {
@@ -102,10 +117,7 @@ export function HomeScreen({ navigation, routes }) {
         renderItem={renderRestaurant}
         keyExtractor={item => item.id}
         refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={handleRefresh}
-          />
+          <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
         }
         ListHeaderComponent={
           <View style={styles.headerContainer}>
@@ -125,7 +137,6 @@ export function HomeScreen({ navigation, routes }) {
         ListEmptyComponent={
           <View style={styles.emptySearchContainer}>
             <Text style={styles.emptySearchTitle}>No restaurants found</Text>
-
             <Text style={styles.emptySearchSubtitle}>
               Try searching with another keyword.
             </Text>

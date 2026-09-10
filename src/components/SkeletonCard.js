@@ -37,7 +37,7 @@ export function SkeletonCard() {
          */
       }),
     ).start(); // nothing animates untill I start this
-  }, []);
+  }, [shimmerValue]);
 
   /**
    * Interpolation means
