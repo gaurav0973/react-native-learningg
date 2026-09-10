@@ -466,3 +466,27 @@ useEffect(() => {
       ```
     - Idea: Download all once into allFruits, show 10 at a time in visibleFruits, FlashList renders the window, scroll triggers slice math to append the next 10 from the warehouse
     -  ![Pagination](./public/pagination.png)
+
+# Animated API
+  - Traditional Spinner 
+    - Loading...
+      Problems 
+        - User has no idea what is coming 
+        - Layout sudenly appears after loading 
+        - Feels slower
+        - Bad User eperience
+
+  - Skeleton Loading 
+    - User immediately understand => aane kya wala hai
+    - It is hte fake UI that mimics the final layout before real data arrives
+
+  - How shimmer works internally 
+    - Gray Card 
+    - Light strip Moves from left to right 
+    - Repeats forever 
+    - Just one animated highlight moving across a placeholder.
+
+  - It has three pieces
+    - Animateed.Value
+    - Animation Driver 
+    - Animated Component

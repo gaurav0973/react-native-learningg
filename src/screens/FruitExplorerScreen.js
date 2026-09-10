@@ -3,6 +3,7 @@ import { Text, View, ActivityIndicator, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 import { FruitCard } from '../components/FruitCard';
+import { SkeletonCard } from '../components/SkeletonCard';
 import { getAllFruits } from '../services/fruitService';
 
 const PAGE_SIZE = 10;
@@ -70,10 +71,12 @@ export function FruitExplorerScreen() {
 
   if (loading) {
     return (
-      <SafeAreaView style={styles.center}>
-        <ActivityIndicator size="large" color="#16A34A" />
-
-        <Text style={styles.loadingText}>Loading Fruits...</Text>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.contentContainer}>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <SkeletonCard key={index} />
+          ))}
+        </View>
       </SafeAreaView>
     );
   }
