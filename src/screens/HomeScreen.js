@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, RefreshControl } from 'react-native';
 import { RestaurantCard } from '../components/RestaurantCard';
 import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
@@ -7,6 +7,7 @@ import { CategoriesRow } from '../components/CategoriesRow';
 import { OfferCarousel } from '../components/OfferCarousel';
 import { useDebounce } from '../hooks/useDebounce';
 import { restaurantData } from '../data/restaurantData';
+import { refreshRestaurantData } from '../data/refreshRestaurantData';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
 
@@ -15,6 +16,20 @@ export function HomeScreen({ navigation, routes }) {
   const [loading, setLoading] = useState(true);
   const [searchText, setSearchText] = useState('');
   const [error, setError] = useState(null);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handleRefresh = async () => {
+
+    setRefreshing(true)
+
+    await new Promise((resolve) => {
+      return setTimeout(resolve, 2000)
+    })
+
+    setRestaurants([...refreshRestaurantData])
+
+    setRefreshing(false);
+  }
 
   /**
    * Debiuncing
@@ -86,6 +101,12 @@ export function HomeScreen({ navigation, routes }) {
         data={filteredRestaurants}
         renderItem={renderRestaurant}
         keyExtractor={item => item.id}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={handleRefresh}
+          />
+        }
         ListHeaderComponent={
           <View style={styles.headerContainer}>
             <Header />
