@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
 import { restaurantData } from '../data/restaurantData';
 import { RestaurantCard } from './RestaurantCard';
 
@@ -8,10 +9,10 @@ export function RestaurantFeed() {
     <View style={styles.container}>
       <Text style={styles.title}>Top Restaurants Near You</Text>
 
-      <FlatList
+      <FlashList
         data={restaurantData}
         renderItem={({ item }) => <RestaurantCard restaurant={item} />}
-        keyExtractor={(item) => item.id}
+        keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
         style={styles.list}
       />

@@ -1,6 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
-
+import { View, Text, StyleSheet } from 'react-native';
 import { RestaurantCard } from '../components/RestaurantCard';
 import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
@@ -9,6 +8,7 @@ import { OfferCarousel } from '../components/OfferCarousel';
 import { useDebounce } from '../hooks/useDebounce';
 import { restaurantData } from '../data/restaurantData';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { FlashList } from '@shopify/flash-list';
 
 export function HomeScreen({ navigation, routes }) {
   const [restaurants, setRestaurants] = useState([]);
@@ -82,7 +82,7 @@ export function HomeScreen({ navigation, routes }) {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <FlatList
+      <FlashList
         data={filteredRestaurants}
         renderItem={renderRestaurant}
         keyExtractor={item => item.id}

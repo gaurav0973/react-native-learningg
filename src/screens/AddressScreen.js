@@ -2,11 +2,11 @@ import { useState } from 'react';
 import {
   View,
   Text,
-  FlatList,
   TextInput,
   Pressable,
   StyleSheet,
 } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AddressCard } from '../components/AddressCart';
@@ -53,7 +53,7 @@ export function AddressScreen({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
+      <FlashList
         data={addresses}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (

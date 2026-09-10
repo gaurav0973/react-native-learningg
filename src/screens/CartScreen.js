@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 
-import { FlatList, View, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Text, Pressable, StyleSheet } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
 
 import { CartContext } from '../context/CartContext';
 import { CartItem } from '../components/CartItem';
@@ -39,7 +40,7 @@ export function CartScreen({ navigation }) {
   }
   return (
     <SafeAreaView style={styles.safeArea}>
-      <FlatList
+      <FlashList
         data={cartItems}
         keyExtractor={item => item.id}
         renderItem={({ item }) => <CartItem item={item} />}

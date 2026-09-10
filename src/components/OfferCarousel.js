@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Dimensions, FlatList, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
 import { OFFERS } from '../data/offers';
 import { OfferBanner } from './OfferBanner';
 
@@ -10,7 +11,7 @@ const SNAP_INTERVAL = BANNER_WIDTH + ITEM_SPACING;
 
 export function OfferCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const flatListRef = useRef(null);
+  const flashListRef = useRef(null);
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0 && viewableItems[0].index != null) {
       setCurrentIndex(viewableItems[0].index);
@@ -25,7 +26,7 @@ export function OfferCarousel() {
     const interval = setInterval(() => {
       setCurrentIndex(prev => {
         const nextIndex = (prev + 1) % OFFERS.length;
-        flatListRef.current?.scrollToIndex({
+        flashListRef.current?.scrollToIndex({
           index: nextIndex,
           animated: true,
         });
@@ -36,23 +37,10 @@ export function OfferCarousel() {
     return () => clearInterval(interval);
   }, []);
 
-  const getItemLayout = (_, index) => ({
-    length: SNAP_INTERVAL,
-    offset: SNAP_INTERVAL * index,
-    index,
-  });
-
-  const handleScrollToIndexFailed = info => {
-    flatListRef.current?.scrollToOffset({
-      offset: info.averageItemLength * info.index,
-      animated: true,
-    });
-  };
-
   return (
     <View style={styles.wrapper}>
-      <FlatList
-        ref={flatListRef}
+      <FlashList
+        ref={flashListRef}
         data={OFFERS}
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -60,8 +48,6 @@ export function OfferCarousel() {
         snapToInterval={SNAP_INTERVAL}
         snapToAlignment="start"
         decelerationRate="fast"
-        getItemLayout={getItemLayout}
-        onScrollToIndexFailed={handleScrollToIndexFailed}
         onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
         renderItem={({ item }) => (
