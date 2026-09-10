@@ -6,6 +6,9 @@ export function HomeIcon() {
 export function SearchIcon() {
   return <Text>🔍</Text>;
 }
+export function FruitIcon() {
+  return <Text>🍎</Text>;
+}
 export function CartIcon() {
   return <Text>🛒</Text>;
 }
