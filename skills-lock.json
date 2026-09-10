@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "First Principles Thinking": {
+      "source": "awesome-skills/first-principles-skill",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "ee53a0d19f3366bf2c7f1bb0b1b2d5ee5e20a6533d68e299a36c6192f8f3d96a"
+    }
+  }
+}

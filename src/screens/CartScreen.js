@@ -29,7 +29,7 @@ export function CartScreen({ navigation }) {
 
           <Pressable
             style={styles.browseButton}
-            onPress={() => navigation.goBack()}
+            onPress={() => navigation.navigate('Home')}
           >
             <Text style={styles.browseText}>Browse Restaurants</Text>
           </Pressable>
@@ -45,12 +45,7 @@ export function CartScreen({ navigation }) {
         renderItem={({ item }) => <CartItem item={item} />}
         ListHeaderComponent={
           <View style={styles.header}>
-            <Pressable onPress={() => navigation.goBack()}>
-              <Text style={styles.back}>←</Text>
-            </Pressable>
-
             <Text style={styles.title}>Cart</Text>
-
             <Text style={styles.subtitle}>{cartItems.length} Items</Text>
           </View>
         }
@@ -89,14 +84,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 
-  back: {
-    fontSize: 26,
-  },
-
   title: {
     fontSize: 30,
     fontWeight: '700',
-    marginTop: 16,
   },
 
   subtitle: {

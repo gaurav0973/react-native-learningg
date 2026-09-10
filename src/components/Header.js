@@ -1,18 +1,23 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 
 export function Header() {
+  const navigation = useNavigation();
+  const handleProfilePressButton = () => {
+    return navigation.navigate('Profile');
+  };
   return (
     <View style={styles.header}>
       <View>
         <Text style={styles.label}>Deliver To</Text>
-
         <Text style={styles.location}>Chandigarh, Punjab</Text>
       </View>
-
-      <View style={styles.profile}>
-        <Text style={styles.profileText}>GM</Text>
-      </View>
+      <Pressable onPress={handleProfilePressButton}>
+        <View style={styles.profile}>
+          <Text style={styles.profileText}>GM</Text>
+        </View>
+      </Pressable>
     </View>
   );
 }

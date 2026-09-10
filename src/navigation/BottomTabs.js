@@ -27,6 +27,7 @@ export function BottomTabs() {
     >
       <Tab.Screen name="Home" component={HomeStack} 
       options={{
+
         tabBarLabel: "Home",
         tabBarIcon: HomeIcon,
       }}
