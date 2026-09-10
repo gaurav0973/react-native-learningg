@@ -58,7 +58,10 @@ export function CartScreen({ navigation }) {
               total={total}
             />
 
-            <Pressable style={styles.checkoutButton}>
+            <Pressable
+              style={styles.checkoutButton}
+              onPress={() => navigation.navigate('AddressScreen')}
+            >
               <Text style={styles.checkoutText}>Proceed to Checkout</Text>
             </Pressable>
           </>
