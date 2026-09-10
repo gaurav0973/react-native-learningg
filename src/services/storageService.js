@@ -3,7 +3,7 @@ export const STORAGE_KEYS = {
   CART: 'cart_items',
   TOKEN: 'auth_token',
   USER: 'user_details',
-  ADDRESS: 'delivery_address',
+  ADDRESSES: "saved_addresses",
 };
 
 const cartStorage = createAsyncStorage("cartStorage");
