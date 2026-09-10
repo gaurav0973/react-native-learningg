@@ -11,7 +11,6 @@ const SNAP_INTERVAL = BANNER_WIDTH + ITEM_SPACING;
 export function OfferCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const flatListRef = useRef(null);
-
   const onViewableItemsChanged = useRef(({ viewableItems }) => {
     if (viewableItems.length > 0 && viewableItems[0].index != null) {
       setCurrentIndex(viewableItems[0].index);
