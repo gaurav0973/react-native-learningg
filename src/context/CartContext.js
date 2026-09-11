@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import { saveData, getData, STORAGE_KEYS } from '../services/storageService';
+import { showCartNotification } from '../services/notificationService';
 
 // This creates an empty shared container => provider will fill this
 export const CartContext = createContext();
@@ -16,6 +17,8 @@ export function CartProvider({ children }) {
         quantity: 1,
       },
     ]);
+
+    showCartNotification(item.name);
   };
 
   const increaseItem = id => {
