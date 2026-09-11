@@ -5,12 +5,14 @@ import {
   TextInput,
   Pressable,
   StyleSheet,
+  ActivityIndicator,
 } from 'react-native';
 import { FlashList } from '@shopify/flash-list';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AddressCard } from '../components/AddressCart';
 import { useAddress } from '../context/AddressContext';
+import { useCurrentLocation } from '../hooks/useCurrentLocation';
 
 const EMPTY_FORM = {
   label: '',
@@ -23,6 +25,8 @@ const EMPTY_FORM = {
 export function AddressScreen({ navigation }) {
   const { addresses, addAddress, selectAddress, deleteAddress } = useAddress();
   const [form, setForm] = useState(EMPTY_FORM);
+  const { location, loading, error, fetchLocation } = useCurrentLocation();
+  console.log("Location", location)
 
   const updateField = (field, value) => {
     setForm(previous => ({
@@ -71,6 +75,37 @@ export function AddressScreen({ navigation }) {
                 Choose where we should deliver your food.
               </Text>
             </View>
+            <Pressable
+              style={[
+                styles.locationButton,
+                loading && styles.locationButtonDisabled,
+              ]}
+              onPress={fetchLocation}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator color="#FFFFFF" />
+              ) : (
+                <Text style={styles.locationText}>Use Current Location</Text>
+              )}
+            </Pressable>
+
+            {error ? <Text style={styles.error}>{error}</Text> : null}
+
+            {location ? (
+              <View style={styles.locationCard}>
+                <Text style={styles.locationCardTitle}>Current Location</Text>
+                <Text style={styles.locationDetail}>
+                  Latitude: {location.latitude.toFixed(6)}
+                </Text>
+                <Text style={styles.locationDetail}>
+                  Longitude: {location.longitude.toFixed(6)}
+                </Text>
+                <Text style={styles.locationDetail}>
+                  Accuracy: {Math.round(location.accuracy)} meters
+                </Text>
+              </View>
+            ) : null}
 
             <Text style={styles.sectionTitle}>Saved Addresses</Text>
           </>
@@ -204,5 +239,48 @@ const styles = StyleSheet.create({
   emptyText: {
     marginTop: 6,
     color: '#777777',
+  },
+
+
+  locationButton: {
+    backgroundColor: '#16A34A',
+    padding: 16,
+    borderRadius: 14,
+    alignItems: 'center',
+  },
+
+  locationButtonDisabled: {
+    opacity: 0.7,
+  },
+
+  locationText: {
+    color: '#FFFFFF',
+    fontWeight: '600',
+  },
+
+  locationCard: {
+    marginTop: 16,
+    padding: 18,
+    borderRadius: 16,
+    backgroundColor: '#ECFDF5',
+  },
+
+  locationCardTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    marginBottom: 8,
+    color: '#065F46',
+  },
+
+  locationDetail: {
+    fontSize: 14,
+    color: '#047857',
+    marginTop: 4,
+  },
+
+  error: {
+    color: '#DC2626',
+    marginTop: 12,
+    fontSize: 14,
   },
 });

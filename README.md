@@ -490,3 +490,221 @@ useEffect(() => {
     - Animateed.Value
     - Animation Driver 
     - Animated Component
+
+
+# Location
+
+- Where should I deliver food ?
+  - user location
+  - uske baad baki sab kuch matter karta hai, like
+    - Nearest Restaurants
+    - Delivery Distance
+    - Delivery Charges
+    - Estimated Delivery Time
+
+- Why Cannot my application Read directly my location ?
+  - Because Android Protects user Privacy
+  - App cannot access => camera, gallery, contacts, microphones, location => without permission
+
+- App Runs inside a sandbox => React Native
+- app must ask Android OS before accessing the resources
+
+- How GPS works
+  - GPS = Global Positioning System
+  - Phone communicate with satellites => multiple satellites
+  - Why multiple satellite
+    - one satellite => gives a circle
+    - two satellite => two possible location
+    - 3 satellite => three circle intersect => one location
+    - This process is called **Trilateration**
+  - This gives three things
+
+```json
+{
+  "latitude": 26.912401,
+  "longitude": 75.787312,
+  "accuracy": 8
+}
+```
+
+  - accuracy = 8 means location is accurate within 8 meters
+
+- Android Permission
+  - Two Types
+    - Manifest Permission => declare during app installation
+    - Runtime Permission => request while app is running
+
+  - Manifest Permission
+    - Android Ask => Does this app need location
+    - I have to declare this inside the android project
+    - without this, runtime permission never works
+
+  - Runtime Permission
+    - When the user taps => Use Current Location
+    - Android screen pops up
+    - I can Allow and Don't Allow
+
+  - Android Permission Lifecycle
+    - Install App
+    - Manifest Declare Permission
+    - User uses feature
+    - Runtime Permission Popup
+    - Grant => proceed to GPS
+    - Denied => show error (handled now)
+    - Never ask again => open Settings (pending)
+
+- React Native Native Modules
+  - How can JS Access GPS
+    - JS cannot read GPS directly
+    - React Native acts as a bridge
+    - Lifecycle
+      - JS => `@react-native-community/geolocation` (native module)
+      - Native Module
+      - Android Location API
+      - GPS hardware
+      - Coordinate Returned
+
+## Files we touched
+
+| File | Why |
+|------|-----|
+| `package.json` | Install geolocation native module |
+| `android/app/src/main/AndroidManifest.xml` | Declare location permission at install time |
+| `src/hooks/useCurrentLocation.js` | Reusable permission + GPS logic (custom hook) |
+| `src/screens/AddressScreen.js` | UI button that triggers location fetch |
+
+## Step 1 — Install the package
+
+```bash
+npm install @react-native-community/geolocation
+```
+
+- Why ?
+  - React Native JS cannot talk to GPS hardware directly
+  - This package is the **bridge** between JS and Android Location API
+  - Without it, `Geolocation.getCurrentPosition()` does not exist
+
+## Step 2 — Manifest Permission (`android/app/src/main/AndroidManifest.xml`)
+
+```xml
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+```
+
+- Why ?
+  - Android needs to know **at install time** that this app may use location
+  - `ACCESS_FINE_LOCATION` => precise GPS coordinates
+  - `ACCESS_COARSE_LOCATION` => approximate location (network/cell tower)
+  - Without manifest declaration => runtime popup will never work
+
+## Step 3 — Custom Hook (`src/hooks/useCurrentLocation.js`)
+
+- Why a custom hook ?
+  - Permission + GPS logic belongs in a hook, not in the screen
+  - Reusable on any screen that needs location
+  - Screen stays clean => only calls `fetchLocation()`
+
+- Simple flow
+
+![Location permission flow](./public/location-v1.png)
+
+- Part A — Ask permission (Android only)
+
+```jsx
+if (Platform.OS === 'android') {
+  const permission = await PermissionsAndroid.request(
+    PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+  );
+
+  if (permission !== PermissionsAndroid.RESULTS.GRANTED) {
+    throw new Error('Location permission denied');
+  }
+}
+```
+
+- In simple words
+  - `Platform.OS === 'android'` => this block runs only on Android
+  - `PermissionsAndroid.request()` => Android shows the Allow / Deny popup
+  - `ACCESS_FINE_LOCATION` => ask for precise GPS location
+  - If user denies => throw error => `catch` block sets `error` state
+
+- Part B — Read GPS coordinates
+
+```jsx
+Geolocation.getCurrentPosition(
+  position => {
+    setLocation(position.coords);
+    setLoading(false);
+  },
+  e => {
+    setError(e.message);
+    setLoading(false);
+  },
+);
+```
+
+- In simple words
+  - Success callback => save `{ latitude, longitude, accuracy }` in state
+  - Error callback => show GPS error message
+  - No extra options for now => keep it simple first, tune later if needed
+
+- Hook returns
+
+```jsx
+return { location, loading, error, fetchLocation };
+```
+
+  - `location` => coords after success
+  - `loading` => true while fetching
+  - `error` => message if permission denied or GPS failed
+  - `fetchLocation` => call this on button press
+
+## Step 4 — UI in AddressScreen (`src/screens/AddressScreen.js`)
+
+```jsx
+const { location, loading, error, fetchLocation } = useCurrentLocation();
+
+<Pressable onPress={fetchLocation} disabled={loading}>
+  {loading ? <ActivityIndicator /> : <Text>Use Current Location</Text>}
+</Pressable>
+
+{error ? <Text>{error}</Text> : null}
+
+{location ? (
+  <View>
+    <Text>Latitude: {location.latitude}</Text>
+    <Text>Longitude: {location.longitude}</Text>
+  </View>
+) : null}
+```
+
+- Why button press, not automatic on mount ?
+  - Ask permission only when user needs location
+  - User tapped the button => they expect the popup
+  - Show spinner while loading, error text if denied, coords if success
+
+- Navigation path
+  - `CartScreen` => tap Change Address
+  - `CartStack.js` => navigates to `AddressScreen`
+  - `AddressScreen` => shows saved addresses + location button + add form
+
+## Full permission lifecycle (what happens on device)
+
+```
+1. App installed        → Android reads Manifest permissions
+2. User opens Cart      → no popup yet (we did not ask)
+3. User taps button     → PermissionsAndroid.request() runs
+4. User taps Allow      → Geolocation.getCurrentPosition() runs
+5. GPS returns coords   → location state updates in hook
+6. UI shows             → latitude, longitude, accuracy on AddressScreen
+```
+
+## What we have vs what is next
+
+| Done | Pending |
+|------|---------|
+| Package installed | Handle `NEVER_ASK_AGAIN` → open Settings |
+| Manifest permissions | Reverse geocoding (coords → city, pincode) |
+| Runtime permission request (Android) | Save fetched location into `AddressContext` |
+| GPS fetch in custom hook | Update `Header.js` hardcoded "Chandigarh, Punjab" |
+| Button + loading + error + coords on screen | iOS permission setup in `Info.plist` |
