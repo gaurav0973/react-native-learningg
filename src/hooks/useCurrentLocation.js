@@ -11,14 +11,37 @@ export function useCurrentLocation() {
     try {
       setLoading(true);
       setError(null);
+      setLocation(null);
       // Ask for permission on Android
       if (Platform.OS === 'android') {
-        const permission = await PermissionsAndroid.request(
+        /**
+         * Location Premission
+         *  - Is premissiion already granted
+         *  - Yes => get location
+         *  - No => ask Permission
+         */
+        const hasPermission = await PermissionsAndroid.check(
           PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         );
 
-        if (permission !== PermissionsAndroid.RESULTS.GRANTED) {
-          throw new Error('Location permission denied');
+        if (!hasPermission) {
+          const permission = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          );
+
+          /**
+           * PermissionsAndroid.request() gives 3 things
+           *    - GRANTED => uses says ki bhai meri location ka access le lo
+           *    - DENIED => User says => No, not this time
+           *    - NEVER_ASK_AGAIN => dont keep requesting => eventually guide user to setting
+           */
+          if (permission === PermissionsAndroid.RESULTS.DENIED) {
+            throw new Error('Location permission denied');
+          }
+
+          if (permission === PermissionsAndroid.RESULTS.NEVER_ASK_AGAIN) {
+            throw new Error('Location permission permanently denied');
+          }
         }
       }
 
@@ -29,7 +52,13 @@ export function useCurrentLocation() {
           setLoading(false);
         },
         e => {
-          setError(e.message);
+          if (e.code === 3) {
+            setError('Location request timed out');
+          } else if (e.code === 2) {
+            setError('Location is currently unavailable');
+          } else {
+            setError(e.message);
+          }
           setLoading(false);
         },
       );
@@ -38,7 +67,6 @@ export function useCurrentLocation() {
       setLoading(false);
     }
   };
-
 
   return {
     location,
