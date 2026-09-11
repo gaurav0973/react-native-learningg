@@ -699,12 +699,73 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
 6. UI shows             → latitude, longitude, accuracy on AddressScreen
 ```
 
-## What we have vs what is next
+# Local Push Notification 
+- What is Notification 
+  - Message delivered by the Operating system
+  - NOTE: Notification belongs to Android not react native
 
-| Done | Pending |
-|------|---------|
-| Package installed | Handle `NEVER_ASK_AGAIN` → open Settings |
-| Manifest permissions | Reverse geocoding (coords → city, pincode) |
-| Runtime permission request (Android) | Save fetched location into `AddressContext` |
-| GPS fetch in custom hook | Update `Header.js` hardcoded "Chandigarh, Punjab" |
-| Button + loading + error + coords on screen | iOS permission setup in `Info.plist` |
+- Why can't react native directly show notification 
+  - Because notificatin live outside my app
+  -Only Android/iOS can display notifications globally.
+
+- How then ? 
+  - My app sends the request 
+  - Android displays the notification
+
+- **2 types of Notification**
+  - Local 
+    - Triggered by app itself 
+    - No internet required after scheduling 
+    - Works entiredly on device 
+    - Great for remainders, timers
+    - Examples 
+      - Lunch reminder at 1 PM
+      - Daily "Don't forget your cart"
+      - Scheduled discount reminder
+  - Push
+    - Triggered by backedn/server
+    - Reuires internet + FCM/APNs
+    - Comes from Firebase Cloud Messagaginh 
+    - Great for orders, messages, offers
+    - Examples
+      - Your order is out fro delivery 
+      - New restaurant available nearby 
+      - Festival offer sent from backend 
+
+- **Android Notification Architecture (every notificatin passes through this pipeline)**
+  - React Native Application 
+  - Notification Service(JS)
+  - Notifee Native Module 
+  - Android Notification Manager 
+      - Android has a system service called Notification Manager 
+      - React native never talks to it directly 
+      - Responsibilities 
+        - Display notfication 
+        - Group notificcation
+        - Handle sound/vibration
+        - show badges 
+        - Handle notification priority
+  - Notification Channel 
+  - Notification Drawer
+
+
+- **Notification Channels**
+- What is cahnnel 
+  - Category of notificatio n
+  - Example 
+    - Order channel 
+    - Offer channnel 
+    - Remonder Channel 
+    - cart channel 
+  - Each channel has its own sound, vibration, and priority.'
+  - Why channel matters ? 
+    - Users can mute only Offers while keeping Orders enabled.
+
+
+- we will use notifee
+  - Why?
+    - Local notificaiton 
+    - Notification channel 
+    - Scheduling 
+    - Forground/background events
+    - FCM integration later

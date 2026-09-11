@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { View, Text, StyleSheet, RefreshControl, Animated } from 'react-native';
+import { View, Text, StyleSheet, RefreshControl, Animated, Pressable } from 'react-native';
 import { RestaurantCard } from '../components/RestaurantCard';
 import { Header } from '../components/Header';
 import { SearchBar } from '../components/SearchBar';
@@ -10,6 +10,7 @@ import { restaurantData } from '../data/restaurantData';
 import { refreshRestaurantData } from '../data/refreshRestaurantData';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { FlashList } from '@shopify/flash-list';
+import { showWelcomeNotification } from '../services/notificationService';
 
 export function HomeScreen({ navigation, routes }) {
   const [restaurants, setRestaurants] = useState([]);
@@ -112,6 +113,11 @@ export function HomeScreen({ navigation, routes }) {
 
   return (
     <SafeAreaView style={styles.safeArea}>
+      <Pressable
+  onPress={showWelcomeNotification}
+>
+  <Text>Show Welcome Notification</Text>
+</Pressable>
       <FlashList
         data={filteredRestaurants}
         renderItem={renderRestaurant}

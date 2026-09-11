@@ -1,7 +1,16 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import { showOfferNotification } from '../services/notificationService';
+
 export function RestaurantInfo({ restaurant }) {
+  useEffect(() => {
+    if (!restaurant?.offer) {
+      return;
+    }
+    showOfferNotification(restaurant.name, restaurant.offer);
+  }, [restaurant]);
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{restaurant.name}</Text>
