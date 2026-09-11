@@ -26,7 +26,7 @@ export function AddressScreen({ navigation }) {
   const { addresses, addAddress, selectAddress, deleteAddress } = useAddress();
   const [form, setForm] = useState(EMPTY_FORM);
   const { location, loading, error, fetchLocation } = useCurrentLocation();
-  console.log("Location", location)
+  console.log('Location', location);
 
   const updateField = (field, value) => {
     setForm(previous => ({
@@ -240,7 +240,6 @@ const styles = StyleSheet.create({
     marginTop: 6,
     color: '#777777',
   },
-
 
   locationButton: {
     backgroundColor: '#16A34A',
