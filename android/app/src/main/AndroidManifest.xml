@@ -26,6 +26,15 @@
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+        <intent-filter>
+            <!--  this activity can view URLS -->
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+            <!-- Allows browser, WhatsApp, QR scanner, email, etc., without this => Links from outside apps won't work. -->
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <!-- this is ideantity => first://anything  => open first app-->
+            <data android:scheme="first"/>
+        </intent-filter>
       </activity>
     </application>
 </manifest>
