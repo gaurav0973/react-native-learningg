@@ -769,3 +769,5 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
     - Scheduling 
     - Forground/background events
     - FCM integration later
+
+- ![Notification Flow](./public/notification.png)

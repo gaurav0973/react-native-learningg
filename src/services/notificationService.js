@@ -1,5 +1,7 @@
 import { PermissionsAndroid, Platform } from 'react-native';
-import notifee from '@notifee/react-native';
+import notifee, { TriggerType } from '@notifee/react-native';
+
+const LUNCH_REMINDER_ID = 'lunch-reminder';
 
 // Permission Function
 export async function requestNotificationPermission() {
@@ -80,4 +82,51 @@ export async function showOfferNotification(title, discount) {
       channelId: 'offers',
     },
   });
+}
+
+/**
+ * Schedule Notification
+ * - this notification happens later
+ * - How ?
+ *  -   current time
+ *  - save trigger time
+ *  - android stores alarm
+ *  - Future notification appears
+ */
+
+function getNextLunchTime() {
+  const date = new Date();
+
+  date.setHours(13, 0, 0, 0);
+
+  if (date.getTime() <= Date.now()) {
+    date.setDate(date.getDate() + 1);
+  }
+
+  return date;
+}
+
+export async function scheduleLunchReminder() {
+  const lunchTime = getNextLunchTime();
+
+  await notifee.createTriggerNotification(
+    {
+      id: LUNCH_REMINDER_ID,
+      title: '🍔 Lunch Time!',
+      body: 'Your favorite restaurants are waiting for you.',
+      android: {
+        channelId: 'offers',
+      },
+    },
+    {
+      type: TriggerType.TIMESTAMP,
+      timestamp: lunchTime.getTime(),
+    },
+  );
+
+  return lunchTime;
+}
+
+export async function cancelLunchReminder() {
+  await notifee.cancelTriggerNotification(LUNCH_REMINDER_ID);
 }
