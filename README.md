@@ -702,6 +702,7 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
 # Local Push Notification 
 - What is Notification 
   - Message delivered by the Operating system
+  - notification has => data, appearence and behavior
   - NOTE: Notification belongs to Android not react native
 
 - Why can't react native directly show notification 
@@ -771,3 +772,35 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
     - FCM integration later
 
 - ![Notification Flow](./public/notification.png)
+
+
+- There are different use cases of notifications 
+  - Basic Notificaion => Welcome to foodie 
+  - Big Text Notoficaton => Festival Offer 
+  - Image Notification => Pizza offer with banner images 
+  - inbox/ multiple messages => 3 new restaurant offer 
+  - progress notification => Preparing Order (0–100%)
+  - Ongoing Notification => Delivery in progress
+  - Scheduled Notification => Lunch reminder
+  - Grouped Notification => Multiple offers grouped together
+  - Action Notification => Accept / Dismiss coupon
+  - Data Notification (FCM Ready) => Open restaurant/cart/offer
+
+- Every notification have 3 layers 
+  - UI 
+    - title 
+    - body
+    - image
+    - Icon
+
+  - Behavior 
+    - sound 
+    - vibration 
+    - priority 
+    - auto cancel 
+
+  - Data 
+    - restaurantId
+    - cardId 
+    - offerId
+    - screen
