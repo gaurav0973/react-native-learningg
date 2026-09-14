@@ -817,6 +817,7 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
   - Restaurant Details Screen Open
   - now Restaurant ID = 42 shown
 
+- ![Deep linking](https://a.storyblok.com/f/47007/2400x1656/74915beb5d/deep-link-direct-deferred-fallback.png/m/2880x0/filters:quality(80))
 - What is the business benifit => higher conversion rate 
 
 ```jsx
@@ -862,3 +863,36 @@ https://foodie.com/restaurant/42
     - Adroid communicates between apps using Intents
     - Deep links are Intent Filters
     - Eg: camera internt => camera opens 
+
+- Reatct native api linking (interview question)
+  - Linking.getInitialURL() => App launched from a closed state
+  - Linking.addEventListener("url") => app already running 
+  - Why need both ? 
+    - App closed => No js exists yet => get getInitialURL()
+    - App running => JS alive => need event listner 
+
+
+- Deep links can contains three types of data 
+  - path params => foodie://restaurant/15
+  - query params => foodie://restaurant/15
+  - fragment => foodie://profile/orders#active
+
+- foodie://anything => does not works 
+  - you cannot share it publicly 
+  - production apps uses HTTPs
+
+- can be used in the Firebase notification 
+  - Note that firebase is not navigatibg => it is only delivering data
+  - backgroun notificatin 
+    = Forgrounnd => onMessage()
+    = Background => onNotificationOpenedApp()
+    = Quit => getInitialNotification()
+
+
+- Fancy Terms 
+  - ROX => return on experience
+  - conversion rate 
+  - rertention rate
+  - cold start => app close hai, ap use mai start kar rha 
+  - warm start => app already in memory
+  - Background => app minimized

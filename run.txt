@@ -18,3 +18,7 @@ npm run android
 
 # reset the cache 
 npx react-native start --reset-cache
+
+
+adb -s adb-RZCX620796W-i9wkMI._adb-tls-connect._tcp reverse tcp:8081 tcp:8081
+npx react-native run-android --device adb-RZCX620796W-i9wkMI._adb-tls-connect._tcp --no-packager
