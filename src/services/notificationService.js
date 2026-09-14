@@ -1,5 +1,5 @@
 import { PermissionsAndroid, Platform } from 'react-native';
-import notifee, { TriggerType } from '@notifee/react-native';
+import notifee, { AndroidStyle, TriggerType } from '@notifee/react-native';
 
 const LUNCH_REMINDER_ID = 'lunch-reminder';
 
@@ -130,3 +130,150 @@ export async function scheduleLunchReminder() {
 export async function cancelLunchReminder() {
   await notifee.cancelTriggerNotification(LUNCH_REMINDER_ID);
 }
+
+/*
+  - Different types of notifcations 
+*/
+
+/**
+ * Basic notification
+ * - app welcoe
+ * - order added
+ * - payment successful
+ */
+export async function showBasicNotification(title, body) {
+  await notifee.displayNotification({
+    title,
+    body,
+    android: {
+      channelId: 'general',
+    },
+  });
+}
+
+
+/**
+ * Big text notification 
+ *    - fastival salees
+ *    - long coupan descrition
+ */
+export async function showBigTextOffer() {
+  await notifee.displayNotification({
+    title: "🔥 Independence Day Sale",
+    body: "Flat ₹150 OFF",
+    android: {
+      channelId: "offers",
+      style: {
+        type: AndroidStyle.BIGTEXT,
+        text:
+          "Get Flat ₹150 OFF on orders above ₹299. Valid today between 11 AM and 11 PM on Pizza, Burger, Biryani and much more.",
+      },
+    },
+  });
+}
+
+
+/**
+ * Image notificationn 
+  - Pizza banner 
+  - burger combo 
+  - flash sale 
+ */
+
+export async function showOfferImage() {
+    await notifee.displayNotification({
+      title: "🍕 Pizza Party",
+      body: "Buy 1 Get 1 Free",
+      android: {
+        channelId: "offers",
+        style: {
+          type: AndroidStyle.BIGPICTURE,
+          picture: "my-image-url"
+        },
+      },
+    });
+  }
+
+
+/**
+ * Inbox / Multiple Messages
+ *  - 3 new offers 
+ *  - multiple restaurat discount 
+Instead of 3 notification, show one grouped notification 
+ */
+
+export async function groupedNotification(){
+  await notifee.displayNotification({
+    title: "🍕 Pizza Party",
+      body: "Buy 1 Get 1 Free",
+      android: {
+        channelId: "offers",
+        style: {
+          type: AndroidStyle.INBOX,
+          lines: [
+            "🍕 Pizza Hut - Flat ₹120 OFF",
+            "🍔 Burger King - Buy 1 Get 1",
+            "🥗 Subway - 40% OFF Today",
+          ],
+        }
+      },
+  })
+}
+
+/**
+ * Progress Notification
+ * - Food delivery timeline 
+ */
+
+export async function progressNotification(){
+  await notifee.displayNotification({
+    id: "same", // Updating notification by ID instead of creating a new one is a common production pattern.
+    title: "Preparing Your Order",
+    body: "Burger Combo",
+    android: {
+      channelId: "orders",
+      progress: {
+        max: 100,
+        current: 30,
+      },
+      ongoing: true, //ongoing notificaiton
+      autoCancel: false
+    },
+  });
+}
+
+/**
+ * Scheduled Notification
+ */
+
+export async function scheduleDailyLunchReminder() {
+  // const trigger = 
+
+  // await notifee.createTriggerNotification(
+  //   notification,
+  //   trigger
+  // );
+}
+
+/**
+ * Action Notifications
+ * android: {
+  channelId: "offers",
+
+  actions: [
+    {
+      title: "View Offer",
+      pressAction: {
+        id: "view-offer",
+      },
+    },
+
+    {
+      title: "Dismiss",
+      pressAction: {
+        id: "dismiss-offer",
+      },
+    },
+  ],
+}
+ */
