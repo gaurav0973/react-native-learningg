@@ -804,3 +804,61 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
     - cardId 
     - offerId
     - screen
+
+
+# Deep Linking 
+- When clicked on link => it opens the specific screen 
+- A Deep Link is simply a URL that points to a location inside my  app.
+- What I have seen 
+  - I get a link on whatsapp: foodie://restaurant/42 
+  - I clicked on the link 
+  - android detech URL 
+  - Foodie App opens
+  - Restaurant Details Screen Open
+  - now Restaurant ID = 42 shown
+
+- What is the business benifit => higher conversion rate 
+
+```jsx
+ scheme://path/parameter?query=value
+ foodie://restaurant/42?coupon=FIRST50
+```
+- schema => my app identity 
+- path => route/screen
+- paramenter => 
+- Query Paramters => 
+
+
+**Type-1: Custom URL Scheme**
+```jsx
+  foodie://cart
+  foodie://restaurant/42
+```
+- Doesn't need a website.
+- Easy to configure.
+- Works only if app is installed.
+
+**Type 2 — Universal Links (iOS)**
+```jsx
+https://foodie.com/cart
+```
+- If app installed: Open app
+- Otherwise: Open website
+
+**Type 3 — Android App Links**
+```jsx
+https://foodie.com/restaurant/42
+```
+- Verified with Android
+- Safer than custom schemes
+- We'll discuss later, but not implement today.
+
+- How android handles a deeplink
+![Deep link 1](./public/deeplink-1.png)
+
+
+- **Intent**
+  - What is this internt now ? 
+    - Adroid communicates between apps using Intents
+    - Deep links are Intent Filters
+    - Eg: camera internt => camera opens 
