@@ -25,12 +25,11 @@ Detailed specifications for each Excalidraw element type with visual examples an
 {
   type: "rectangle",
   roundness: { type: 3 },  // Rounded corners
-  text: "Step Name",       // Optional embedded text
-  fontSize: 20,
-  textAlign: "center",
-  verticalAlign: "middle"
+  boundElements: [{ type: "text", id: "step-label" }]  // Link to separate text element
 }
 ```
+
+**Label text goes in a separate `text` element** with `containerId` set to the rectangle's id. Do not rely on embedded `text` on the shape alone — it may not render in all Excalidraw viewers.
 
 ### Use Cases
 

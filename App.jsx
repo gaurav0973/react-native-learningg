@@ -3,23 +3,27 @@ import { StatusBar } from 'react-native';
 import { AppNavigator } from './src/navigation/AppNavigator';
 import { AddressProvider } from './src/context/AddressContext';
 import { CartProvider } from './src/context/CartContext';
-import {createNotificationChannels, requestNotificationPermission} from './src/services/notificationService';
+import {
+  createNotificationChannels,
+  requestNotificationPermission,
+  scheduleLunchReminder,
+  showWelcomeNotification,
+} from './src/services/notificationService';
 
 function App() {
-
-
-  useEffect(()=>{
+  useEffect(() => {
     async function initializeNotifications() {
       const hasPermission = await requestNotificationPermission();
       if (!hasPermission) {
         return;
       }
       await createNotificationChannels();
+      await showWelcomeNotification();
+      await scheduleLunchReminder();
     }
     initializeNotifications();
-  }, [])
+  }, []);
 
-  
   return (
     <CartProvider>
       <AddressProvider>

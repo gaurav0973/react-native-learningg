@@ -175,15 +175,19 @@ interface LineElement extends BaseElement {
 interface TextElement extends BaseElement {
   type: "text";
   text: string;
+  originalText: string;        // REQUIRED — must match text
   fontSize: number;
-  fontFamily: number;          // 1-3
+  fontFamily: number;          // 1=Virgil (default), 2=Helvetica, 3=Cascadia
   textAlign: "left" | "center" | "right";
   verticalAlign: "top" | "middle" | "bottom";
+  containerId: string | null;  // Parent shape id when label is inside a box
+  autoResize: boolean;         // REQUIRED — typically true
+  lineHeight: number;          // REQUIRED — typically 1.25
   roundness: null;             // Text has no roundness
 }
 ```
 
-**Example:**
+**Example (standalone label):**
 ```json
 {
   "id": "text1",
@@ -193,13 +197,41 @@ interface TextElement extends BaseElement {
   "width": 150,
   "height": 25,
   "text": "Hello World",
+  "originalText": "Hello World",
   "fontSize": 20,
   "fontFamily": 1,
   "textAlign": "left",
   "verticalAlign": "top",
+  "containerId": null,
+  "autoResize": true,
+  "lineHeight": 1.25,
   "roundness": null
 }
 ```
+
+**Example (label bound to a rectangle):**
+```json
+[
+  {
+    "id": "box1",
+    "type": "rectangle",
+    "boundElements": [{ "type": "text", "id": "box1-label" }]
+  },
+  {
+    "id": "box1-label",
+    "type": "text",
+    "containerId": "box1",
+    "text": "Process Step",
+    "originalText": "Process Step",
+    "fontFamily": 1,
+    "fontSize": 16,
+    "autoResize": true,
+    "lineHeight": 1.25
+  }
+]
+```
+
+**WARNING:** Do not use `fontFamily: 5` or other undocumented IDs — text will not render in Excalidraw or the VS Code extension.
 
 **Width/Height calculation:**
 - Width ≈ `text.length * fontSize * 0.6`
@@ -280,9 +312,11 @@ const versionNonce = Math.floor(Math.random() * 2147483647);
 
 | ID | Name | Description |
 |----|------|-------------|
-| 1 | Virgil | Hand-drawn style (default) |
+| 1 | Virgil | Hand-drawn style (**always use this by default**) |
 | 2 | Helvetica | Clean sans-serif |
 | 3 | Cascadia | Monospace |
+
+**Do not use font IDs outside this table.** Values like `5` (Excalifont) are not supported in standard Excalidraw exports and produce invisible text.
 
 ## Validation Rules
 

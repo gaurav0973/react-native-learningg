@@ -130,11 +130,49 @@ Create the `.excalidraw` file with appropriate elements:
 - **Position**: `x`, `y` coordinates
 - **Size**: `width`, `height`
 - **Style**: `strokeColor`, `backgroundColor`, `fillStyle`
-- **Font**: `fontFamily: 5` (Excalifont - **required for all text elements**)
-- **Text**: Embedded text for labels
+- **Font**: `fontFamily: 1` (Virgil — the default Excalidraw hand-drawn font)
+- **Text**: Separate `text` elements bound to shapes (see Text Rendering Rules below)
 - **Connections**: `points` array for arrows
 
-**Important**: All text elements must use `fontFamily: 5` (Excalifont) for consistent visual appearance.
+### Text Rendering Rules (CRITICAL — text will be invisible if skipped)
+
+**Never use `fontFamily: 5` or other unsupported font IDs.** Only use documented values:
+
+| ID | Font | When to use |
+|----|------|-------------|
+| `1` | Virgil | **Default — always use this** |
+| `2` | Helvetica | Clean sans-serif labels |
+| `3` | Cascadia | Monospace / code labels |
+
+**Always create labels as separate `text` elements**, not embedded `text` on shapes:
+
+1. Create the shape (`rectangle`, `ellipse`, `diamond`) **without** a `text` property
+2. Add the shape id to the text element's `containerId`
+3. Add `{ "type": "text", "id": "<text-id>" }` to the shape's `boundElements`
+4. Every `text` element **must** include: `text`, `originalText`, `fontFamily`, `fontSize`, `autoResize: true`, `lineHeight: 1.25`
+
+**Minimal bound-text example:**
+
+```json
+{
+  "id": "step-box",
+  "type": "rectangle",
+  "boundElements": [{ "type": "text", "id": "step-box-label" }]
+},
+{
+  "id": "step-box-label",
+  "type": "text",
+  "containerId": "step-box",
+  "text": "Validate Input",
+  "originalText": "Validate Input",
+  "fontFamily": 1,
+  "fontSize": 16,
+  "autoResize": true,
+  "lineHeight": 1.25
+}
+```
+
+Standalone titles/annotations (not inside a shape) use `containerId: null` with the same required text fields.
 
 ### Step 5: Format the Output
 
@@ -187,8 +225,9 @@ Structure the complete Excalidraw file:
    - Important/Central: Yellow (`#ffd43b`)
    - Alerts/Warnings: Light red (`#ffc9c9`)
 4. **Text sizing**: 16-24px for readability
-5. **Font**: Always use `fontFamily: 5` (Excalifont) for all text elements
-6. **Arrow style**: Use straight arrows for simple flows, curved for complex relationships
+5. **Font**: Always use `fontFamily: 1` (Virgil) — unsupported font IDs render invisible text
+6. **Text binding**: Use separate `text` elements with `containerId` — do not rely on embedded shape text alone
+7. **Arrow style**: Use straight arrows for simple flows, curved for complex relationships
 
 ### Complexity Management
 
@@ -295,7 +334,9 @@ Before delivering the diagram:
 - [ ] All elements have unique IDs
 - [ ] Coordinates prevent overlapping
 - [ ] Text is readable (font size 16+)
-- [ ] **All text elements use `fontFamily: 5` (Excalifont)**
+- [ ] **Every label is a separate `text` element with `originalText`, `autoResize`, and `lineHeight`**
+- [ ] **All text uses `fontFamily: 1` (Virgil) — never `5` or other undocumented IDs**
+- [ ] Shape labels have matching `containerId` + `boundElements` links
 - [ ] Arrows connect logically
 - [ ] Colors follow consistent scheme
 - [ ] File is valid JSON
