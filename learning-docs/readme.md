@@ -19,6 +19,7 @@
 | 3 | Simulate process death (Android "Don't keep activities") and watch state vanish. | [read.md](foundation/3/read.md) | [readme.md](foundation/3/readme.md) |
 | 4 | The three build loops — Fast Refresh vs Reload vs Full Rebuild — know which one you need. | [read.md](foundation/4/read.md) | [readme.md](foundation/4/readme.md) |
 | 5 | Find a native crash in `adb logcat` / the Xcode console — JS red box ≠ native crash. | [read.md](foundation/5/read.md) | [readme.md](foundation/5/readme.md) |
+| 6 | Density (dp/pt not px), PixelRatio, @2x/@3x, safe areas and notches. | [read.md](foundation/6/read.md) | [readme.md](foundation/6/readme.md) |
 
 ---
 
@@ -66,6 +67,15 @@
 
 - 📋 [Summary → read.md](foundation/5/read.md)
 - 📖 [Deep Dive → readme.md](foundation/5/readme.md)
+
+---
+
+### Module 6 — Density, PixelRatio & Safe Areas
+
+> **Question:** Density (dp/pt not px), PixelRatio, @2x/@3x, safe areas and notches.
+
+- 📋 [Summary → read.md](foundation/6/read.md)
+- 📖 [Deep Dive → readme.md](foundation/6/readme.md)
 
 ---
 
