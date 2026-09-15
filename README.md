@@ -1,226 +1,338 @@
-- Simple and easy
-  - View
-  - Text
-  - Stylesheet => objects
-    - FlexBox
-      - Flex : 1 => vertically sari available space le le bhai
-      - justifyContent: main axis aliggnment => vertical me bhai
-      - alignItem => another axis ek around alignment
-      - flexDirection => by default top to bottom hai
-    - Positions
-      - margin => sibilings ke bich ka space
-      - padding => view ke andar ka space
-- SafeAreaView
+<div align="center">
 
-  - Start rendering inside the safe part of the screen
-  - Almost every screen starts with SafeAreaView
+# 🍕 Foodie — React Native Learning Project
 
-- Concpets
+[![React Native](https://img.shields.io/badge/React%20Native-0.87.1-61DAFB?style=for-the-badge&logo=react&logoColor=white)](.)
+[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20iOS-00C896?style=for-the-badge&logo=android&logoColor=white)](.)
+[![Learning](https://img.shields.io/badge/Type-Learning%20Log-FF6B6B?style=for-the-badge)](.)
 
-  - TextInput
-  - Pressable
-    => thinking in terms of press => similer to Onclick , isme alag se lagana padta hai
-  - StatusBar => 📶 4G 🔋 87% => this belongs to Android/IOS not my app
-  - Mobile keyboard behavior
-  - Controlled components using useState
+</div>
 
-- UI so far
-  ![App screenshot](./public/1.jpg)
+> A personal React Native learning log documenting every concept learned while building the Foodie app — from basic UI primitives to deep linking, notifications, and GPS.
 
-Concepts
+---
 
-- ScrollView => for scrolling
-  - by default => vertial scrolling
-  - horizontal scrolling
-- map() for rendering UI => Why map here ?
-- Reusable CategoryChip component
-- First-principles difference:
-  ScrollView - Small static list - loads everything at the same time
-  FlatList - Large dynamic lists - only create relevent ones , and crrearte on the go when we go in there - This process is called Virtualization
+## 📚 Table of Contents
 
-Concepts
+| # | Topic |
+|---|-------|
+| 1 | [🧱 Core UI Primitives](#1--core-ui-primitives) |
+| 2 | [📜 ScrollView, FlatList & Images](#2--scrollview-flatlist--images) |
+| 3 | [🗺️ React Navigation](#3--react-navigation) |
+| 4 | [⚙️ State-Driven UI](#4--state-driven-ui) |
+| 5 | [🌐 Context API, Redux & Zustand](#5--context-api-redux--zustand) |
+| 6 | [🔁 Derived State, useEffect & Side Effects](#6--derived-state-useeffect--side-effects) |
+| 7 | [🔍 Controlled Components, Debouncing & Throttling](#7--controlled-components-debouncing--throttling) |
+| 8 | [💾 AsyncStorage & Hydration](#8--asyncstorage--hydration) |
+| 9 | [🎬 Lottie, FlashList & Pull-to-Refresh](#9--lottie-flashlist--pull-to-refresh) |
+| 10 | [📄 Pagination & Animated API](#10--pagination--animated-api) |
+| 11 | [📍 Location & GPS](#11--location--gps) |
+| 12 | [🔔 Local Push Notifications](#12--local-push-notifications) |
+| 13 | [🔗 Deep Linking](#13--deep-linking) |
 
-- Image component
-- Local assets (src/assets/images)
-- Remote vs Local images
-- resizeMode
-- Dimensions API
-- Responsive UI
-- ScrollView with pagingEnabled (our first carousel)
+---
 
-Concepts
+## 1 · 🧱 Core UI Primitives
 
-- FlatList (deep dive from first principles)
-  - FlatList only renders what's visible + a small buffer.
-  - Process is called Virtualization
-  ```jsx
-      <FlatList
-          data={restaurants} // => about the data array  => [{}, {}, {}, {}]
-          renderItem={...} // => For every restaurant object, create this UI
-          keyExtractor={...} // => unique identifier
-          showsVerticalScrollIndicator={false} // are vo scrollbar wala hai ye kuch
-      />
-  ```
-- ImageBackground
-  - why not imaages => becauee badges ye texts image ke upar aayega
-  - in here => image becomes the container
-- position: "absolute"
-- overflow: "hidden"
-- Reusable RestaurantCard
-- Static restaurant data architecture
+### Components
 
-- UI so far
-  ![App screenshot](./public/2.jpg)
+- **`View`** — the box/container primitive
+- **`Text`** — for all text output
+- **`StyleSheet`** — styles as JavaScript objects
 
-Concepts
+### FlexBox
 
-- What is React Navigation?
-  => change in the screen on tap
-  => it is just a stack
-  ![Navigation](./public/navigation.png)
-  NOTE: - jab mai home par hu, Stack: ["Home"] - Home se mai Restaurant par gaya, Stack: ["Home", "Restaurant"] - Restaurant is not the first screen, the stack navigator automatically shows: - A header bar (default: headerShown: true) - A back arrow on the left - The title "Restaurant" (from the screen name)
-  ![App screenshot](./public/3.jpg)
+| Property | What it does |
+|----------|-------------|
+| `flex: 1` | Take all available vertical space |
+| `justifyContent` | Align on the **main axis** (vertical by default) |
+| `alignItems` | Align on the **cross axis** |
+| `flexDirection` | Default: top-to-bottom (`column`) |
 
-Concepts
+### Positions
 
-- state Driven UI => UI is a function of state => change the state to change something in the UI
-- conditional rendering
-- local state
-  - Lives inside one component
-  - cannot be accessed by other screens
-- react re-render - Component function runs again - react compares old UI with new UI - only changed native view updates in the screen
-  ![App screenshot](./public/4.jpg)
-  ![App screenshot](./public/5.jpg)
+| Property | What it does |
+|----------|-------------|
+| `margin` | Space **between siblings** |
+| `padding` | Space **inside** the view |
 
-Concpets
+### SafeAreaView
 
-- prop drilling
+- Starts rendering inside the **safe part of the screen** (avoids notches, status bar)
+- **Almost every screen** starts with `SafeAreaView`
 
-  - parent sends props, child receive props => child cannot directly use parent data
-  - Now Auth aaya => everyone needs user data => every child needs user data
-  - Passing props through components that I don't even use them
-  - Data travels through unnecessary middle components
+### Other Concepts
 
-- context API arrives
+| Concept | Notes |
+|---------|-------|
+| `TextInput` | Controlled input component |
+| `Pressable` | Think in terms of **press** — like `onClick`, but you wire it up manually |
+| `StatusBar` | 📶 4G 🔋 87% — belongs to Android/iOS, not your app |
+| Mobile keyboard behavior | How keyboard pushes content up |
+| Controlled components | Drive input value from `useState` |
 
-  - insted of passing data through each componet, create a global state
-  - New Thought process
-    - Provider stores data
-    - consumers reads data
-  - Context Solves Exactly One Problem=> Avoid props drilling
-  - Just provide shared values
-  - Examples - Authentication - theme
-    -Problem: - Unnecessary Re-renders - Everything lives inside one provider => app increases - theme , user, cart , orders, location, wishlist, location, notification - Now only card bagge changes => Every consumer can re-render when the provider value changes - Scaling Context Becomes Difficult - `jsx
-        <AuthProvider>
-            <ThemeProvider>
-                <CartProvider>
-                <LocationProvider>
-                    <NotificationProvider>
-                    <App/>
-                    </NotificationProvider>
-                </LocationProvider>
-                </CartProvider>
-            </ThemeProvider>
-        </AuthProvider>
-      ` - This is called Provider Hell => still managable but application becomes even larger
+### UI Snapshot
 
-- Why Redux Was Introduced
+![App screenshot](./public/1.jpg)
 
-  - Conetxt API existes , large application struggles with debuging, multiple teams working togethere
-  - Redux came to solve application state managenment
-  - Note karne wali baat ye hai ki, context API for shares values , and redux manages appliation state4
-  - Redux
-    - Bahut satr provider ki jagah par ek centralisaed store banao => store
-      - Everything reads from one store.
-      - Everything writes to one store.
-  - Problem
-    - became very verbose => to chaneg one value , need to change
-      - action.js
-      - reducer.js
-      - constant.js
-      - store.js
-    - Developer wants something simpler
+---
 
-- zustand was interoduced
-- Evolution
-  - useState => one compoent
-  - props => parent sends it to children
-  - context API => let access to shared values without prop drilling
-  - redux => centralied store => where state chanegs happend through
-    - action
-    - reducer
-  - zustand => llightweight gloabal store
+## 2 · 📜 ScrollView, FlatList & Images
 
-Vocab
+### ScrollView
 
-- context => shared data container
-- provider => supply shared data
-- consumer => reads shaered data
-- useContext() => hook to access context
-  ![Context](./public/context.png)
+- Default: **vertical** scrolling
+- Also supports **horizontal** scrolling
+- Loads **everything at once** — best for small, static lists
 
-Concepts
+### Rendering Lists
 
-- Derived State
-  - compute from exisiting state
-  - prevenrt duplicate source of truth
-- reduce()
-  - create your own
-- Floating Components
-  - Place outside ScrollView
-  - Use position:absolute
-  - keep component fixed on screen
-  - CSS Positioning: https://medium.com/@gauravkmaurya09/css-positioning-explained-7279b1429f05
-  - CSS FlexBox: https://medium.com/@gauravkmaurya09/mastering-flexbox-in-css-dba7f48b4373
-- ![App ](./public/6.jpg)
+- Use `map()` to render UI from data arrays
+- Build **reusable components** (e.g. `CategoryChip`)
 
-Concepts
+### ScrollView vs FlatList
 
-- What is side effect
-  - A react compoent should mainly do one thing
-    - take state => reture me the UI
-    - everything else is a side effect
-    - ![Side effect](./public/side-effect.png)
-- Componet Lifecycle
-  - Component created
-  - Mounted => pahli baar appear component
-  - Updated(many times) => seach kiya => Homescreen change hui
-  - Unmounted => Homescreen se cart screen par gaya => homescreen unmount hua
-- useEffect
+| | ScrollView | FlatList |
+|-|------------|----------|
+| Best for | Small static lists | Large dynamic lists |
+| Rendering | Loads everything at once | **Virtualization** — renders only visible items + small buffer |
+| Performance | Fine for ~20 items | Essential for 100+ items |
 
-  ```jsx
-  useEffect(
-    () => {
-      // callback => code that perform side effect
-    },
-    [
-      //when should this effect funciton run
-    ],
-  );
-  ```
+### Image Component
 
-- dependency array []
-  - enpty => Runs on mount => perfect for API calls
-  - no dependency array => runs after every render
-  - [search] => Runs whenever searchText changes
-- Some effects need cleanup.
-  ```jsx
-  useEffect(() => {
-    const timer = setInterval(() => {
-      console.log('Tick');
-    }, 1000);
-    return () => {
-      clearInterval(timer); // runs after unmount
-    };
-  }, []);
-  ```
-  - ![ClearnUp](./public/cleanup.png)
+| Concept | Notes |
+|---------|-------|
+| Local assets | `src/assets/images` |
+| Remote vs Local | `source={{ uri: '...' }}` vs `require('./img.png')` |
+| `resizeMode` | `cover`, `contain`, `stretch`, `center` |
+| `Dimensions` API | Get screen width/height for responsive UI |
+| `ScrollView` + `pagingEnabled` | Our **first carousel** 🎠 |
 
-Concepts
+### FlatList Deep Dive
 
-- Controlled Components
-  - controlled Input
-    - textinput jaski value comes from react state
+- Only renders **visible items + a small buffer** (Virtualization)
+
+```jsx
+<FlatList
+    data={restaurants}         // the data array [{}, {}, {}, {}]
+    renderItem={...}           // for every item, create this UI
+    keyExtractor={...}         // unique identifier per item
+    showsVerticalScrollIndicator={false}
+/>
+```
+
+### ImageBackground
+
+- Use **`ImageBackground`** instead of `Image` when you need text/badges **on top** of an image
+- The image **becomes the container**
+
+### Positioning
+
+| Property | Effect |
+|----------|--------|
+| `position: "absolute"` | Lifts element out of normal flow |
+| `overflow: "hidden"` | Clips child content outside bounds |
+
+![App screenshot](./public/2.jpg)
+
+---
+
+## 3 · 🗺️ React Navigation
+
+> Change screens on tap — it's just a **stack**.
+
+![Navigation](./public/navigation.png)
+
+**How the Stack works:**
+
+| Action | Stack State |
+|--------|------------|
+| On Home | `["Home"]` |
+| Navigate to Restaurant | `["Home", "Restaurant"]` |
+
+- **Stack Navigator** automatically adds:
+  - A header bar (`headerShown: true` by default)
+  - A back arrow on the left
+  - The screen name as the title
+
+![App screenshot](./public/3.jpg)
+
+---
+
+## 4 · ⚙️ State-Driven UI
+
+> **UI is a function of state** — change the state, change the UI.
+
+### Concepts
+
+| Concept | Notes |
+|---------|-------|
+| Conditional rendering | Show/hide elements based on state |
+| Local state | Lives inside one component — cannot be accessed by other screens |
+| React re-render | Component function runs again → React diffs old/new UI → only changed native views update |
+
+![App screenshot](./public/4.jpg)
+![App screenshot](./public/5.jpg)
+
+---
+
+## 5 · 🌐 Context API, Redux & Zustand
+
+### The Problem — Prop Drilling
+
+- Parent sends props → child receives props → child's child also needs it
+- When auth arrives → **everyone needs user data**
+- Data travels through **unnecessary middle components** that don't even use it
+
+### Context API
+
+- Instead of passing data through each component → create a **global state**
+- **Provider** stores data → **Consumers** read data
+- **Solves exactly one problem:** avoid prop drilling
+
+> ✅ Good for: Authentication, Theme
+
+**Problem with Context at scale:**
+- Unnecessary re-renders — everything inside one provider
+- As app grows: theme, user, cart, orders, location, wishlist, notifications all in one place
+- If only the cart badge changes → **every consumer can re-render**
+
+```jsx
+<AuthProvider>
+    <ThemeProvider>
+        <CartProvider>
+        <LocationProvider>
+            <NotificationProvider>
+            <App/>
+            </NotificationProvider>
+        </LocationProvider>
+        </CartProvider>
+    </ThemeProvider>
+</AuthProvider>
+```
+> This is called **Provider Hell** — still manageable but gets worse as app grows.
+
+### Why Redux Was Introduced
+
+- Context API exists, but large applications struggle with debugging and multiple teams
+- Redux came to solve **application state management**
+- Key distinction: Context API = shared values / Redux = manages application state
+
+**Redux approach:** instead of many providers → **one centralized store**
+- Everything reads from one store
+- Everything writes to one store
+
+**Redux problem:** became very verbose — to change one value you need:
+- `action.js`
+- `reducer.js`
+- `constant.js`
+- `store.js`
+
+### Zustand
+
+- Lightweight global store — simpler than Redux, more scalable than Context
+
+### State Management Evolution
+
+```
+useState       →  one component
+props          →  parent → children
+Context API    →  shared values without prop drilling
+Redux          →  centralized store (action + reducer pattern)
+Zustand        →  lightweight global store
+```
+
+### Vocabulary
+
+| Term | Meaning |
+|------|---------|
+| `context` | Shared data container |
+| `provider` | Supplies shared data |
+| `consumer` | Reads shared data |
+| `useContext()` | Hook to access context |
+
+![Context](./public/context.png)
+
+---
+
+## 6 · 🔁 Derived State, useEffect & Side Effects
+
+### What Is a Side Effect?
+
+> A React component should mainly do one thing: **take state → return UI**.
+> Everything else is a **side effect**.
+
+![Side effect](./public/side-effect.png)
+
+### Derived State
+
+- **Compute from existing state** — don't duplicate it
+- Prevents multiple sources of truth
+
+### Component Lifecycle
+
+| Phase | When |
+|-------|------|
+| **Created** | Component function first defined |
+| **Mounted** | First time it appears on screen |
+| **Updated** | State changes → component re-renders |
+| **Unmounted** | Navigate away → component removed from tree |
+
+### useEffect
+
+```jsx
+useEffect(
+  () => {
+    // callback → code that performs the side effect
+  },
+  [
+    // dependency array → when should this effect run?
+  ],
+);
+```
+
+### Dependency Array
+
+| Pattern | When it runs |
+|---------|-------------|
+| `[]` | **Mount only** — perfect for initial API calls |
+| no array | After **every render** |
+| `[searchText]` | Whenever `searchText` changes |
+
+### Cleanup
+
+```jsx
+useEffect(() => {
+  const timer = setInterval(() => {
+    console.log('Tick');
+  }, 1000);
+  return () => {
+    clearInterval(timer); // runs on unmount
+  };
+}, []);
+```
+
+![ClearnUp](./public/cleanup.png)
+
+### Floating Components
+
+- Place **outside** ScrollView
+- Use `position: absolute`
+- Keeps the component **fixed on screen** regardless of scroll
+
+📖 References:
+- [CSS Positioning Explained](https://medium.com/@gauravkmaurya09/css-positioning-explained-7279b1429f05)
+- [Mastering FlexBox in CSS](https://medium.com/@gauravkmaurya09/mastering-flexbox-in-css-dba7f48b4373)
+
+![App](./public/6.jpg)
+
+---
+
+## 7 · 🔍 Controlled Components, Debouncing & Throttling
+
+### Controlled Components
+
+> A **controlled input** is a TextInput whose value comes entirely from React state.
 
 ```jsx
 const [searchText, setSearchText] = useState('');
@@ -229,89 +341,52 @@ const [searchText, setSearchText] = useState('');
 // React always knows the current value.
 ```
 
-- ![UseMemo](./public/useMemo.png)
+![UseMemo](./public/useMemo.png)
 
-- Debouncing
+### Debouncing
 
-  - Native Search
-    - every key triggers api request
-      - P => API request
-      - I => API request
-      - Z => API request
-      - 3 network call => imageing 1 million users => huge waste
-  - Debounced Search
-    - P
-    - I
-    - Z
-    - Z
-    - wait 300ms
-    - one API request
-  - simple
+**The problem — Naive Search:**
+- Every keystroke triggers an API request
+- `P` → API | `i` → API | `z` → API | = huge waste at scale
 
-    - user keeps typing => timer keeps resetting
-    - user stops typing => API call Happens
-    - this is debouncing
+**Debouncing:**
+- User keeps typing → timer **keeps resetting**
+- User **stops** typing → API call fires once
 
-    ```
-    0ms      P      Start Timer
+```
+0ms      P      Start Timer
+120ms    Pi     Reset Timer
+230ms    Piz    Reset Timer
+340ms    Pizz   Reset Timer
+470ms    Pizza  Reset Timer
+770ms           Timer Completes → API Request
+```
 
-    120ms    Pi     Reset Timer
+![Debouncing](./public/debouncing.png)
 
-    230ms    Piz    Reset Timer
+### Custom Hooks
 
-    340ms    Pizz   Reset Timer
+- **Components** → reusable UI
+- **Hooks** → reusable logic
 
-    470ms    Pizza  Reset Timer
+![Uses](./public/use-debounce.png)
 
-    770ms           Timer Completes
+### Throttling
 
-                    API Request
-    ```
+**Throttling:**
+- First keystroke → **immediate API call**, system **locks for 300ms**
+- Keystrokes during lock → **ignored**
+- Lock expires → next keystroke allowed
 
-- ![Debouncing](./public/debouncing.png)
-
-- Custom Hooks
-
-  - reusable logic
-  - componets =>> reusable UI and hooks => reusabel logic
-  - ![Usees](./public/use-debounce.png)
-
-- Throttling
-
-  - Native Search
-    - every key triggers api request
-      - P => API request
-      - I => API request
-      - Z => API request
-      - 3 network call => imagining 1 million users => huge waste
-  - Throttled Search
-    - P => one API request immediately (System gets locked for 300ms)
-    - I => Ignored (Locked)
-    - Z => Ignored (Locked)
-    - Z => Ignored (Locked)
-    - 300ms passes => System unlocks
-    - A => Next API request allowed
-  - simple
-
-    - user keeps typing => timer ignores updates during the interval
-    - interval completes => system opens up for the next call
-    - this is throttling
-
-    ```
-    0ms      P      API Request (Locks system for 300ms)
-
-    120ms    Pi     Ignored (System is locked)
-
-    230ms    Piz    Ignored (System is locked)
-
-    300ms           System Unlocks
-
-    340ms    Pizz   API Request (Locks system for 300ms again)
-
-    470ms    Pizza  Ignored (System is locked)
-
-    600ms           System Unlocks
-    ```
+```
+0ms      P      API Request (Locks for 300ms)
+120ms    Pi     Ignored (Locked)
+230ms    Piz    Ignored (Locked)
+300ms           System Unlocks
+340ms    Pizz   API Request (Locks again)
+470ms    Pizza  Ignored (Locked)
+600ms           System Unlocks
+```
 
 ```jsx
 import { useState, useEffect, useRef } from 'react';
@@ -345,179 +420,203 @@ export function useThrottle(value, interval = 300) {
 }
 ```
 
-- Core Difference in 1 Sentence
-  - While Debouncing delays the API call until you stop typing, Throttling forces the API call to happen at a regular pace while you are typing
+### Debouncing vs Throttling — Core Difference
 
+> **Debouncing** delays the API call until you **stop** typing.
+> **Throttling** forces the API call to happen at a **regular pace** while you are typing.
 
+---
 
-# Async Storage 
-- Abhi tk => App works , but agar maine close kiya, it will not work at all 
-- everything resets 
-- Why ? 
-  - because all our state lives in memory (RAM).
-  - RAM is temporary 
-  - Abhi tk kya ho rha tha ? 
-    - App open => RAM loads => cart exists 
-    - APP close => RAM cleared => cart gone
+## 8 · 💾 AsyncStorage & Hydration
 
-- So we introduce **persistent storage**
-  - ab ye kya hai ? 
-    - react native version of local storage 
-    - Apne ko kya cahiye ? 
-      - App open => disk storage => cart saved
-      - App close => storage still exists 
-      - App open again => cart restored
-- ![Storage](./public/storage.png)
+### The Problem
 
-- AsyncStorage
-  - key-value pair
-  - web me local storage , yaha par AsuncStorage (alomst identiccal concpets)
-  - What to store here 
-    - JWT token
-    - Cart items 
-    - useer theme 
-    - Delovery Address
-  - What not to store 
-    - Large images
-    - Videos 
-    - password in plain text
+> Until now: App works — but close it and **everything resets**.
 
-  - setItem(key, value) 
-    - stores data => data strinng me hona cahiye 
-    - **JSON.stringify(value)**
+**Why?** All state lives in memory (RAM). RAM is temporary.
 
-  - getItem(key)
-    - return string => string store karta hai, to vahi return bhi karega na 
-    - need to convert back => ***JSON.parse(value)**
+```
+App open   → RAM loads → cart exists
+App close  → RAM cleared → cart gone
+```
 
-  - Now expose there 2 function 
-    - saveData, getData
-    - Apne provider me ab 2 use effect banane hai 
-      - Restore cart => only on mount 
-      - Save cart => whenever cart changes 
+### Persistent Storage
+
+> React Native's version of `localStorage`.
+
+```
+App open        → disk storage → cart saved
+App close       → storage still exists
+App open again  → cart restored
+```
+
+![Storage](./public/storage.png)
+
+### AsyncStorage
+
+- **Key-value pair** store (almost identical concept to web `localStorage`)
+
+**What to store:**
+- ✅ JWT token
+- ✅ Cart items
+- ✅ User theme
+- ✅ Delivery address
+
+**What NOT to store:**
+- ❌ Large images
+- ❌ Videos
+- ❌ Passwords in plain text
+
+**Core methods:**
+
+| Method | Notes |
+|--------|-------|
+| `setItem(key, value)` | Value must be a string → use **`JSON.stringify(value)`** |
+| `getItem(key)` | Returns string → convert back with **`JSON.parse(value)`** |
+
+**Two `useEffect`s needed in your provider:**
+
 ```jsx
 useEffect(() => {
-  // Restore
+  // Restore cart — runs only on mount
 }, []);
 
 useEffect(() => {
-  // Save
+  // Save cart — runs whenever cart changes
 }, [cartItems]);
 ```
-- Problem statement actually
-- ![Hydration](./public/hydration.png)
 
-- Hydration Bug 
-  - Jargons 
-    - Hydration => App open karn epar, phone ki memory se saved data nikalkar app ke andar load karna
-    - Dehydration => Data Save Karn 
+### Hydration & Dehydration
 
+| Term | Meaning |
+|------|---------|
+| **Hydration** | On app open — read saved data from disk and load it into React state |
+| **Dehydration** | Saving data to disk before state is lost |
 
+![Hydration](./public/hydration.png)
 
-# Lottie 
-- Why this ? 
-  - GIF => 100s of image => play one after another
-  - Problem   
-    - Heavy file 
-    - Not scalable 
-    - Poor quality on different screen Size
+---
 
-  - How lottle solved this problem
-    - Animation Design =>> JSON file => react native renders it frame by frame 
-    - A Lottie animation is instructions
-    - A Lottie file is a JSON document describing shapes, colors, paths, timing, and movement
-    - Just animation instructions.
+## 9 · 🎬 Lottie, FlashList & Pull-to-Refresh
 
+### Lottie
 
-# FlashList 
-  - Why 
-    - Performance on long list
-      - scroll smoothness 
-      - memeory use
-  - Reason : https://shopify.github.io/flash-list/docs/recycling
+**Why not GIF?**
 
-# Pull to refresh
-- Wha tactually happens
-  - user pulls down => spinner appers => fetch latest posts => feed update
-  - Three independent evenets here
-    - Pull => start refresh 
-    - Network request => show loading indicator 
-    - Request finishes => Hide spinner and update UI
+| GIF | Lottie |
+|-----|--------|
+| 100s of images played in sequence | JSON file of animation instructions |
+| Heavy file size | Tiny |
+| Not scalable | Scales to any resolution |
+| Poor quality on different screen sizes | Perfect quality everywhere |
 
+> A Lottie file is a JSON document describing **shapes, colors, paths, timing, and movement** — just instructions, rendered frame by frame.
 
-# Pagination 
-  - Why Pagination
-    - without this => server gives 20,000 items => phone downloads everything
-    - Problems 
-      - HHuge network usage 
-      - slow app launch 
-      - High emory consumption
-    - With pagination 
-      - server => loads furst 10 items => use scrolls => next 10 items => use scroll => next 10 items 
-      - the app downloads data only when needed
-  - Two types of pagination 
-    - Server side pagination 
-      ```http
-      GET /restaurants?page=2&limit=10
-      ```
-    - Client-side Pagination
-      ```http
-      GET https://www.fruityvice.com/api/fruit/all
-      ```
-    - Idea: Download all once into allFruits, show 10 at a time in visibleFruits, FlashList renders the window, scroll triggers slice math to append the next 10 from the warehouse
-    -  ![Pagination](./public/pagination.png)
+### FlashList
 
-# Animated API
-  - Traditional Spinner 
-    - Loading...
-      Problems 
-        - User has no idea what is coming 
-        - Layout sudenly appears after loading 
-        - Feels slower
-        - Bad User eperience
+- Better performance than FlatList for long lists
+- Improves: scroll smoothness + memory usage
+- Uses **recycling** — reuses existing cells instead of creating new ones
+- 📖 [How recycling works](https://shopify.github.io/flash-list/docs/recycling)
 
-  - Skeleton Loading 
-    - User immediately understand => aane kya wala hai
-    - It is hte fake UI that mimics the final layout before real data arrives
+### Pull to Refresh
 
-  - How shimmer works internally 
-    - Gray Card 
-    - Light strip Moves from left to right 
-    - Repeats forever 
-    - Just one animated highlight moving across a placeholder.
+**What actually happens:**
+1. User pulls down → spinner appears
+2. Network request → loading indicator shown
+3. Request finishes → spinner hides, UI updates
 
-  - It has three pieces
-    - Animateed.Value
-    - Animation Driver 
-    - Animated Component
+Three independent events:
+- **Pull** → start refresh
+- **Network request** → show loading indicator
+- **Request finishes** → hide spinner and update UI
 
+---
 
-# Location
+## 10 · 📄 Pagination & Animated API
 
-- Where should I deliver food ?
-  - user location
-  - uske baad baki sab kuch matter karta hai, like
-    - Nearest Restaurants
-    - Delivery Distance
-    - Delivery Charges
-    - Estimated Delivery Time
+### Why Pagination?
 
-- Why Cannot my application Read directly my location ?
-  - Because Android Protects user Privacy
-  - App cannot access => camera, gallery, contacts, microphones, location => without permission
+**Without pagination:**
+- Server gives 20,000 items → phone downloads **everything**
+- Problems: huge network usage, slow launch, high memory consumption
 
-- App Runs inside a sandbox => React Native
-- app must ask Android OS before accessing the resources
+**With pagination:**
+- Server loads first 10 → user scrolls → next 10 → user scrolls → next 10
+- App downloads data **only when needed**
 
-- How GPS works
-  - GPS = Global Positioning System
-  - Phone communicate with satellites => multiple satellites
-  - Why multiple satellite
-    - one satellite => gives a circle
-    - two satellite => two possible location
-    - 3 satellite => three circle intersect => one location
-    - This process is called **Trilateration**
-  - This gives three things
+### Two Types of Pagination
+
+**Server-side:**
+```http
+GET /restaurants?page=2&limit=10
+```
+
+**Client-side:**
+```http
+GET https://www.fruityvice.com/api/fruit/all
+```
+> Download all at once into `allFruits`, show 10 at a time in `visibleFruits`.
+> FlashList renders the window. Scroll triggers slice math to append the next 10.
+
+![Pagination](./public/pagination.png)
+
+### Animated API — Skeleton Loading
+
+**Traditional Spinner Problems:**
+- User has no idea what's coming
+- Layout suddenly appears after loading
+- Feels slower
+- Bad user experience
+
+**Skeleton Loading:**
+- User immediately understands what is arriving
+- Fake UI that **mimics the final layout** before real data arrives
+
+**How shimmer works:**
+1. Gray placeholder card
+2. Light strip moves left → right
+3. Repeats forever
+
+**Three pieces of Animated API:**
+
+| Piece | Role |
+|-------|------|
+| `Animated.Value` | The animated number |
+| Animation Driver | `Animated.loop()`, `Animated.timing()` — drives the value |
+| Animated Component | `Animated.View` — the thing that actually moves |
+
+---
+
+## 11 · 📍 Location & GPS
+
+### Why Location?
+
+> Where should I deliver food?
+> Everything depends on it:
+
+- Nearest Restaurants
+- Delivery Distance
+- Delivery Charges
+- Estimated Delivery Time
+
+### Why Can't My App Read Location Directly?
+
+- Android **protects user privacy**
+- App cannot access camera, gallery, contacts, microphone, or location **without permission**
+- App runs inside a **sandbox** — must ask the Android OS before accessing resources
+
+### How GPS Works
+
+```
+Phone → communicates with multiple satellites
+
+1 satellite  →  gives a circle (you could be anywhere on it)
+2 satellites →  two circles → two possible intersection points
+3 satellites →  three circles → ONE location (Trilateration)
+```
+
+GPS returns:
 
 ```json
 {
@@ -527,44 +626,46 @@ useEffect(() => {
 }
 ```
 
-  - accuracy = 8 means location is accurate within 8 meters
+> `accuracy: 8` means the location is accurate within **8 meters**.
 
-- Android Permission
-  - Two Types
-    - Manifest Permission => declare during app installation
-    - Runtime Permission => request while app is running
+### Android Permission Types
 
-  - Manifest Permission
-    - Android Ask => Does this app need location
-    - I have to declare this inside the android project
-    - without this, runtime permission never works
+| Type | When |
+|------|------|
+| **Manifest Permission** | Declared at app installation time |
+| **Runtime Permission** | Requested while app is running (popup) |
 
-  - Runtime Permission
-    - When the user taps => Use Current Location
-    - Android screen pops up
-    - I can Allow and Don't Allow
+> Without the Manifest declaration, the Runtime popup **will never appear**.
 
-  - Android Permission Lifecycle
-    - Install App
-    - Manifest Declare Permission
-    - User uses feature
-    - Runtime Permission Popup
-    - Grant => proceed to GPS
-    - Denied => show error (handled now)
-    - Never ask again => open Settings (pending)
+### Android Permission Lifecycle
 
-- React Native Native Modules
-  - How can JS Access GPS
-    - JS cannot read GPS directly
-    - React Native acts as a bridge
-    - Lifecycle
-      - JS => `@react-native-community/geolocation` (native module)
-      - Native Module
-      - Android Location API
-      - GPS hardware
-      - Coordinate Returned
+```
+Install App
+  → Manifest declares permission
+    → User uses feature
+      → Runtime Permission Popup
+        → Grant  → proceed to GPS
+        → Deny   → show error
+        → Never ask again → open Settings
+```
 
-## Files we touched
+### How JS Accesses GPS — The Bridge
+
+> JS cannot read GPS directly. React Native acts as a bridge.
+
+```
+JS code
+  → @react-native-community/geolocation (native module)
+    → Android Location API
+      → GPS hardware
+        → Coordinates returned
+```
+
+---
+
+### Implementation Steps
+
+#### Files Touched
 
 | File | Why |
 |------|-----|
@@ -573,42 +674,38 @@ useEffect(() => {
 | `src/hooks/useCurrentLocation.js` | Reusable permission + GPS logic (custom hook) |
 | `src/screens/AddressScreen.js` | UI button that triggers location fetch |
 
-## Step 1 — Install the package
+#### Step 1 — Install the Package
 
 ```bash
 npm install @react-native-community/geolocation
 ```
 
-- Why ?
-  - React Native JS cannot talk to GPS hardware directly
-  - This package is the **bridge** between JS and Android Location API
-  - Without it, `Geolocation.getCurrentPosition()` does not exist
+- React Native JS cannot talk to GPS hardware directly
+- This package is the **bridge** between JS and Android Location API
+- Without it, `Geolocation.getCurrentPosition()` does not exist
 
-## Step 2 — Manifest Permission (`android/app/src/main/AndroidManifest.xml`)
+#### Step 2 — Manifest Permission
 
 ```xml
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 ```
 
-- Why ?
-  - Android needs to know **at install time** that this app may use location
-  - `ACCESS_FINE_LOCATION` => precise GPS coordinates
-  - `ACCESS_COARSE_LOCATION` => approximate location (network/cell tower)
-  - Without manifest declaration => runtime popup will never work
+| Permission | What it grants |
+|------------|---------------|
+| `ACCESS_FINE_LOCATION` | Precise GPS coordinates |
+| `ACCESS_COARSE_LOCATION` | Approximate location (network/cell tower) |
 
-## Step 3 — Custom Hook (`src/hooks/useCurrentLocation.js`)
+#### Step 3 — Custom Hook
 
-- Why a custom hook ?
-  - Permission + GPS logic belongs in a hook, not in the screen
-  - Reusable on any screen that needs location
-  - Screen stays clean => only calls `fetchLocation()`
-
-- Simple flow
+Why a custom hook?
+- Permission + GPS logic belongs in a hook, **not in the screen**
+- Reusable on any screen that needs location
+- Screen stays clean — only calls `fetchLocation()`
 
 ![Location permission flow](./public/location-v1.png)
 
-- Part A — Ask permission (Android only)
+**Part A — Ask permission (Android only):**
 
 ```jsx
 if (Platform.OS === 'android') {
@@ -622,13 +719,14 @@ if (Platform.OS === 'android') {
 }
 ```
 
-- In simple words
-  - `Platform.OS === 'android'` => this block runs only on Android
-  - `PermissionsAndroid.request()` => Android shows the Allow / Deny popup
-  - `ACCESS_FINE_LOCATION` => ask for precise GPS location
-  - If user denies => throw error => `catch` block sets `error` state
+| Line | What it does |
+|------|-------------|
+| `Platform.OS === 'android'` | Block runs Android only |
+| `PermissionsAndroid.request()` | Shows Allow / Deny popup |
+| `ACCESS_FINE_LOCATION` | Requests precise GPS |
+| If denied | Throws error → `catch` sets `error` state |
 
-- Part B — Read GPS coordinates
+**Part B — Read GPS coordinates:**
 
 ```jsx
 Geolocation.getCurrentPosition(
@@ -643,23 +741,20 @@ Geolocation.getCurrentPosition(
 );
 ```
 
-- In simple words
-  - Success callback => save `{ latitude, longitude, accuracy }` in state
-  - Error callback => show GPS error message
-  - No extra options for now => keep it simple first, tune later if needed
-
-- Hook returns
+**Hook returns:**
 
 ```jsx
 return { location, loading, error, fetchLocation };
 ```
 
-  - `location` => coords after success
-  - `loading` => true while fetching
-  - `error` => message if permission denied or GPS failed
-  - `fetchLocation` => call this on button press
+| Return | Meaning |
+|--------|---------|
+| `location` | Coords after success |
+| `loading` | `true` while fetching |
+| `error` | Message if permission denied or GPS failed |
+| `fetchLocation` | Call this on button press |
 
-## Step 4 — UI in AddressScreen (`src/screens/AddressScreen.js`)
+#### Step 4 — UI in AddressScreen
 
 ```jsx
 const { location, loading, error, fetchLocation } = useCurrentLocation();
@@ -678,17 +773,9 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
 ) : null}
 ```
 
-- Why button press, not automatic on mount ?
-  - Ask permission only when user needs location
-  - User tapped the button => they expect the popup
-  - Show spinner while loading, error text if denied, coords if success
+> Ask permission **only when user needs it** — user tapped the button, so they expect the popup.
 
-- Navigation path
-  - `CartScreen` => tap Change Address
-  - `CartStack.js` => navigates to `AddressScreen`
-  - `AddressScreen` => shows saved addresses + location button + add form
-
-## Full permission lifecycle (what happens on device)
+#### Full Permission Lifecycle
 
 ```
 1. App installed        → Android reads Manifest permissions
@@ -699,201 +786,218 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
 6. UI shows             → latitude, longitude, accuracy on AddressScreen
 ```
 
-# Local Push Notification 
-- What is Notification 
-  - Message delivered by the Operating system
-  - notification has => data, appearence and behavior
-  - NOTE: Notification belongs to Android not react native
+---
 
-- Why can't react native directly show notification 
-  - Because notificatin live outside my app
-  -Only Android/iOS can display notifications globally.
+## 12 · 🔔 Local Push Notifications
 
-- How then ? 
-  - My app sends the request 
-  - Android displays the notification
+### What Is a Notification?
 
-- **2 types of Notification**
-  - Local 
-    - Triggered by app itself 
-    - No internet required after scheduling 
-    - Works entiredly on device 
-    - Great for remainders, timers
-    - Examples 
-      - Lunch reminder at 1 PM
-      - Daily "Don't forget your cart"
-      - Scheduled discount reminder
-  - Push
-    - Triggered by backedn/server
-    - Reuires internet + FCM/APNs
-    - Comes from Firebase Cloud Messagaginh 
-    - Great for orders, messages, offers
-    - Examples
-      - Your order is out fro delivery 
-      - New restaurant available nearby 
-      - Festival offer sent from backend 
+- A message delivered by the **Operating System**
+- Has three parts: **data**, **appearance**, and **behavior**
+- **NOTE: Notifications belong to Android/iOS — not React Native**
 
-- **Android Notification Architecture (every notificatin passes through this pipeline)**
-  - React Native Application 
-  - Notification Service(JS)
-  - Notifee Native Module 
-  - Android Notification Manager 
-      - Android has a system service called Notification Manager 
-      - React native never talks to it directly 
-      - Responsibilities 
-        - Display notfication 
-        - Group notificcation
-        - Handle sound/vibration
-        - show badges 
-        - Handle notification priority
-  - Notification Channel 
-  - Notification Drawer
+### Why Can't React Native Show Notifications Directly?
 
+- Notifications live **outside my app**
+- Only Android/iOS can display notifications globally
+- **My app sends the request → Android displays the notification**
 
-- **Notification Channels**
-- What is cahnnel 
-  - Category of notificatio n
-  - Example 
-    - Order channel 
-    - Offer channnel 
-    - Remonder Channel 
-    - cart channel 
-  - Each channel has its own sound, vibration, and priority.'
-  - Why channel matters ? 
-    - Users can mute only Offers while keeping Orders enabled.
+### Two Types of Notifications
 
+| | Local | Push |
+|-|-------|------|
+| Triggered by | App itself | Backend / server |
+| Internet required | ❌ No | ✅ Yes (FCM/APNs) |
+| Works offline | ✅ Yes | ❌ No |
+| Use cases | Reminders, timers | Orders, messages, offers |
+| Examples | Lunch reminder at 1 PM, daily cart reminder | Order out for delivery, new restaurant nearby |
 
-- we will use notifee
-  - Why?
-    - Local notificaiton 
-    - Notification channel 
-    - Scheduling 
-    - Forground/background events
-    - FCM integration later
+### Android Notification Architecture
 
-- ![Notification Flow](./public/notification.png)
+> Every notification passes through this pipeline:
 
-
-- There are different use cases of notifications 
-  - Basic Notificaion => Welcome to foodie 
-  - Big Text Notoficaton => Festival Offer 
-  - Image Notification => Pizza offer with banner images 
-  - inbox/ multiple messages => 3 new restaurant offer 
-  - progress notification => Preparing Order (0–100%)
-  - Ongoing Notification => Delivery in progress
-  - Scheduled Notification => Lunch reminder
-  - Grouped Notification => Multiple offers grouped together
-  - Action Notification => Accept / Dismiss coupon
-  - Data Notification (FCM Ready) => Open restaurant/cart/offer
-  - Actionalble notificaiton => spotify like
-
-- Every notification have 3 layers 
-  - UI 
-    - title 
-    - body
-    - image
-    - Icon
-
-  - Behavior 
-    - sound 
-    - vibration 
-    - priority 
-    - auto cancel 
-
-  - Data 
-    - restaurantId
-    - cardId 
-    - offerId
-    - screen
-
-
-# Deep Linking 
-- When clicked on link => it opens the specific screen 
-- A Deep Link is simply a URL that points to a location inside my  app.
-- What I have seen 
-  - I get a link on whatsapp: foodie://restaurant/42 
-  - I clicked on the link 
-  - android detech URL 
-  - Foodie App opens
-  - Restaurant Details Screen Open
-  - now Restaurant ID = 42 shown
-
-- ![Deep linking](https://a.storyblok.com/f/47007/2400x1656/74915beb5d/deep-link-direct-deferred-fallback.png/m/2880x0/filters:quality(80))
-- What is the business benifit => higher conversion rate 
-
-```jsx
- scheme://path/parameter?query=value
- foodie://restaurant/42?coupon=FIRST50
 ```
-- schema => my app identity 
-- path => route/screen
-- paramenter => 
-- Query Paramters => 
-
-
-**Type-1: Custom URL Scheme**
-```jsx
-  foodie://cart
-  foodie://restaurant/42
+React Native Application
+        ↓
+Notification Service (JS)
+        ↓
+Notifee Native Module
+        ↓
+Android Notification Manager
+  │
+  ├── Display notification
+  ├── Group notifications
+  ├── Handle sound/vibration
+  ├── Show badges
+  └── Handle notification priority
+        ↓
+Notification Channel
+        ↓
+Notification Drawer
 ```
-- Doesn't need a website.
-- Easy to configure.
-- Works only if app is installed.
+
+### Notification Channels
+
+- A **category** of notifications
+- Each channel has its own sound, vibration, and priority
+- Users can **mute only Offers** while keeping Orders enabled
+
+| Channel | Examples |
+|---------|---------|
+| `orders` | Your order is confirmed, Order out for delivery |
+| `offers` | Festival sale, Discount coupon |
+| `reminders` | Lunch at 1 PM, Cart abandoned |
+| `cart` | Item back in stock |
+
+### Why Notifee?
+
+- ✅ Local notifications
+- ✅ Notification channels
+- ✅ Scheduling
+- ✅ Foreground / background events
+- ✅ FCM integration (later)
+
+![Notification Flow](./public/notification.png)
+
+### Notification Use Cases
+
+| Type | Example |
+|------|---------|
+| Basic | "Welcome to Foodie" |
+| Big Text | Festival offer with long description |
+| Image | Pizza offer with banner image |
+| Inbox / Multiple | "3 new restaurant offers" |
+| Progress | "Preparing Order (0–100%)" |
+| Ongoing | "Delivery in progress" |
+| Scheduled | "Lunch reminder" |
+| Grouped | Multiple offers grouped together |
+| Action | Accept / Dismiss coupon |
+| Data (FCM Ready) | Open restaurant / cart / offer screen |
+| Actionable | Spotify-like media controls |
+
+### Every Notification Has 3 Layers
+
+| Layer | Properties |
+|-------|-----------|
+| **UI** | title, body, image, icon |
+| **Behavior** | sound, vibration, priority, auto-cancel |
+| **Data** | restaurantId, cartId, offerId, screen |
+
+---
+
+## 13 · 🔗 Deep Linking
+
+> When you click a link → it opens a **specific screen** inside the app.
+> A Deep Link is simply a **URL that points to a location inside my app**.
+
+### Real-World Example
+
+```
+I get a link on WhatsApp: foodie://restaurant/42
+I click it
+Android detects the URL
+Foodie app opens
+Restaurant Details Screen opens
+Restaurant ID = 42 shown
+```
+
+![Deep linking](https://a.storyblok.com/f/47007/2400x1656/74915beb5d/deep-link-direct-deferred-fallback.png/m/2880x0/filters:quality(80))
+
+> **Business benefit:** Higher conversion rate.
+
+### URL Anatomy
+
+```
+scheme://path/parameter?query=value
+foodie://restaurant/42?coupon=FIRST50
+```
+
+| Part | Role | Example |
+|------|------|---------|
+| `scheme` | App identity | `foodie://` |
+| `path` | Route / screen | `restaurant/` |
+| `parameter` | Dynamic value | `42` |
+| `query params` | Extra data | `?coupon=FIRST50` |
+
+### Three Types of Deep Links
+
+**Type 1 — Custom URL Scheme**
+```
+foodie://cart
+foodie://restaurant/42
+```
+- ✅ No website needed
+- ✅ Easy to configure
+- ⚠️ Works only if app is installed
 
 **Type 2 — Universal Links (iOS)**
-```jsx
+```
 https://foodie.com/cart
 ```
-- If app installed: Open app
-- Otherwise: Open website
+- If app installed → opens app
+- Otherwise → opens website
 
 **Type 3 — Android App Links**
-```jsx
+```
 https://foodie.com/restaurant/42
 ```
 - Verified with Android
 - Safer than custom schemes
-- We'll discuss later, but not implement today.
 
-- How android handles a deeplink
+### How Android Handles a Deep Link
+
 ![Deep link 1](./public/deeplink-1.png)
 
+### Android Intent
 
-- **Intent**
-  - What is this internt now ? 
-    - Adroid communicates between apps using Intents
-    - Deep links are Intent Filters
-    - Eg: camera internt => camera opens 
+> Android communicates between apps using **Intents**.
+> Deep links are **Intent Filters**.
 
-- Reatct native api linking (interview question)
-  - Linking.getInitialURL() => App launched from a closed state
-  - Linking.addEventListener("url") => app already running 
-  - Why need both ? 
-    - App closed => No js exists yet => get getInitialURL()
-    - App running => JS alive => need event listner 
+Example: Camera intent → camera opens.
 
+### React Native Linking API
 
-- Deep links can contains three types of data 
-  - path params => foodie://restaurant/15
-  - query params => foodie://restaurant/15
-  - fragment => foodie://profile/orders#active
+| Method | When it's used |
+|--------|---------------|
+| `Linking.getInitialURL()` | App launched **from a closed state** |
+| `Linking.addEventListener("url")` | App **already running** |
 
-- foodie://anything => does not works 
-  - you cannot share it publicly 
-  - production apps uses HTTPs
+> - **App closed** → No JS exists yet → use `getInitialURL()`
+> - **App running** → JS is alive → use event listener
 
-- can be used in the Firebase notification 
-  - Note that firebase is not navigatibg => it is only delivering data
-  - backgroun notificatin 
-    = Forgrounnd => onMessage()
-    = Background => onNotificationOpenedApp()
-    = Quit => getInitialNotification()
+### Deep Link Data Types
 
+| Type | Example |
+|------|---------|
+| Path params | `foodie://restaurant/15` |
+| Query params | `foodie://restaurant/15?coupon=SAVE10` |
+| Fragment | `foodie://profile/orders#active` |
 
-- Fancy Terms 
-  - ROX => return on experience
-  - conversion rate 
-  - rertention rate
-  - cold start => app close hai, ap use mai start kar rha 
-  - warm start => app already in memory
-  - Background => app minimized
+### Firebase + Deep Links
+
+> Firebase does **not navigate** — it only **delivers data**.
+
+| App State | Firebase Handler |
+|-----------|-----------------|
+| Foreground | `onMessage()` |
+| Background | `onNotificationOpenedApp()` |
+| Quit | `getInitialNotification()` |
+
+### Industry Terms
+
+| Term | Meaning |
+|------|---------|
+| **ROX** | Return on experience |
+| **Conversion rate** | % of users who complete an action |
+| **Retention rate** | % of users who return |
+| **Cold start** | App is closed — starting fresh |
+| **Warm start** | App already in memory — resumes quickly |
+| **Background** | App is minimized but still in memory |
+
+---
+
+<div align="center">
+
+*React Native Learning Project — Foodie App*
+
+</div>
