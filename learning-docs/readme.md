@@ -23,6 +23,7 @@
 | 7 | The four states of every screen: loading (skeleton), empty, error, loaded. | [read.md](foundation/7/read.md) | [readme.md](foundation/7/readme.md) |
 | 8 | Perceived speed: optimistic updates, prefetch, never show a blank screen. | [read.md](foundation/8/read.md) | [readme.md](foundation/8/readme.md) |
 | 9 | Reachability: primary actions at the bottom, sticky footer CTAs, 44pt targets. | [read.md](foundation/9/read.md) | [readme.md](foundation/9/readme.md) |
+| 10 | Platform conventions & Android back button — production navigation behavior. | [read.md](foundation/10/read.md) | [readme.md](foundation/10/readme.md) |
 
 ---
 
@@ -106,6 +107,15 @@
 
 - 📋 [Summary → read.md](foundation/9/read.md)
 - 📖 [Deep Dive → readme.md](foundation/9/readme.md)
+
+---
+
+### Module 10 — Platform Conventions & Android Back Button
+
+> **Question:** Platform conventions & Android back button — production navigation behavior.
+
+- 📋 [Summary → read.md](foundation/10/read.md)
+- 📖 [Deep Dive → readme.md](foundation/10/readme.md)
 
 ---
 
