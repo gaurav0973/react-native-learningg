@@ -96,6 +96,7 @@ Use this template structure:
 **Rules for readme.md:**
 
 - Number sections: `## 1 ·`, `## 2 ·`, … with one emoji each
+- Add an explicit HTML anchor **before each section**: `<a id="section-slug"></a>`
 - Prefer ASCII diagrams and markdown tables over prose walls
 - Include code only when it teaches (API usage, patterns)
 - Remove duplicate content (merge repeated blocks)
@@ -163,7 +164,7 @@ Use this template structure:
 
 - Keep it scannable — tables and one diagram, not long prose
 - Every `Read More` link must point to a **real section** in readme.md
-- Anchor format: lowercase, hyphens, no emoji/numbers (e.g. `#pixelratio-api`)
+- Link format: `readme.md#section-slug` — must match the `<a id="section-slug">` in readme.md
 - If a section doesn't exist in readme.md, **don't link to it**
 - Include Quick Q&A table when interview notes are available
 
@@ -199,10 +200,25 @@ Before finishing, verify against modules 1–5:
 
 ## Anchor Reference
 
-GitHub-style anchors from `## 1 · 🔢 PixelRatio API`:
+**Do not rely on auto-generated heading anchors** — they break in VS Code/Cursor because of emojis and the `·` character.
 
-- Strip number, emoji, punctuation → `pixelratio-api`
-- Example: `## 8 · 📱 Safe Areas, Notches & Insets` → `#safe-areas-notches--insets`
+Always use explicit HTML IDs:
+
+```markdown
+<a id="pixelratio-api"></a>
+
+## 4 · 🔢 PixelRatio API
+```
+
+Link from read.md as: `[→ readme.md](readme.md#pixelratio-api)`
+
+Slug rules: lowercase, hyphens, no emoji. Examples:
+
+| Section title | `<a id="...">` |
+|---------------|----------------|
+| `## 8 · 📱 Safe Areas, Notches & Insets` | `safe-areas-notches-insets` |
+| `## 5 · 🖼️ @1x, @2x, @3x Images` | `retina-images` |
+| `## 3 · 🤖 Android Activity Lifecycle → React Native AppState` | `android-activity-lifecycle-appstate` |
 
 ## Quality Bar
 

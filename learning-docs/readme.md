@@ -21,6 +21,7 @@
 | 5 | Find a native crash in `adb logcat` / the Xcode console — JS red box ≠ native crash. | [read.md](foundation/5/read.md) | [readme.md](foundation/5/readme.md) |
 | 6 | Density (dp/pt not px), PixelRatio, @2x/@3x, safe areas and notches. | [read.md](foundation/6/read.md) | [readme.md](foundation/6/readme.md) |
 | 7 | The four states of every screen: loading (skeleton), empty, error, loaded. | [read.md](foundation/7/read.md) | [readme.md](foundation/7/readme.md) |
+| 8 | Perceived speed: optimistic updates, prefetch, never show a blank screen. | [read.md](foundation/8/read.md) | [readme.md](foundation/8/readme.md) |
 
 ---
 
@@ -86,6 +87,15 @@
 
 - 📋 [Summary → read.md](foundation/7/read.md)
 - 📖 [Deep Dive → readme.md](foundation/7/readme.md)
+
+---
+
+### Module 8 — Perceived Speed & Optimistic Updates
+
+> **Question:** Perceived speed: optimistic updates, prefetch, never show a blank screen.
+
+- 📋 [Summary → read.md](foundation/8/read.md)
+- 📖 [Deep Dive → readme.md](foundation/8/readme.md)
 
 ---
 
