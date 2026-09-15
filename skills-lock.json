@@ -12,6 +12,12 @@
       "sourceType": "github",
       "skillPath": "skills/excalidraw-diagram-generator/SKILL.md",
       "computedHash": "d26f6110fda8be59a3ba2e627f26b9d11834cd6a82b8cba05a9d80e97ea457d3"
+    },
+    "readme-generator": {
+      "source": "armanzeroeight/fastagent-plugins",
+      "sourceType": "github",
+      "skillPath": "plugins/documentation-toolkit/skills/readme-generator/SKILL.md",
+      "computedHash": "d8bd193caf1b5a0d08babb7616dd675d536166def4db65fbc45b7c0d2d92de62"
     }
   }
 }

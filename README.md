@@ -785,6 +785,7 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
   - Grouped Notification => Multiple offers grouped together
   - Action Notification => Accept / Dismiss coupon
   - Data Notification (FCM Ready) => Open restaurant/cart/offer
+  - Actionalble notificaiton => spotify like
 
 - Every notification have 3 layers 
   - UI 
