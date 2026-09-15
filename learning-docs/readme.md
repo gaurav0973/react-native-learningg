@@ -22,6 +22,7 @@
 | 6 | Density (dp/pt not px), PixelRatio, @2x/@3x, safe areas and notches. | [read.md](foundation/6/read.md) | [readme.md](foundation/6/readme.md) |
 | 7 | The four states of every screen: loading (skeleton), empty, error, loaded. | [read.md](foundation/7/read.md) | [readme.md](foundation/7/readme.md) |
 | 8 | Perceived speed: optimistic updates, prefetch, never show a blank screen. | [read.md](foundation/8/read.md) | [readme.md](foundation/8/readme.md) |
+| 9 | Reachability: primary actions at the bottom, sticky footer CTAs, 44pt targets. | [read.md](foundation/9/read.md) | [readme.md](foundation/9/readme.md) |
 
 ---
 
@@ -96,6 +97,15 @@
 
 - 📋 [Summary → read.md](foundation/8/read.md)
 - 📖 [Deep Dive → readme.md](foundation/8/readme.md)
+
+---
+
+### Module 9 — Reachability & Touch Targets
+
+> **Question:** Reachability: primary actions at the bottom, sticky footer CTAs, 44pt targets.
+
+- 📋 [Summary → read.md](foundation/9/read.md)
+- 📖 [Deep Dive → readme.md](foundation/9/readme.md)
 
 ---
 
