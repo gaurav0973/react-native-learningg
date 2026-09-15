@@ -14,6 +14,8 @@
 
 ---
 
+<a id="phone-ram-fundamental"></a>
+
 ## 1 · 🧠 The Fundamental — Phone RAM
 
 > My phone has **limited RAM**. Android constantly decides: *"Which app should stay alive, and which one should I kill to free memory?"*
@@ -51,6 +53,8 @@ Foodie Process Removed from RAM
 
 ---
 
+<a id="what-is-process-death"></a>
+
 ## 2 · 💀 What Is Process Death?
 
 Process death means Android **completely removes your application's process from memory**:
@@ -71,6 +75,8 @@ Process death means Android **completely removes your application's process from
 
 ---
 
+<a id="process-death-vs-cold-start"></a>
+
 ## 3 · 🔄 Process Death vs Cold Start
 
 | | Cold Start | Process Death Restart |
@@ -90,6 +96,8 @@ useEffect(() => {
 ```
 
 ---
+
+<a id="activity-vs-process"></a>
 
 ## 4 · 📱 Activity vs Process
 
@@ -129,6 +137,8 @@ useEffect(() => {
 
 ---
 
+<a id="android-memory-manager"></a>
+
 ## 5 · 🤖 Android Memory Manager
 
 > This explains **why** Android kills your app.
@@ -144,6 +154,8 @@ Android assigns priority levels to all running processes:
 Your minimized app is at the bottom of the priority list. When another app (PUBG, Camera) needs memory, Android kills your process without asking.
 
 ---
+
+<a id="process-death-inside-react-native"></a>
 
 ## 6 · ☠️ What Happens Inside React Native During Process Death?
 
@@ -192,6 +204,8 @@ Foodie Process (NEW)
 > **Key insight:** `AppState` never fires `"background"` → `"active"` during process death. The old JS process is gone before it can emit anything. The new process starts from `App.js` with zero state.
 
 ---
+
+<a id="state-hydration-flow"></a>
 
 ## 7 · 💧 State Hydration Flow (AsyncStorage)
 
@@ -242,6 +256,8 @@ async function loadCounter() {
 
 ---
 
+<a id="cold-start-warm-start-process-death"></a>
+
 ## 8 · 🚀 Cold Start vs Warm Start vs Process Death
 
 ```
@@ -268,6 +284,8 @@ React Mounted     React Alive       React Mounted Again
 | When it happens | First ever launch | Tab switching, quick return | OS killed app in background |
 
 ---
+
+<a id="state-survival-matrix"></a>
 
 ## 9 · 🧮 State Survival Matrix — RAM vs Persistent Storage
 

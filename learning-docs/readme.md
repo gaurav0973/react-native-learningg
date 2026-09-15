@@ -20,6 +20,7 @@
 | 4 | The three build loops — Fast Refresh vs Reload vs Full Rebuild — know which one you need. | [read.md](foundation/4/read.md) | [readme.md](foundation/4/readme.md) |
 | 5 | Find a native crash in `adb logcat` / the Xcode console — JS red box ≠ native crash. | [read.md](foundation/5/read.md) | [readme.md](foundation/5/readme.md) |
 | 6 | Density (dp/pt not px), PixelRatio, @2x/@3x, safe areas and notches. | [read.md](foundation/6/read.md) | [readme.md](foundation/6/readme.md) |
+| 7 | The four states of every screen: loading (skeleton), empty, error, loaded. | [read.md](foundation/7/read.md) | [readme.md](foundation/7/readme.md) |
 
 ---
 
@@ -76,6 +77,15 @@
 
 - 📋 [Summary → read.md](foundation/6/read.md)
 - 📖 [Deep Dive → readme.md](foundation/6/readme.md)
+
+---
+
+### Module 7 — The Four States of Every Screen
+
+> **Question:** The four states of every screen: loading (skeleton), empty, error, loaded.
+
+- 📋 [Summary → read.md](foundation/7/read.md)
+- 📖 [Deep Dive → readme.md](foundation/7/readme.md)
 
 ---
 

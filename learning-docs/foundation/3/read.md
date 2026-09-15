@@ -20,12 +20,12 @@
 | Flow | Remember As | Read More |
 |------|------------|-----------|
 | 📱 **Activity vs Process** | Activity is a screen; Process is the entire app | [→ readme.md](readme.md#activity-vs-process) |
-| 💀 **Background vs Process Death** | Background keeps RAM alive; Process Death destroys RAM | [→ readme.md](readme.md#what-happens-inside-react-native-during-process-death) |
+| 💀 **Background vs Process Death** | Background keeps RAM alive; Process Death destroys RAM | [→ readme.md](readme.md#process-death-inside-react-native) |
 | 🧠 **Memory Manager** | Android kills low-priority background processes under memory pressure | [→ readme.md](readme.md#android-memory-manager) |
 | 🛠️ **Don't Keep Activities** | Forces Activity recreation whenever app goes to background | [→ readme.md](readme.md#process-death-vs-cold-start) |
-| 💧 **Hydration Flow** | Disk → React State during app startup | [→ readme.md](readme.md#state-hydration-flow-asyncstorage) |
-| 🔐 **Authentication Restore** | Secure Storage → Context → Logged-in session | [→ readme.md](readme.md#state-survival-matrix-ram-vs-persistent-storage) |
-| 🗺️ **Navigation Restore** | Persist navigation state if the UX requires it | [→ readme.md](readme.md#cold-start-vs-warm-start-vs-process-death) |
+| 💧 **Hydration Flow** | Disk → React State during app startup | [→ readme.md](readme.md#state-hydration-flow) |
+| 🔐 **Authentication Restore** | Secure Storage → Context → Logged-in session | [→ readme.md](readme.md#state-survival-matrix) |
+| 🗺️ **Navigation Restore** | Persist navigation state if the UX requires it | [→ readme.md](readme.md#cold-start-warm-start-process-death) |
 
 ---
 

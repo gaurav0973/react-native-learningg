@@ -19,9 +19,9 @@
 
 | Flow | Remember As | Read More |
 |------|------------|-----------|
-| ⚡ **Fast Refresh Pipeline** | `Metro → Delta Bundle → Hermes → Component Update` | [→ readme.md](readme.md#fast-refresh-pipeline-the-fastest-loop) |
-| 🔄 **Reload Pipeline** | `Destroy Hermes → Execute index.js → Mount React App` | [→ readme.md](readme.md#reload-pipeline-restart-javascript-only) |
-| 🏗️ **Full Rebuild Pipeline** | `Gradle/Xcode → APK/IPA → Install → Launch` | [→ readme.md](readme.md#full-rebuild-pipeline-native-compilation) |
+| ⚡ **Fast Refresh Pipeline** | `Metro → Delta Bundle → Hermes → Component Update` | [→ readme.md](readme.md#fast-refresh-pipeline) |
+| 🔄 **Reload Pipeline** | `Destroy Hermes → Execute index.js → Mount React App` | [→ readme.md](readme.md#reload-pipeline) |
+| 🏗️ **Full Rebuild Pipeline** | `Gradle/Xcode → APK/IPA → Install → Launch` | [→ readme.md](readme.md#full-rebuild-pipeline) |
 | 🚇 **Metro Architecture** | Metro handles **JavaScript only** — never compiles native code | [→ readme.md](readme.md#metros-role-in-every-loop) |
 | 🔥 **Hermes Lifecycle** | `Preserve VM` vs `Restart VM` vs `New VM` | [→ readme.md](readme.md#hermes-behavior-across-loops) |
 | 🌳 **Decision Tree** | UI → Fast Refresh · JS Runtime → Reload · Native → Full Rebuild | [→ readme.md](readme.md#which-changes-need-which-loop) |

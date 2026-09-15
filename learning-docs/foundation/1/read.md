@@ -19,7 +19,7 @@
 
 | # | Topic | Read More |
 |---|-------|-----------|
-| 1 | 🏠 What actually is an App? | [→ readme.md](readme.md#what-actually-is-an-appp) |
+| 1 | 🏠 What actually is an App? | [→ readme.md](readme.md#what-actually-is-an-app) |
 | 2 | 🔄 Build Flow (full pipeline) | [→ readme.md](readme.md#complete-production-pipeline) |
 | 3 | 📱 APK Flow (internal structure) | [→ readme.md](readme.md#apk-internal-structure) |
 | 4 | ✍️ Signing Flow (keystore & trust) | [→ readme.md](readme.md#apk-signing-architecture) |

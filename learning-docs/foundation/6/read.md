@@ -20,14 +20,14 @@
 | Flow | Remember As | Read More |
 |------|------------|-----------|
 | 📐 **dp / pt vs px** | Layout units are logical — not physical pixels | [→ readme.md](readme.md#why-react-native-doesnt-use-px) |
-| 🔬 **DPI** | Physical pixel density per inch of screen | [→ readme.md](readme.md#dpi--dots-per-inch) |
+| 🔬 **DPI** | Physical pixel density per inch of screen | [→ readme.md](readme.md#dpi-dots-per-inch) |
 | 🤖🍎 **Platform Units** | Android = `dp`, iOS = `pt`, RN = plain numbers | [→ readme.md](readme.md#android-dp-vs-ios-pt) |
 | 🔢 **PixelRatio** | `PixelRatio.get()` → density multiplier for the device | [→ readme.md](readme.md#pixelratio-api) |
-| 🖼️ **Retina Assets** | `@1x`, `@2x`, `@3x` — same layout size, more physical pixels | [→ readme.md](readme.md#1x-2x-3x-images) |
+| 🖼️ **Retina Assets** | `@1x`, `@2x`, `@3x` — same layout size, more physical pixels | [→ readme.md](readme.md#retina-images) |
 | 🌫️ **Blurry Images** | Single low-res asset scaled up on high-density screens | [→ readme.md](readme.md#why-images-become-blurry) |
-| 📱 **Safe Area** | Region safe from notch, status bar, home indicator | [→ readme.md](readme.md#safe-areas-notches--insets) |
+| 📱 **Safe Area** | Region safe from notch, status bar, home indicator | [→ readme.md](readme.md#safe-areas-notches-insets) |
 | 🛡️ **SafeAreaView** | Runtime insets — never hardcode `paddingTop: 44` | [→ readme.md](readme.md#react-native-safe-area-context) |
-| 🎨 **Design Pipeline** | Figma → RN Styles → Yoga → PixelRatio → Safe Area → GPU | [→ readme.md](readme.md#figma-to-screen--responsive-pipeline) |
+| 🎨 **Design Pipeline** | Figma → RN Styles → Yoga → PixelRatio → Safe Area → GPU | [→ readme.md](readme.md#figma-to-screen-pipeline) |
 
 ---
 

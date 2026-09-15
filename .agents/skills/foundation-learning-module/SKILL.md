@@ -74,6 +74,8 @@ Use this template structure:
 
 ---
 
+<a id="section-slug"></a>
+
 ## 1 · [emoji] [Section Title]
 
 [Content: diagrams, tables, code blocks]

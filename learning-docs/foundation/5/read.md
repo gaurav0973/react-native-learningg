@@ -20,12 +20,12 @@
 | Flow | Remember As | Read More |
 |------|------------|-----------|
 | 🔌 **ADB Architecture** | `Computer ↔ Android OS ↔ React Native App` | [→ readme.md](readme.md#adb-architecture) |
-| 📜 **Logcat Pipeline** | Android components continuously write into Logcat | [→ readme.md](readme.md#where-logcat-lives-inside-android) |
+| 📜 **Logcat Pipeline** | Android components continuously write into Logcat | [→ readme.md](readme.md#where-logcat-lives) |
 | 🔴 **RedBox vs Native Crash** | JavaScript survives vs Process dies | [→ readme.md](readme.md#redbox-vs-native-crash) |
-| 🔍 **Logcat Reading Order** | `FATAL EXCEPTION → Exception Type → Your Package → Line Number` | [→ readme.md](readme.md#anatomy-of-a-logcat-crash) |
-| 🔐 **Permission Crash Flow** | Missing Manifest permission → `SecurityException` | [→ readme.md](readme.md#complete-android-native-crash-pipeline) |
-| 🔥 **Firebase Crash Flow** | Native initialization fails before JavaScript starts | [→ readme.md](readme.md#complete-android-native-crash-pipeline) |
-| 🛠️ **Crash Investigation Workflow** | `Clear logs → Reproduce → Filter → Fix → Rebuild` | [→ readme.md](readme.md#anatomy-of-a-logcat-crash) |
+| 🔍 **Logcat Reading Order** | `FATAL EXCEPTION → Exception Type → Your Package → Line Number` | [→ readme.md](readme.md#anatomy-of-logcat-crash) |
+| 🔐 **Permission Crash Flow** | Missing Manifest permission → `SecurityException` | [→ readme.md](readme.md#android-native-crash-pipeline) |
+| 🔥 **Firebase Crash Flow** | Native initialization fails before JavaScript starts | [→ readme.md](readme.md#android-native-crash-pipeline) |
+| 🛠️ **Crash Investigation Workflow** | `Clear logs → Reproduce → Filter → Fix → Rebuild` | [→ readme.md](readme.md#crash-investigation-workflow) |
 
 ---
 

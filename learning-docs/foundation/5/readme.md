@@ -14,6 +14,8 @@
 
 ---
 
+<a id="adb-architecture"></a>
+
 ## 1 · 🔌 ADB Architecture
 
 > **ADB is not part of React Native.**
@@ -63,6 +65,8 @@
 
 ---
 
+<a id="where-logcat-lives"></a>
+
 ## 2 · 📜 Where Logcat Lives Inside Android
 
 > **Logcat = Android's event recorder.**
@@ -110,6 +114,8 @@
 
 ---
 
+<a id="redbox-vs-native-crash"></a>
+
 ## 3 · 🔴 RedBox vs Native Crash
 
 > The single most important distinction in React Native debugging.
@@ -147,6 +153,8 @@
 > 🔑 **Key rule:** If the app closes instantly with no RedBox → it's a **native crash**. Go to Logcat.
 
 ---
+
+<a id="android-native-crash-pipeline"></a>
 
 ## 4 · ☠️ Complete Android Native Crash Pipeline
 
@@ -197,6 +205,8 @@
 
 ---
 
+<a id="anatomy-of-logcat-crash"></a>
+
 ## 5 · 🔍 Anatomy of a Logcat Crash
 
 > Learn how to read a crash in seconds.
@@ -237,6 +247,8 @@ adb logcat *:E
 | 5 | Ignore `at android.*`, `at com.android.*` | Framework internals |
 
 ---
+
+<a id="crash-investigation-workflow"></a>
 
 ## 6 · 🔬 Crash Investigation Workflow
 

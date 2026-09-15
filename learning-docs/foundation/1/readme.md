@@ -9,6 +9,8 @@
 
 ---
 
+<a id="what-actually-is-an-app"></a>
+
 ## 1 · 🏠 What Actually Is an App?
 
 An **application** is not just JavaScript. It's a fully packaged bundle containing:
@@ -53,6 +55,8 @@ An **application** is not just JavaScript. It's a fully packaged bundle containi
 ---
 
 
+
+<a id="complete-production-pipeline"></a>
 
 ## 2 · 🔄 Complete Production Pipeline
 
@@ -116,6 +120,8 @@ The four stages of shipping a React Native app:
 
 
 
+<a id="apk-internal-structure"></a>
+
 ## 3 · 📱 APK Internal Structure
 
 An APK file is a ZIP archive. When you unpack it, here's what's inside:
@@ -137,6 +143,8 @@ APK
 ---
 
 
+
+<a id="debug-build-vs-release"></a>
 
 ## 4 · 🐛 Debug Build vs Release Build
 
@@ -192,6 +200,8 @@ Release App (Phone)
 
 
 
+<a id="metros-role"></a>
+
 ## 5 · ⚙️ Metro's Role
 
 > **Metro exists during development only.** In production, it's gone.
@@ -230,6 +240,8 @@ JavaScript Bundle
 ---
 
 
+
+<a id="apk-vs-aab"></a>
 
 ## 6 · 🌐 APK vs AAB
 
@@ -281,6 +293,8 @@ JavaScript Bundle
 
 
 
+<a id="apk-signing-architecture"></a>
+
 ## 7 · 🔏 APK Signing Architecture
 
 
@@ -323,6 +337,8 @@ Private Key              Public Certificate
 
 
 
+<a id="keystore-anatomy"></a>
+
 ## 8 · 🗝️ Keystore Anatomy
 
 A keystore file is a secure container that holds your app's signing credentials.
@@ -348,6 +364,8 @@ my-upload-key.keystore
 ---
 
 
+
+<a id="why-losing-keystore-is-dangerous"></a>
 
 ## 9 · ⚠️ Why Losing a Keystore Is Dangerous
 
@@ -380,6 +398,8 @@ Result:  Mismatch → Update Rejected
 
 
 
+<a id="debug-keystore-vs-release-keystore"></a>
+
 ## 10 · 🔑 Debug Keystore vs Release Keystore
 
 ```
@@ -411,6 +431,8 @@ Result:  Mismatch → Update Rejected
 ---
 
 
+
+<a id="versioncode-vs-versionname"></a>
 
 ## 11 · 🔢 versionCode vs versionName
 
@@ -449,6 +471,8 @@ v2.0.0  versionCode=4  →  Major breaking change / rewrite
 
 
 
+<a id="semantic-versioning"></a>
+
 ## 12 · 📐 Semantic Versioning
 
 ```
@@ -474,6 +498,8 @@ v2.0.0  versionCode=4  →  Major breaking change / rewrite
 ---
 
 
+
+<a id="react-native-release-build"></a>
 
 ## 13 · 🚀 React Native Release Build — Full Android Pipeline
 
@@ -517,6 +543,8 @@ npx react-native build-android
 
 
 
+<a id="android-installation-verification"></a>
+
 ## 14 · 🔍 Android Installation Verification Flow
 
 > What happens the moment a user taps an APK file:
@@ -548,6 +576,8 @@ Install  Installation Failed
 ---
 
 
+
+<a id="android-vs-ios-build"></a>
 
 ## 15 · 🍎 Android vs iOS Build Ecosystem
 
@@ -588,6 +618,8 @@ Install  Installation Failed
 ---
 
 
+
+<a id="important-native-files"></a>
 
 ## 16 · 🗃️ Important Native Files
 

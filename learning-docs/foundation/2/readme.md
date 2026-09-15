@@ -16,6 +16,8 @@
 
 ---
 
+<a id="complete-mobile-app-lifecycle"></a>
+
 ## 1 · 🔄 Complete Mobile App Lifecycle
 
 > Every app moves through **states**, not screens.
@@ -67,6 +69,8 @@
 | **TERMINATED** | Process is gone — app was swiped away or killed by OS |
 
 ---
+
+<a id="user-actions-lifecycle-state"></a>
 
 ## 2 · 👆 User Actions → Lifecycle State
 
@@ -128,6 +132,8 @@
 ```
 
 ---
+
+<a id="android-activity-lifecycle-appstate"></a>
 
 ## 3 · 🤖 Android Activity Lifecycle → React Native AppState
 
@@ -195,6 +201,8 @@
 
 ---
 
+<a id="ios-lifecycle-appstate"></a>
+
 ## 4 · 🍎 iOS Lifecycle → React Native AppState
 
 > iOS has more granular transition states than Android.
@@ -247,6 +255,8 @@
 ```
 
 ---
+
+<a id="native-lifecycle-appstate-bridge"></a>
 
 ## 5 · 🌉 Native Lifecycle → JavaScript (AppState Bridge)
 
@@ -305,6 +315,8 @@ subscription.remove();
 
 ---
 
+<a id="appstate-notifications"></a>
+
 ## 6 · 🔔 AppState + Notifications
 
 > Push notifications behave differently depending on the app's current state.
@@ -336,6 +348,8 @@ subscription.remove();
 | **Terminated** | OS shows system notification → tapping launches app |
 
 ---
+
+<a id="appstate-deep-linking"></a>
 
 ## 7 · 🔗 AppState + Deep Linking
 
@@ -371,6 +385,8 @@ subscription.remove();
 | **Not running** | App launches → reads initial URL from `Linking.getInitialURL()` |
 
 ---
+
+<a id="resource-management-appstate"></a>
 
 ## 8 · ⚡ Resource Management Based on AppState
 

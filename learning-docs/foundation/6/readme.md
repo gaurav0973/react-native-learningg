@@ -14,6 +14,8 @@
 
 ---
 
+<a id="why-react-native-doesnt-use-px"></a>
+
 ## 1 · 📐 Why React Native Doesn't Use px
 
 Pixels measure **screen hardware**, not visual size. React Native wants **visual consistency** — so it uses density-independent units instead.
@@ -48,6 +50,8 @@ Same pixel count → Different physical size
 
 ---
 
+<a id="dpi-dots-per-inch"></a>
+
 ## 2 · 🔬 DPI — Dots Per Inch
 
 **DPI** = how many physical pixels exist in one inch of screen.
@@ -65,6 +69,8 @@ High DPI (480):  |●●●●●●●●●●●●●●●●●●●●�
 ```
 
 ---
+
+<a id="android-dp-vs-ios-pt"></a>
 
 ## 3 · 🤖 Android dp vs 🍎 iOS pt
 
@@ -93,6 +99,8 @@ React Native Style:  width: 100
 You never write `dp` or `pt` in React Native styles — the bridge handles conversion.
 
 ---
+
+<a id="pixelratio-api"></a>
 
 ## 4 · 🔢 PixelRatio API
 
@@ -130,6 +138,8 @@ const physicalPixels = layoutSize * PixelRatio.get();
 
 ---
 
+<a id="retina-images"></a>
+
 ## 5 · 🖼️ @1x, @2x, @3x Images
 
 React Native (and iOS/Android) use **multiple resolution assets** for the same layout size.
@@ -158,6 +168,8 @@ React Native picks the correct file automatically based on device density.
 
 ---
 
+<a id="why-images-become-blurry"></a>
+
 ## 6 · 🌫️ Why Images Become Blurry
 
 ```
@@ -180,6 +192,8 @@ OS scales image up 3×
 | Wrong aspect | Asset not square / wrong dimensions | Match exact pixel multiples |
 
 ---
+
+<a id="correct-asset-strategy"></a>
 
 ## 7 · ✅ Correct Asset Strategy
 
@@ -208,6 +222,8 @@ React Native picks best match at runtime
 
 ---
 
+<a id="safe-areas-notches-insets"></a>
+
 ## 8 · 📱 Safe Areas, Notches & Insets
 
 Modern phones have notches, Dynamic Island, punch-hole cameras, and gesture navigation bars. Content placed at `top: 0` or `bottom: 0` can be **hidden behind system UI**.
@@ -234,6 +250,8 @@ Modern phones have notches, Dynamic Island, punch-hole cameras, and gesture navi
 | `left` / `right` | Curved edges, landscape notch |
 
 ---
+
+<a id="react-native-safe-area-context"></a>
 
 ## 9 · 🛡️ react-native-safe-area-context
 
@@ -271,6 +289,8 @@ const insets = useSafeAreaInsets();
 Use the hook when you need fine-grained control (floating buttons, full-bleed backgrounds with padded content).
 
 ---
+
+<a id="figma-to-screen-pipeline"></a>
 
 ## 10 · 🎨 Figma to Screen — Responsive Pipeline
 
@@ -316,6 +336,8 @@ Use the hook when you need fine-grained control (floating buttons, full-bleed ba
 | **GPU** | Rasterize and display on screen |
 
 ---
+
+<a id="yoga-layout-engine"></a>
 
 ## 11 · 🧘 Yoga Layout Engine's Role
 

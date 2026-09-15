@@ -16,6 +16,8 @@
 
 ---
 
+<a id="three-build-loops-overview"></a>
+
 ## 1 · 🔀 The Three Build Loops — Overview
 
 | Loop | Trigger | What changes | Hermes | State |
@@ -45,6 +47,8 @@
 ```
 
 ---
+
+<a id="react-native-development-architecture"></a>
 
 ## 2 · 🏛️ React Native Development Architecture
 
@@ -80,6 +84,8 @@
 ```
 
 ---
+
+<a id="fast-refresh-pipeline"></a>
 
 ## 3 · ⚡ Fast Refresh Pipeline — The Fastest Loop
 
@@ -153,6 +159,8 @@ useState()
 
 ---
 
+<a id="reload-pipeline"></a>
+
 ## 4 · 🔄 Reload Pipeline — Restart JavaScript Only
 
 > Hermes VM is **destroyed and recreated**. All in-memory JS state is gone.
@@ -188,6 +196,8 @@ Render Entire React Tree
 - Added a new library that has JS-only setup
 
 ---
+
+<a id="full-rebuild-pipeline"></a>
 
 ## 5 · 🏗️ Full Rebuild Pipeline — Native Compilation
 
@@ -241,6 +251,8 @@ Launch New Android Process
 
 ---
 
+<a id="metros-role-in-every-loop"></a>
+
 ## 6 · 🚇 Metro's Role in Every Loop
 
 > **Metro only bundles JavaScript — it never compiles Kotlin, Java, Swift, or Objective-C.**
@@ -267,6 +279,8 @@ Changed Module      Entire JS Bundle   JS Bundle for APK
 | Full Rebuild | Compiles JS bundle → hands it to **Gradle/Xcode** to embed in APK |
 
 ---
+
+<a id="hermes-behavior-across-loops"></a>
 
 ## 7 · 🔥 Hermes Behavior Across Loops
 
@@ -314,6 +328,8 @@ Changed Module      Entire JS Bundle   JS Bundle for APK
 
 ---
 
+<a id="state-preservation-matrix"></a>
+
 ## 8 · 🧮 State Preservation Matrix
 
 | State Type | Fast Refresh | Reload | Full Rebuild |
@@ -329,6 +345,8 @@ Changed Module      Entire JS Bundle   JS Bundle for APK
 > Anything on disk (AsyncStorage, MMKV, SQLite) → always survives.
 
 ---
+
+<a id="which-changes-need-which-loop"></a>
 
 ## 9 · 🌳 Which Changes Need Which Loop?
 

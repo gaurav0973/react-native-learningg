@@ -20,10 +20,10 @@
 | Flow | Remember As | Read More |
 |------|------------|-----------|
 | 🔄 **App Lifecycle Flow** | `Active ↔ Inactive ↔ Background` | [→ readme.md](readme.md#complete-mobile-app-lifecycle) |
-| 🤖 **Android Mapping** | `onResume → active`, `onPause → inactive`, `onStop → background` | [→ readme.md](readme.md#android-activity-lifecycle--react-native-appstate) |
-| 🌉 **AppState Bridge** | `Native Lifecycle → AppState Module → JavaScript` | [→ readme.md](readme.md#native-lifecycle--javascript-appstate-bridge) |
-| 🔔 **Notification Flow** | Different handling for active, background, and terminated | [→ readme.md](readme.md#appstate--notifications) |
-| ⚡ **Production Refresh Flow** | Pause work in background, refresh when active again | [→ readme.md](readme.md#resource-management-based-on-appstate) |
+| 🤖 **Android Mapping** | `onResume → active`, `onPause → inactive`, `onStop → background` | [→ readme.md](readme.md#android-activity-lifecycle-appstate) |
+| 🌉 **AppState Bridge** | `Native Lifecycle → AppState Module → JavaScript` | [→ readme.md](readme.md#native-lifecycle-appstate-bridge) |
+| 🔔 **Notification Flow** | Different handling for active, background, and terminated | [→ readme.md](readme.md#appstate-notifications) |
+| ⚡ **Production Refresh Flow** | Pause work in background, refresh when active again | [→ readme.md](readme.md#resource-management-appstate) |
 
 ---
 
