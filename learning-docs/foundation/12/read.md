@@ -1,7 +1,7 @@
 <div align="center">
 
 # 📋 Module 12 — Summary
-### React Native Foundation 2: Mobile Forms & Login UX
+### React Native Foundation: Mobile Forms & Login UX
 
 [![Deep Dive Notes →](https://img.shields.io/badge/📖%20Full%20Notes-readme.md-6C63FF?style=for-the-badge)](readme.md)
 [![Diagram](https://img.shields.io/badge/🗺️%20useRef%20Diagram-excalidraw-FF6B6B?style=for-the-badge)](useRef-forwardRef-flow.excalidraw)
@@ -107,6 +107,6 @@ LoginScreen                    AppInput (forwardRef)
 
 **[Open Full Notes → readme.md](readme.md)**
 
-*React Native Foundation 2 · Module 12*
+*React Native Foundation · Module 12*
 
 </div>

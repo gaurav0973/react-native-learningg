@@ -7,20 +7,11 @@
 
 > Quick index of all foundation topics you've completed.
 > Each module has a **summary** (`read.md`) and **deep dive notes** (`readme.md`).
+> All modules live under **[foundation/](foundation/readme.md)**.
 
 ---
 
-## 🚀 Foundation 2 — App-Building Concepts
-
-> Second track — forms, navigation UX, and real Foodie app patterns.
-
-| Track | Index | Latest module |
-|-------|-------|---------------|
-| **Foundation 2** | [foundation-2/readme.md](foundation-2/readme.md) | [Module 12 — Mobile Forms](foundation-2/12/read.md) |
-
----
-
-## ✅ Completed Questions — Foundation 1
+## ✅ Completed Questions
 
 | # | Question | Summary | Deep Dive |
 |---|----------|---------|-----------|
@@ -34,6 +25,11 @@
 | 8 | Perceived speed: optimistic updates, prefetch, never show a blank screen. | [read.md](foundation/8/read.md) | [readme.md](foundation/8/readme.md) |
 | 9 | Reachability: primary actions at the bottom, sticky footer CTAs, 44pt targets. | [read.md](foundation/9/read.md) | [readme.md](foundation/9/readme.md) |
 | 10 | Platform conventions & Android back button — production navigation behavior. | [read.md](foundation/10/read.md) | [readme.md](foundation/10/readme.md) |
+| 11 | Toast vs inline vs bottom sheet vs alert; never a tap with no response | [read.md](foundation/11/read.md) | [readme.md](foundation/11/readme.md) |
+| 12 | Mobile forms: keyboard types, autofill, OTP autofill, validate on blur, useRef & forwardRef | [read.md](foundation/12/read.md) | [readme.md](foundation/12/readme.md) |
+| 13 | Use VoiceOver or TalkBack to complete a real flow | [read.md](foundation/13/read.md) | [readme.md](foundation/13/readme.md) |
+
+> 📂 **Full track index with module details:** [foundation/readme.md](foundation/readme.md)
 
 ---
 
@@ -126,6 +122,38 @@
 
 - 📋 [Summary → read.md](foundation/10/read.md)
 - 📖 [Deep Dive → readme.md](foundation/10/readme.md)
+
+---
+
+### Module 11 — Feedback Patterns
+
+> **Question:** Toast vs inline vs bottom sheet vs alert; never a tap with no response
+
+- 📋 [Summary → read.md](foundation/11/read.md)
+- 📖 [Deep Dive → readme.md](foundation/11/readme.md)
+
+---
+
+### Module 12 — Mobile Forms & Login UX
+
+> **Question:** Mobile forms: keyboard types, autofill, OTP autofill, validate on blur
+
+- 📋 [Summary → read.md](foundation/12/read.md)
+- 📖 [Deep Dive → readme.md](foundation/12/readme.md)
+- 🗺️ [useRef + forwardRef Diagram → useRef-forwardRef-flow.excalidraw](foundation/12/useRef-forwardRef-flow.excalidraw)
+
+**Implemented in app:** `src/screens/LoginScreen.js`, `src/components/AppInput.js`, `src/hooks/useLoginForm.js`
+
+---
+
+### Module 13 — Accessibility Testing with VoiceOver & TalkBack
+
+> **Question:** Use VoiceOver or TalkBack to complete a real flow
+
+- 📋 [Summary → read.md](foundation/13/read.md)
+- 📖 [Deep Dive → readme.md](foundation/13/readme.md)
+
+**Test flow in app:** Login screen — email → password → login button (audio-only navigation)
 
 ---
 

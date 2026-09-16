@@ -460,6 +460,6 @@ Navigate Home               Keep Form Visible
 
 **[← Back to Summary — read.md](read.md)**
 
-*React Native Foundation 2 · Module 12*
+*React Native Foundation · Module 12*
 
 </div>
