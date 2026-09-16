@@ -1,33 +1,51 @@
 ---
 name: foundation-learning-module
 description: >-
-  Create or update React Native Foundation learning modules in learning-docs/foundation/.
-  Formats raw notes into read.md (summary) and readme.md (deep dive), updates the index,
-  and keeps consistent architecture across modules. Use when adding a new foundation module,
-  converting rough notes to learning docs, or updating learning-docs/readme.md.
+  Create or update React Native Foundation learning modules in learning-docs/foundation-2/
+  (or learning-docs/foundation/ for the first track). Formats raw notes into read.md
+  (summary) and readme.md (deep dive), updates the track index, and keeps consistent
+  architecture across modules. Use when adding a new foundation module, converting rough
+  notes to learning docs, or updating learning-docs/foundation-2/readme.md.
 ---
 
 # Foundation Learning Module
 
-Turn raw React Native foundation notes into a paired **summary + deep dive** module and update the index.
+Turn raw React Native foundation notes into a paired **summary + deep dive** module and update the track index.
 
 ## When to Use
 
-- User adds a new folder under `learning-docs/foundation/N/`
+- User adds a new folder under `learning-docs/foundation-2/N/` (current track)
+- User adds a folder under `learning-docs/foundation/N/` (first track — modules 1–10)
 - User has rough notes and wants `read.md` + `readme.md` formatted
-- User asks to update `learning-docs/readme.md` with a new question
+- User asks to update the track index (`foundation-2/readme.md` or `learning-docs/readme.md`)
 - User wants foundation docs to match existing module architecture
 
 ## Folder Structure
 
+**Current track (Foundation 2 — app-building concepts):**
+
 ```
 learning-docs/
-├── readme.md                    ← index of all completed questions
+├── readme.md                         ← index of Foundation track 1 (modules 1–10)
+└── foundation-2/
+    ├── readme.md                     ← index of Foundation 2 modules
+    └── N/
+        ├── read.md                   ← quick summary (badges, tables, diagrams)
+        ├── readme.md                 ← deep dive (numbered sections, code, flows)
+        └── *.excalidraw              ← optional diagrams
+```
+
+**First track (Foundation 1 — platform fundamentals):**
+
+```
+learning-docs/
 └── foundation/
     └── N/
-        ├── read.md              ← quick summary (badges, tables, diagrams)
-        └── readme.md            ← deep dive (numbered sections, code, flows)
+        ├── read.md
+        └── readme.md
 ```
+
+**Default:** use `foundation-2/` unless the user explicitly refers to `foundation/` (track 1).
 
 ## Workflow
 
@@ -39,7 +57,7 @@ Task Progress:
 - [ ] Step 2: Identify the module question (one sentence)
 - [ ] Step 3: Write readme.md (deep dive first — source of truth)
 - [ ] Step 4: Write read.md (summary linking to readme.md sections)
-- [ ] Step 5: Update learning-docs/readme.md index
+- [ ] Step 5: Update track index (foundation-2/readme.md or learning-docs/readme.md)
 - [ ] Step 6: Verify links — remove any anchor with no matching section
 ```
 
@@ -168,20 +186,24 @@ Use this template structure:
 - If a section doesn't exist in readme.md, **don't link to it**
 - Include Quick Q&A table when interview notes are available
 
-### Step 4 — Update `learning-docs/readme.md`
+### Step 4 — Update the track index
 
-Add one row to the completed-questions table and one block under Module Details:
+**Foundation 2 (default):** update `learning-docs/foundation-2/readme.md`:
 
 ```markdown
-| N | [Question text] | [read.md](foundation/N/read.md) | [readme.md](foundation/N/readme.md) |
+| N | [Question text] | [read.md](N/read.md) | [readme.md](N/readme.md) |
 
 ### Module N — [Short Title]
 
 > **Question:** [Question text]
 
-- 📋 [Summary → read.md](foundation/N/read.md)
-- 📖 [Deep Dive → readme.md](foundation/N/readme.md)
+- 📋 [Summary → read.md](N/read.md)
+- 📖 [Deep Dive → readme.md](N/readme.md)
 ```
+
+**Foundation 1:** update `learning-docs/readme.md` with paths under `foundation/N/`.
+
+Also add a cross-link in `learning-docs/readme.md` to `foundation-2/readme.md` when Foundation 2 exists.
 
 ## Architecture Consistency Checklist
 
@@ -196,7 +218,7 @@ Before finishing, verify against modules 1–5:
 - [ ] readme.md ends with "Back to Summary" footer
 - [ ] No broken `#anchor` links (section must exist)
 - [ ] No duplicate paragraphs or repeated code blocks
-- [ ] Index updated in `learning-docs/readme.md`
+- [ ] Track index updated (`foundation-2/readme.md` or `learning-docs/readme.md`)
 
 ## Anchor Reference
 

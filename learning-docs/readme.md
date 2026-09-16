@@ -10,7 +10,17 @@
 
 ---
 
-## ✅ Completed Questions
+## 🚀 Foundation 2 — App-Building Concepts
+
+> Second track — forms, navigation UX, and real Foodie app patterns.
+
+| Track | Index | Latest module |
+|-------|-------|---------------|
+| **Foundation 2** | [foundation-2/readme.md](foundation-2/readme.md) | [Module 12 — Mobile Forms](foundation-2/12/read.md) |
+
+---
+
+## ✅ Completed Questions — Foundation 1
 
 | # | Question | Summary | Deep Dive |
 |---|----------|---------|-----------|
