@@ -1,12 +1,13 @@
-<div align="center">
+
 
 # 📖 Module 2 — Deep Dive Notes
+
 ### React Native: App Lifecycle & AppState
 
-[![Summary ←](https://img.shields.io/badge/📋%20Summary-read.md-00C896?style=for-the-badge)](read.md)
-[![Topic](https://img.shields.io/badge/Topic-Lifecycle%20·%20AppState%20·%20Notifications%20·%20Resources-6C63FF?style=for-the-badge)](.)
+![Summary ←](https://img.shields.io/badge/📋%20Summary-read.md-00C896?style=for-the-badge)
+![Topic](https://img.shields.io/badge/Topic-Lifecycle%20·%20AppState%20·%20Notifications%20·%20Resources-6C63FF?style=for-the-badge)
 
-</div>
+
 
 > **Question:** App lifecycle — active / background / inactive — and how AppState works in your app.
 >
@@ -16,11 +17,12 @@
 
 ---
 
-<a id="complete-mobile-app-lifecycle"></a>
+
 
 ## 1 · 🔄 Complete Mobile App Lifecycle
 
 > Every app moves through **states**, not screens.
+>
 > - Navigation changes **screens**
 > - The OS changes **lifecycle states**
 
@@ -61,28 +63,32 @@
          PROCESS DESTROYED
 ```
 
-| State | What it means |
-|-------|--------------|
-| **ACTIVE** | App is in the foreground — user can see and interact |
-| **INACTIVE** | App is visible but not receiving input (call overlay, notification banner) |
-| **BACKGROUND** | App is hidden — user pressed Home or switched apps |
-| **TERMINATED** | Process is gone — app was swiped away or killed by OS |
+
+| State          | What it means                                                              |
+| -------------- | -------------------------------------------------------------------------- |
+| **ACTIVE**     | App is in the foreground — user can see and interact                       |
+| **INACTIVE**   | App is visible but not receiving input (call overlay, notification banner) |
+| **BACKGROUND** | App is hidden — user pressed Home or switched apps                         |
+| **TERMINATED** | Process is gone — app was swiped away or killed by OS                      |
+
 
 ---
 
-<a id="user-actions-lifecycle-state"></a>
+
 
 ## 2 · 👆 User Actions → Lifecycle State
 
 > Every common action maps to a predictable state transition.
 
-| User Action | Resulting State |
-|-------------|----------------|
-| Open app | `active` |
-| Press Home button | `background` |
-| Incoming notification | `inactive` |
-| Incoming call | `inactive` → `background` (if accepted) |
-| Return to app | `active` |
+
+| User Action           | Resulting State                         |
+| --------------------- | --------------------------------------- |
+| Open app              | `active`                                |
+| Press Home button     | `background`                            |
+| Incoming notification | `inactive`                              |
+| Incoming call         | `inactive` → `background` (if accepted) |
+| Return to app         | `active`                                |
+
 
 ```
 ┌──────────────────────────────────────────┐
@@ -133,19 +139,21 @@
 
 ---
 
-<a id="android-activity-lifecycle-appstate"></a>
+
 
 ## 3 · 🤖 Android Activity Lifecycle → React Native AppState
 
 > Android exposes lifecycle as callbacks on the `Activity` class.
 > React Native reads these callbacks and maps them to AppState values.
 
+
 | Android Callback | React Native AppState |
-|------------------|-----------------------|
-| `onResume()` | `active` |
-| `onPause()` | `inactive` |
-| `onStop()` | `background` |
-| `onDestroy()` | App process destroyed |
+| ---------------- | --------------------- |
+| `onResume()`     | `active`              |
+| `onPause()`      | `inactive`            |
+| `onStop()`       | `background`          |
+| `onDestroy()`    | App process destroyed |
+
 
 ```
          ANDROID OPERATING SYSTEM
@@ -201,19 +209,21 @@
 
 ---
 
-<a id="ios-lifecycle-appstate"></a>
+
 
 ## 4 · 🍎 iOS Lifecycle → React Native AppState
 
 > iOS has more granular transition states than Android.
 > `UIApplication` delegates control the flow.
 
-| iOS Callback | React Native AppState |
-|--------------|-----------------------|
-| `didBecomeActive` | `active` |
-| `willResignActive` | `inactive` |
-| `didEnterBackground` | `background` |
+
+| iOS Callback          | React Native AppState |
+| --------------------- | --------------------- |
+| `didBecomeActive`     | `active`              |
+| `willResignActive`    | `inactive`            |
+| `didEnterBackground`  | `background`          |
 | `willEnterForeground` | transition → `active` |
+
 
 ```
                UIApplication
@@ -256,7 +266,7 @@
 
 ---
 
-<a id="native-lifecycle-appstate-bridge"></a>
+
 
 ## 5 · 🌉 Native Lifecycle → JavaScript (AppState Bridge)
 
@@ -315,7 +325,7 @@ subscription.remove();
 
 ---
 
-<a id="appstate-notifications"></a>
+
 
 ## 6 · 🔔 AppState + Notifications
 
@@ -341,15 +351,17 @@ subscription.remove();
                   Navigate to Screen
 ```
 
-| App State | Notification Behavior |
-|-----------|----------------------|
-| **Active** | Show in-app UI (custom banner, modal, etc.) |
-| **Background** | OS shows system notification in tray |
+
+| App State      | Notification Behavior                               |
+| -------------- | --------------------------------------------------- |
+| **Active**     | Show in-app UI (custom banner, modal, etc.)         |
+| **Background** | OS shows system notification in tray                |
 | **Terminated** | OS shows system notification → tapping launches app |
+
 
 ---
 
-<a id="appstate-deep-linking"></a>
+
 
 ## 7 · 🔗 AppState + Deep Linking
 
@@ -379,14 +391,16 @@ subscription.remove();
             Restaurant Screen
 ```
 
-| App State | Deep Link Handling |
-|-----------|-------------------|
-| **Running (active/background)** | `Linking` event fires → `Navigation.navigate()` |
-| **Not running** | App launches → reads initial URL from `Linking.getInitialURL()` |
+
+| App State                       | Deep Link Handling                                              |
+| ------------------------------- | --------------------------------------------------------------- |
+| **Running (active/background)** | `Linking` event fires → `Navigation.navigate()`                 |
+| **Not running**                 | App launches → reads initial URL from `Linking.getInitialURL()` |
+
 
 ---
 
-<a id="resource-management-appstate"></a>
+
 
 ## 8 · ⚡ Resource Management Based on AppState
 
@@ -409,20 +423,22 @@ subscription.remove();
  Enable Search               Disable Keyboard
 ```
 
-| Resource | Active | Background |
-|----------|--------|------------|
-| API polling | ✅ Run on interval | ⏸️ Stop polling |
-| Animations | ✅ Running | ⏸️ Paused |
-| Timers | ✅ Ticking | ⏸️ Paused |
-| Location updates | ✅ Shown in UI | 🔋 Reduce frequency |
-| Video playback | ✅ Playing | ⏸️ Paused |
-| WebSocket connections | ✅ Active | 🔋 Throttled or closed |
+
+| Resource              | Active            | Background             |
+| --------------------- | ----------------- | ---------------------- |
+| API polling           | ✅ Run on interval | ⏸️ Stop polling        |
+| Animations            | ✅ Running         | ⏸️ Paused              |
+| Timers                | ✅ Ticking         | ⏸️ Paused              |
+| Location updates      | ✅ Shown in UI     | 🔋 Reduce frequency    |
+| Video playback        | ✅ Playing         | ⏸️ Paused              |
+| WebSocket connections | ✅ Active          | 🔋 Throttled or closed |
+
 
 > **Why this matters:** The OS may kill background apps to reclaim memory. If you don't clean up timers, intervals, and subscriptions when going to background, they may fire after the app is resumed or cause memory leaks.
 
 ---
 
-<div align="center">
+
 
 📋 **Need a quick refresher?**
 
@@ -430,4 +446,3 @@ subscription.remove();
 
 *React Native Foundation · Module 2*
 
-</div>
