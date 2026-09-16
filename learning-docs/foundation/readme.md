@@ -31,6 +31,7 @@
 | 13 | Use VoiceOver or TalkBack to complete a real flow | [read.md](13/read.md) | [readme.md](13/readme.md) |
 | 14 | Internalize what does NOT exist in React Native — no DOM, CSS cascade, hover, media queries, cookies, or URL bar | [read.md](14/read.md) | [readme.md](14/readme.md) |
 | 15 | How does React Native work internally — Hermes, JSI, Fabric, TurboModules, and the New Architecture? | [read.md](15/read.md) | [readme.md](15/readme.md) |
+| 16 | Expo vs React Native CLI — who owns the native Android/iOS layer, and why does this course use Bare CLI? | [read.md](16/read.md) | [readme.md](16/readme.md) |
 
 ---
 
@@ -89,6 +90,17 @@
 - 📖 [Deep Dive → readme.md](15/readme.md)
 
 **Enabled in app:** `android/gradle.properties` — `hermesEnabled=true`, `newArchEnabled=true`
+
+---
+
+### Module 16 — Expo vs React Native CLI
+
+> **Question:** Expo vs React Native CLI — who owns the native Android/iOS layer, and why does this course use Bare CLI?
+
+- 📋 [Summary → read.md](16/read.md)
+- 📖 [Deep Dive → readme.md](16/readme.md)
+
+**This project is Bare CLI:** `android/`, `ios/`, `AndroidManifest.xml`, `metro.config.js`, Gradle build scripts
 
 ---
 
