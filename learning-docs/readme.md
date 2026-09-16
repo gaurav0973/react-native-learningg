@@ -28,6 +28,7 @@
 | 11 | Toast vs inline vs bottom sheet vs alert; never a tap with no response | [read.md](foundation/11/read.md) | [readme.md](foundation/11/readme.md) |
 | 12 | Mobile forms: keyboard types, autofill, OTP autofill, validate on blur, useRef & forwardRef | [read.md](foundation/12/read.md) | [readme.md](foundation/12/readme.md) |
 | 13 | Use VoiceOver or TalkBack to complete a real flow | [read.md](foundation/13/read.md) | [readme.md](foundation/13/readme.md) |
+| 14 | Internalize what does NOT exist in React Native — no DOM, CSS cascade, hover, media queries, cookies, or URL bar | [read.md](foundation/14/read.md) | [readme.md](foundation/14/readme.md) |
 
 > 📂 **Full track index with module details:** [foundation/readme.md](foundation/readme.md)
 
@@ -154,6 +155,17 @@
 - 📖 [Deep Dive → readme.md](foundation/13/readme.md)
 
 **Test flow in app:** Login screen — email → password → login button (audio-only navigation)
+
+---
+
+### Module 14 — What Does NOT Exist in React Native
+
+> **Question:** Internalize what does NOT exist in React Native — no DOM, CSS cascade, hover, media queries, cookies, or URL bar
+
+- 📋 [Summary → read.md](foundation/14/read.md)
+- 📖 [Deep Dive → readme.md](foundation/14/readme.md)
+
+**Implemented in app:** `src/navigation/linking.js`, `src/services/storageService.js`, `src/components/AppInput.js` (refs), `src/components/OfferCarousel.js` (Dimensions)
 
 ---
 
