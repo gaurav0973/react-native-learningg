@@ -27,19 +27,25 @@
 | 📐 **No media queries** | Read dimensions in JS, choose layout with Flexbox | [→ readme.md](readme.md#no-media-queries) |
 | 🔗 **No URL bar** | Deep links map into React Navigation stack | [→ readme.md](readme.md#deep-linking-not-urls) |
 | 🍪 **No cookies** | Store JWT manually in AsyncStorage or Keychain | [→ readme.md](readme.md#no-cookies-auth-storage) |
+| 🔥 **9 differences** | Memorize the web → RN mapping table — your brain's cheat sheet | [→ readme.md](readme.md#nine-differences-at-a-glance) |
 
 ---
 
-## ⚡ Short Notes
+## 🔥 The 9 Differences at a Glance — Memorize This Table
 
-| Web concept | React Native reality |
-|-------------|---------------------|
-| **DOM / HTML** | Native components (`View`, `Text`, `Pressable`) |
-| **CSS cascade** | JavaScript style objects — no inheritance |
-| **`:hover`** | Press states (`onPressIn`, `onPressOut`) |
-| **`@media` queries** | `useWindowDimensions()` + conditional rendering |
-| **URL bar / history** | React Navigation in-memory stack |
-| **Cookies / localStorage** | AsyncStorage, Secure Storage, Context |
+> **This is the table to drill until it sticks.** Every row is a web habit you must unlearn.
+
+| # | React Web | React Native | Read More |
+|---|-----------|--------------|-----------|
+| 1 | **DOM Renderer** | **Native Renderer** | [→ readme.md](readme.md#no-dom) |
+| 2 | `div`, `button`, `span` | `View`, `Pressable`, `Text` | [→ readme.md](readme.md#no-dom) |
+| 3 | **CSS** | **`StyleSheet` / Style Objects** | [→ readme.md](readme.md#no-css-cascade) |
+| 4 | Flex default: **`row`** | Flex default: **`column`** | [→ readme.md](readme.md#nine-differences-at-a-glance) |
+| 5 | **Mouse events** | **Touch events** | [→ readme.md](readme.md#no-hover-touch-states) |
+| 6 | **React Router** | **React Navigation** | [→ readme.md](readme.md#deep-linking-not-urls) |
+| 7 | **Cookies / localStorage** | **AsyncStorage / Secure Storage** | [→ readme.md](readme.md#no-cookies-auth-storage) |
+| 8 | **Media queries** | **`Dimensions` + Flexbox** | [→ readme.md](readme.md#no-media-queries) |
+| 9 | **Browser APIs** | **Native device APIs** | [→ readme.md](readme.md#browser-apis-alternatives) |
 
 ---
 
@@ -80,10 +86,10 @@
 
 ## 🧠 Things You Should Remember Forever
 
-- **React Native is not a browser** — if you're looking for a DOM, CSS engine, or URL bar, wrong mental model.
-- **Everything is a native view** — not an HTML element.
+- **Memorize the 9 differences table above** — it's the fastest way to catch web habits before they bite you.
+- **Flex default is `column` in RN, `row` on web** — the #1 layout surprise for React web devs.
+- **React Native is not a browser** — no DOM, CSS engine, or URL bar.
 - **Styles don't cascade** — every component owns its own style object.
-- **Navigation replaces URLs** — device storage replaces cookies/localStorage.
 - **When stuck, ask:** "How would Android or iOS do this natively?"
 
 ---

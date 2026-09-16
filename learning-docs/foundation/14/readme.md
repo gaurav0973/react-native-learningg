@@ -33,9 +33,54 @@ When you're stuck, ask: **"How would Android or iOS do this natively?"** That's 
 
 ---
 
+<a id="nine-differences-at-a-glance"></a>
+
+## 2 · 🔥 The 9 Differences at a Glance — Memorize This Table
+
+> **Drill this table until it's automatic.** Each row is a web habit you must replace with a native mental model.
+
+| # | React Web | React Native | Why It Matters |
+|---|-----------|--------------|----------------|
+| 1 | **DOM Renderer** | **Native Renderer** | No HTML — your UI is Android Views / iOS UIKit |
+| 2 | `div`, `button`, `span` | `View`, `Pressable`, `Text` | No HTML tags — only RN primitives |
+| 3 | **CSS** (cascade, selectors) | **`StyleSheet` / Style Objects** | Styles don't inherit — every component owns its look |
+| 4 | Flex default: **`row`** | Flex default: **`column`** | Web lays out horizontally; RN stacks vertically |
+| 5 | **Mouse events** (`onClick`, `:hover`) | **Touch events** (`onPress`, `onPressIn`) | No hover — design for fingers, not cursors |
+| 6 | **React Router** (URLs in address bar) | **React Navigation** (in-memory stack) | No URL bar — routes live in navigation state |
+| 7 | **Cookies / localStorage** (automatic) | **AsyncStorage / Secure Storage** (manual) | You decide where tokens and data live |
+| 8 | **Media queries** (`@media`) | **`Dimensions` + Flexbox** | Responsive layout is JavaScript, not CSS |
+| 9 | **Browser APIs** (`document`, `window`) | **Native device APIs** (camera, GPS, Keychain) | Reach for platform APIs, not browser globals |
+
+### ⚠️ Gotcha #4 — Flex Direction Default
+
+This trips up almost every React web developer on day one:
+
+```javascript
+// Web — flex container defaults to row (horizontal)
+<div style={{ display: 'flex' }}>
+  <div>A</div>   {/* A and B sit side by side */}
+  <div>B</div>
+</div>
+
+// React Native — flex container defaults to column (vertical)
+<View style={{ flex: 1 }}>
+  <Text>A</Text>   {/* A sits above B */}
+  <Text>B</Text>
+</View>
+```
+
+| Platform | Default `flexDirection` | Typical layout feel |
+|----------|--------------------------|---------------------|
+| **Web (CSS)** | `row` | Horizontal first |
+| **React Native** | `column` | Vertical first (mobile-native) |
+
+**Rule:** In RN, if items aren't laying out how you expect, check `flexDirection` first — you probably brought a web default into your head.
+
+---
+
 <a id="browser-vs-rn-architecture"></a>
 
-## 2 · 🏗️ Browser vs React Native Architecture
+## 3 · 🏗️ Browser vs React Native Architecture
 
 ```
          WEB (React DOM)                    REACT NATIVE
@@ -71,7 +116,7 @@ When you're stuck, ask: **"How would Android or iOS do this natively?"** That's 
 
 <a id="no-dom"></a>
 
-## 3 · 🚫 DOM Does NOT Exist
+## 4 · 🚫 DOM Does NOT Exist
 
 ```
 Web React                          React Native
@@ -108,7 +153,7 @@ emailRef.current?.focus();
 
 <a id="no-css-cascade"></a>
 
-## 4 · 🎨 CSS Cascade Does NOT Exist
+## 5 · 🎨 CSS Cascade Does NOT Exist
 
 On the web, styles **inherit and cascade**:
 
@@ -149,7 +194,7 @@ Applied ONLY to That Component
 
 <a id="no-hover-touch-states"></a>
 
-## 5 · 👆 Hover Does NOT Exist — Touch States Do
+## 6 · 👆 Hover Does NOT Exist — Touch States Do
 
 Browsers have a **mouse pointer** with hover. Mobile has **finger touch** with press states.
 
@@ -201,7 +246,7 @@ Background Changes                   Pressed State (opacity/ripple)
 
 <a id="no-media-queries"></a>
 
-## 6 · 📐 Media Queries Do NOT Exist
+## 7 · 📐 Media Queries Do NOT Exist
 
 There is no `@media (min-width: 768px)`. Instead, read device dimensions in JavaScript and choose layout conditionally.
 
@@ -238,7 +283,7 @@ return isTablet ? <TabletLayout /> : <PhoneLayout />;
 
 <a id="deep-linking-not-urls"></a>
 
-## 7 · 🔗 Deep Linking Replaces URLs
+## 8 · 🔗 Deep Linking Replaces URLs
 
 There is no URL bar. Navigation is an **in-memory stack** managed by React Navigation. Deep links map external URLs into that stack.
 
@@ -271,7 +316,7 @@ Restaurant Details Screen
 
 <a id="no-cookies-auth-storage"></a>
 
-## 8 · 🍪 Cookies Do NOT Exist — Manual Token Storage
+## 9 · 🍪 Cookies Do NOT Exist — Manual Token Storage
 
 There is no browser cookie jar. You decide where authentication lives.
 
@@ -308,7 +353,7 @@ apiClient.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
 <a id="browser-apis-alternatives"></a>
 
-## 9 · 🔄 Browser APIs That Don't Exist
+## 10 · 🔄 Browser APIs That Don't Exist
 
 | Browser API | React Native alternative |
 |-------------|-------------------------|
