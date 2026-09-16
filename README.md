@@ -12,23 +12,42 @@
 
 ---
 
+## How to read this repo for learning React Native
+
+This repository is two things at once:
+
+1. **A runnable Foodie app** — the `src/` code you can build, run, and change.
+2. **A learning trail** — notes written while building it, explaining what each piece does and why.
+
+For a **structured path through React Native**, start with **[wiring-knowledge/index.md](./wiring-knowledge/index.md)**. That index is the main entry point: 51 notes in dependency order across four tracks — **Internals** (how the runtime works), **Implementations** (APIs and libraries you call), **Patterns** (reusable solution shapes), and **Style patterns** (layout and visual system). Read in order the first time; each note links to the repo files it maps to.
+
+| If you want… | Start here |
+| --- | --- |
+| The full reading path and spine | [wiring-knowledge/index.md](./wiring-knowledge/index.md) |
+| A specific term or concept | [wiring-knowledge/concept-lookup.md](./wiring-knowledge/concept-lookup.md) |
+| A chronological build log (this file) | Sections 1–13 below |
+
+The sections below are the original concept-by-concept log — same topics, written as I learned them. Use them alongside wiring-knowledge, or jump straight to the index if you prefer dependency order over build order.
+
+---
+
 ## 📚 Table of Contents
 
-| # | Topic |
-|---|-------|
-| 1 | [🧱 Core UI Primitives](#1--core-ui-primitives) |
-| 2 | [📜 ScrollView, FlatList & Images](#2--scrollview-flatlist--images) |
-| 3 | [🗺️ React Navigation](#3--react-navigation) |
-| 4 | [⚙️ State-Driven UI](#4--state-driven-ui) |
-| 5 | [🌐 Context API, Redux & Zustand](#5--context-api-redux--zustand) |
-| 6 | [🔁 Derived State, useEffect & Side Effects](#6--derived-state-useeffect--side-effects) |
-| 7 | [🔍 Controlled Components, Debouncing & Throttling](#7--controlled-components-debouncing--throttling) |
-| 8 | [💾 AsyncStorage & Hydration](#8--asyncstorage--hydration) |
-| 9 | [🎬 Lottie, FlashList & Pull-to-Refresh](#9--lottie-flashlist--pull-to-refresh) |
-| 10 | [📄 Pagination & Animated API](#10--pagination--animated-api) |
-| 11 | [📍 Location & GPS](#11--location--gps) |
-| 12 | [🔔 Local Push Notifications](#12--local-push-notifications) |
-| 13 | [🔗 Deep Linking](#13--deep-linking) |
+| #   | Topic                                                                                                 |
+| --- | ----------------------------------------------------------------------------------------------------- |
+| 1   | [🧱 Core UI Primitives](#1--core-ui-primitives)                                                       |
+| 2   | [📜 ScrollView, FlatList & Images](#2--scrollview-flatlist--images)                                   |
+| 3   | [🗺️ React Navigation](#3--react-navigation)                                                           |
+| 4   | [⚙️ State-Driven UI](#4--state-driven-ui)                                                             |
+| 5   | [🌐 Context API, Redux & Zustand](#5--context-api-redux--zustand)                                     |
+| 6   | [🔁 Derived State, useEffect & Side Effects](#6--derived-state-useeffect--side-effects)               |
+| 7   | [🔍 Controlled Components, Debouncing & Throttling](#7--controlled-components-debouncing--throttling) |
+| 8   | [💾 AsyncStorage & Hydration](#8--asyncstorage--hydration)                                            |
+| 9   | [🎬 Lottie, FlashList & Pull-to-Refresh](#9--lottie-flashlist--pull-to-refresh)                       |
+| 10  | [📄 Pagination & Animated API](#10--pagination--animated-api)                                         |
+| 11  | [📍 Location & GPS](#11--location--gps)                                                               |
+| 12  | [🔔 Local Push Notifications](#12--local-push-notifications)                                          |
+| 13  | [🔗 Deep Linking](#13--deep-linking)                                                                  |
 
 ---
 
@@ -42,19 +61,19 @@
 
 ### FlexBox
 
-| Property | What it does |
-|----------|-------------|
-| `flex: 1` | Take all available vertical space |
+| Property         | What it does                                     |
+| ---------------- | ------------------------------------------------ |
+| `flex: 1`        | Take all available vertical space                |
 | `justifyContent` | Align on the **main axis** (vertical by default) |
-| `alignItems` | Align on the **cross axis** |
-| `flexDirection` | Default: top-to-bottom (`column`) |
+| `alignItems`     | Align on the **cross axis**                      |
+| `flexDirection`  | Default: top-to-bottom (`column`)                |
 
 ### Positions
 
-| Property | What it does |
-|----------|-------------|
-| `margin` | Space **between siblings** |
-| `padding` | Space **inside** the view |
+| Property  | What it does               |
+| --------- | -------------------------- |
+| `margin`  | Space **between siblings** |
+| `padding` | Space **inside** the view  |
 
 ### SafeAreaView
 
@@ -63,13 +82,13 @@
 
 ### Other Concepts
 
-| Concept | Notes |
-|---------|-------|
-| `TextInput` | Controlled input component |
-| `Pressable` | Think in terms of **press** — like `onClick`, but you wire it up manually |
-| `StatusBar` | 📶 4G 🔋 87% — belongs to Android/iOS, not your app |
-| Mobile keyboard behavior | How keyboard pushes content up |
-| Controlled components | Drive input value from `useState` |
+| Concept                  | Notes                                                                     |
+| ------------------------ | ------------------------------------------------------------------------- |
+| `TextInput`              | Controlled input component                                                |
+| `Pressable`              | Think in terms of **press** — like `onClick`, but you wire it up manually |
+| `StatusBar`              | 📶 4G 🔋 87% — belongs to Android/iOS, not your app                       |
+| Mobile keyboard behavior | How keyboard pushes content up                                            |
+| Controlled components    | Drive input value from `useState`                                         |
 
 ### UI Snapshot
 
@@ -92,21 +111,21 @@
 
 ### ScrollView vs FlatList
 
-| | ScrollView | FlatList |
-|-|------------|----------|
-| Best for | Small static lists | Large dynamic lists |
-| Rendering | Loads everything at once | **Virtualization** — renders only visible items + small buffer |
-| Performance | Fine for ~20 items | Essential for 100+ items |
+|             | ScrollView               | FlatList                                                       |
+| ----------- | ------------------------ | -------------------------------------------------------------- |
+| Best for    | Small static lists       | Large dynamic lists                                            |
+| Rendering   | Loads everything at once | **Virtualization** — renders only visible items + small buffer |
+| Performance | Fine for ~20 items       | Essential for 100+ items                                       |
 
 ### Image Component
 
-| Concept | Notes |
-|---------|-------|
-| Local assets | `src/assets/images` |
-| Remote vs Local | `source={{ uri: '...' }}` vs `require('./img.png')` |
-| `resizeMode` | `cover`, `contain`, `stretch`, `center` |
-| `Dimensions` API | Get screen width/height for responsive UI |
-| `ScrollView` + `pagingEnabled` | Our **first carousel** 🎠 |
+| Concept                        | Notes                                               |
+| ------------------------------ | --------------------------------------------------- |
+| Local assets                   | `src/assets/images`                                 |
+| Remote vs Local                | `source={{ uri: '...' }}` vs `require('./img.png')` |
+| `resizeMode`                   | `cover`, `contain`, `stretch`, `center`             |
+| `Dimensions` API               | Get screen width/height for responsive UI           |
+| `ScrollView` + `pagingEnabled` | Our **first carousel** 🎠                           |
 
 ### FlatList Deep Dive
 
@@ -128,10 +147,10 @@
 
 ### Positioning
 
-| Property | Effect |
-|----------|--------|
-| `position: "absolute"` | Lifts element out of normal flow |
-| `overflow: "hidden"` | Clips child content outside bounds |
+| Property               | Effect                             |
+| ---------------------- | ---------------------------------- |
+| `position: "absolute"` | Lifts element out of normal flow   |
+| `overflow: "hidden"`   | Clips child content outside bounds |
 
 ![App screenshot](./public/2.jpg)
 
@@ -145,9 +164,9 @@
 
 **How the Stack works:**
 
-| Action | Stack State |
-|--------|------------|
-| On Home | `["Home"]` |
+| Action                 | Stack State              |
+| ---------------------- | ------------------------ |
+| On Home                | `["Home"]`               |
 | Navigate to Restaurant | `["Home", "Restaurant"]` |
 
 - **Stack Navigator** automatically adds:
@@ -165,11 +184,11 @@
 
 ### Concepts
 
-| Concept | Notes |
-|---------|-------|
-| Conditional rendering | Show/hide elements based on state |
-| Local state | Lives inside one component — cannot be accessed by other screens |
-| React re-render | Component function runs again → React diffs old/new UI → only changed native views update |
+| Concept               | Notes                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------- |
+| Conditional rendering | Show/hide elements based on state                                                         |
+| Local state           | Lives inside one component — cannot be accessed by other screens                          |
+| React re-render       | Component function runs again → React diffs old/new UI → only changed native views update |
 
 ![App screenshot](./public/4.jpg)
 ![App screenshot](./public/5.jpg)
@@ -193,23 +212,25 @@
 > ✅ Good for: Authentication, Theme
 
 **Problem with Context at scale:**
+
 - Unnecessary re-renders — everything inside one provider
 - As app grows: theme, user, cart, orders, location, wishlist, notifications all in one place
 - If only the cart badge changes → **every consumer can re-render**
 
 ```jsx
 <AuthProvider>
-    <ThemeProvider>
-        <CartProvider>
-        <LocationProvider>
-            <NotificationProvider>
-            <App/>
-            </NotificationProvider>
-        </LocationProvider>
-        </CartProvider>
-    </ThemeProvider>
+  <ThemeProvider>
+    <CartProvider>
+      <LocationProvider>
+        <NotificationProvider>
+          <App />
+        </NotificationProvider>
+      </LocationProvider>
+    </CartProvider>
+  </ThemeProvider>
 </AuthProvider>
 ```
+
 > This is called **Provider Hell** — still manageable but gets worse as app grows.
 
 ### Why Redux Was Introduced
@@ -219,10 +240,12 @@
 - Key distinction: Context API = shared values / Redux = manages application state
 
 **Redux approach:** instead of many providers → **one centralized store**
+
 - Everything reads from one store
 - Everything writes to one store
 
 **Redux problem:** became very verbose — to change one value you need:
+
 - `action.js`
 - `reducer.js`
 - `constant.js`
@@ -244,11 +267,11 @@ Zustand        →  lightweight global store
 
 ### Vocabulary
 
-| Term | Meaning |
-|------|---------|
-| `context` | Shared data container |
-| `provider` | Supplies shared data |
-| `consumer` | Reads shared data |
+| Term           | Meaning                |
+| -------------- | ---------------------- |
+| `context`      | Shared data container  |
+| `provider`     | Supplies shared data   |
+| `consumer`     | Reads shared data      |
 | `useContext()` | Hook to access context |
 
 ![Context](./public/context.png)
@@ -271,11 +294,11 @@ Zustand        →  lightweight global store
 
 ### Component Lifecycle
 
-| Phase | When |
-|-------|------|
-| **Created** | Component function first defined |
-| **Mounted** | First time it appears on screen |
-| **Updated** | State changes → component re-renders |
+| Phase         | When                                        |
+| ------------- | ------------------------------------------- |
+| **Created**   | Component function first defined            |
+| **Mounted**   | First time it appears on screen             |
+| **Updated**   | State changes → component re-renders        |
 | **Unmounted** | Navigate away → component removed from tree |
 
 ### useEffect
@@ -293,11 +316,11 @@ useEffect(
 
 ### Dependency Array
 
-| Pattern | When it runs |
-|---------|-------------|
-| `[]` | **Mount only** — perfect for initial API calls |
-| no array | After **every render** |
-| `[searchText]` | Whenever `searchText` changes |
+| Pattern        | When it runs                                   |
+| -------------- | ---------------------------------------------- |
+| `[]`           | **Mount only** — perfect for initial API calls |
+| no array       | After **every render**                         |
+| `[searchText]` | Whenever `searchText` changes                  |
 
 ### Cleanup
 
@@ -321,6 +344,7 @@ useEffect(() => {
 - Keeps the component **fixed on screen** regardless of scroll
 
 📖 References:
+
 - [CSS Positioning Explained](https://medium.com/@gauravkmaurya09/css-positioning-explained-7279b1429f05)
 - [Mastering FlexBox in CSS](https://medium.com/@gauravkmaurya09/mastering-flexbox-in-css-dba7f48b4373)
 
@@ -346,10 +370,12 @@ const [searchText, setSearchText] = useState('');
 ### Debouncing
 
 **The problem — Naive Search:**
+
 - Every keystroke triggers an API request
 - `P` → API | `i` → API | `z` → API | = huge waste at scale
 
 **Debouncing:**
+
 - User keeps typing → timer **keeps resetting**
 - User **stops** typing → API call fires once
 
@@ -374,6 +400,7 @@ const [searchText, setSearchText] = useState('');
 ### Throttling
 
 **Throttling:**
+
 - First keystroke → **immediate API call**, system **locks for 300ms**
 - Keystrokes during lock → **ignored**
 - Lock expires → next keystroke allowed
@@ -457,22 +484,24 @@ App open again  → cart restored
 - **Key-value pair** store (almost identical concept to web `localStorage`)
 
 **What to store:**
+
 - ✅ JWT token
 - ✅ Cart items
 - ✅ User theme
 - ✅ Delivery address
 
 **What NOT to store:**
+
 - ❌ Large images
 - ❌ Videos
 - ❌ Passwords in plain text
 
 **Core methods:**
 
-| Method | Notes |
-|--------|-------|
-| `setItem(key, value)` | Value must be a string → use **`JSON.stringify(value)`** |
-| `getItem(key)` | Returns string → convert back with **`JSON.parse(value)`** |
+| Method                | Notes                                                      |
+| --------------------- | ---------------------------------------------------------- |
+| `setItem(key, value)` | Value must be a string → use **`JSON.stringify(value)`**   |
+| `getItem(key)`        | Returns string → convert back with **`JSON.parse(value)`** |
 
 **Two `useEffect`s needed in your provider:**
 
@@ -488,10 +517,10 @@ useEffect(() => {
 
 ### Hydration & Dehydration
 
-| Term | Meaning |
-|------|---------|
-| **Hydration** | On app open — read saved data from disk and load it into React state |
-| **Dehydration** | Saving data to disk before state is lost |
+| Term            | Meaning                                                              |
+| --------------- | -------------------------------------------------------------------- |
+| **Hydration**   | On app open — read saved data from disk and load it into React state |
+| **Dehydration** | Saving data to disk before state is lost                             |
 
 ![Hydration](./public/hydration.png)
 
@@ -503,12 +532,12 @@ useEffect(() => {
 
 **Why not GIF?**
 
-| GIF | Lottie |
-|-----|--------|
-| 100s of images played in sequence | JSON file of animation instructions |
-| Heavy file size | Tiny |
-| Not scalable | Scales to any resolution |
-| Poor quality on different screen sizes | Perfect quality everywhere |
+| GIF                                    | Lottie                              |
+| -------------------------------------- | ----------------------------------- |
+| 100s of images played in sequence      | JSON file of animation instructions |
+| Heavy file size                        | Tiny                                |
+| Not scalable                           | Scales to any resolution            |
+| Poor quality on different screen sizes | Perfect quality everywhere          |
 
 > A Lottie file is a JSON document describing **shapes, colors, paths, timing, and movement** — just instructions, rendered frame by frame.
 
@@ -522,11 +551,13 @@ useEffect(() => {
 ### Pull to Refresh
 
 **What actually happens:**
+
 1. User pulls down → spinner appears
 2. Network request → loading indicator shown
 3. Request finishes → spinner hides, UI updates
 
 Three independent events:
+
 - **Pull** → start refresh
 - **Network request** → show loading indicator
 - **Request finishes** → hide spinner and update UI
@@ -538,24 +569,29 @@ Three independent events:
 ### Why Pagination?
 
 **Without pagination:**
+
 - Server gives 20,000 items → phone downloads **everything**
 - Problems: huge network usage, slow launch, high memory consumption
 
 **With pagination:**
+
 - Server loads first 10 → user scrolls → next 10 → user scrolls → next 10
 - App downloads data **only when needed**
 
 ### Two Types of Pagination
 
 **Server-side:**
+
 ```http
 GET /restaurants?page=2&limit=10
 ```
 
 **Client-side:**
+
 ```http
 GET https://www.fruityvice.com/api/fruit/all
 ```
+
 > Download all at once into `allFruits`, show 10 at a time in `visibleFruits`.
 > FlashList renders the window. Scroll triggers slice math to append the next 10.
 
@@ -564,27 +600,30 @@ GET https://www.fruityvice.com/api/fruit/all
 ### Animated API — Skeleton Loading
 
 **Traditional Spinner Problems:**
+
 - User has no idea what's coming
 - Layout suddenly appears after loading
 - Feels slower
 - Bad user experience
 
 **Skeleton Loading:**
+
 - User immediately understands what is arriving
 - Fake UI that **mimics the final layout** before real data arrives
 
 **How shimmer works:**
+
 1. Gray placeholder card
 2. Light strip moves left → right
 3. Repeats forever
 
 **Three pieces of Animated API:**
 
-| Piece | Role |
-|-------|------|
-| `Animated.Value` | The animated number |
-| Animation Driver | `Animated.loop()`, `Animated.timing()` — drives the value |
-| Animated Component | `Animated.View` — the thing that actually moves |
+| Piece              | Role                                                      |
+| ------------------ | --------------------------------------------------------- |
+| `Animated.Value`   | The animated number                                       |
+| Animation Driver   | `Animated.loop()`, `Animated.timing()` — drives the value |
+| Animated Component | `Animated.View` — the thing that actually moves           |
 
 ---
 
@@ -630,10 +669,10 @@ GPS returns:
 
 ### Android Permission Types
 
-| Type | When |
-|------|------|
-| **Manifest Permission** | Declared at app installation time |
-| **Runtime Permission** | Requested while app is running (popup) |
+| Type                    | When                                   |
+| ----------------------- | -------------------------------------- |
+| **Manifest Permission** | Declared at app installation time      |
+| **Runtime Permission**  | Requested while app is running (popup) |
 
 > Without the Manifest declaration, the Runtime popup **will never appear**.
 
@@ -667,12 +706,12 @@ JS code
 
 #### Files Touched
 
-| File | Why |
-|------|-----|
-| `package.json` | Install geolocation native module |
-| `android/app/src/main/AndroidManifest.xml` | Declare location permission at install time |
-| `src/hooks/useCurrentLocation.js` | Reusable permission + GPS logic (custom hook) |
-| `src/screens/AddressScreen.js` | UI button that triggers location fetch |
+| File                                       | Why                                           |
+| ------------------------------------------ | --------------------------------------------- |
+| `package.json`                             | Install geolocation native module             |
+| `android/app/src/main/AndroidManifest.xml` | Declare location permission at install time   |
+| `src/hooks/useCurrentLocation.js`          | Reusable permission + GPS logic (custom hook) |
+| `src/screens/AddressScreen.js`             | UI button that triggers location fetch        |
 
 #### Step 1 — Install the Package
 
@@ -691,14 +730,15 @@ npm install @react-native-community/geolocation
 <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 ```
 
-| Permission | What it grants |
-|------------|---------------|
-| `ACCESS_FINE_LOCATION` | Precise GPS coordinates |
+| Permission               | What it grants                            |
+| ------------------------ | ----------------------------------------- |
+| `ACCESS_FINE_LOCATION`   | Precise GPS coordinates                   |
 | `ACCESS_COARSE_LOCATION` | Approximate location (network/cell tower) |
 
 #### Step 3 — Custom Hook
 
 Why a custom hook?
+
 - Permission + GPS logic belongs in a hook, **not in the screen**
 - Reusable on any screen that needs location
 - Screen stays clean — only calls `fetchLocation()`
@@ -719,12 +759,12 @@ if (Platform.OS === 'android') {
 }
 ```
 
-| Line | What it does |
-|------|-------------|
-| `Platform.OS === 'android'` | Block runs Android only |
-| `PermissionsAndroid.request()` | Shows Allow / Deny popup |
-| `ACCESS_FINE_LOCATION` | Requests precise GPS |
-| If denied | Throws error → `catch` sets `error` state |
+| Line                           | What it does                              |
+| ------------------------------ | ----------------------------------------- |
+| `Platform.OS === 'android'`    | Block runs Android only                   |
+| `PermissionsAndroid.request()` | Shows Allow / Deny popup                  |
+| `ACCESS_FINE_LOCATION`         | Requests precise GPS                      |
+| If denied                      | Throws error → `catch` sets `error` state |
 
 **Part B — Read GPS coordinates:**
 
@@ -747,12 +787,12 @@ Geolocation.getCurrentPosition(
 return { location, loading, error, fetchLocation };
 ```
 
-| Return | Meaning |
-|--------|---------|
-| `location` | Coords after success |
-| `loading` | `true` while fetching |
-| `error` | Message if permission denied or GPS failed |
-| `fetchLocation` | Call this on button press |
+| Return          | Meaning                                    |
+| --------------- | ------------------------------------------ |
+| `location`      | Coords after success                       |
+| `loading`       | `true` while fetching                      |
+| `error`         | Message if permission denied or GPS failed |
+| `fetchLocation` | Call this on button press                  |
 
 #### Step 4 — UI in AddressScreen
 
@@ -761,16 +801,20 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
 
 <Pressable onPress={fetchLocation} disabled={loading}>
   {loading ? <ActivityIndicator /> : <Text>Use Current Location</Text>}
-</Pressable>
+</Pressable>;
 
-{error ? <Text>{error}</Text> : null}
+{
+  error ? <Text>{error}</Text> : null;
+}
 
-{location ? (
-  <View>
-    <Text>Latitude: {location.latitude}</Text>
-    <Text>Longitude: {location.longitude}</Text>
-  </View>
-) : null}
+{
+  location ? (
+    <View>
+      <Text>Latitude: {location.latitude}</Text>
+      <Text>Longitude: {location.longitude}</Text>
+    </View>
+  ) : null;
+}
 ```
 
 > Ask permission **only when user needs it** — user tapped the button, so they expect the popup.
@@ -804,13 +848,13 @@ const { location, loading, error, fetchLocation } = useCurrentLocation();
 
 ### Two Types of Notifications
 
-| | Local | Push |
-|-|-------|------|
-| Triggered by | App itself | Backend / server |
-| Internet required | ❌ No | ✅ Yes (FCM/APNs) |
-| Works offline | ✅ Yes | ❌ No |
-| Use cases | Reminders, timers | Orders, messages, offers |
-| Examples | Lunch reminder at 1 PM, daily cart reminder | Order out for delivery, new restaurant nearby |
+|                   | Local                                       | Push                                          |
+| ----------------- | ------------------------------------------- | --------------------------------------------- |
+| Triggered by      | App itself                                  | Backend / server                              |
+| Internet required | ❌ No                                       | ✅ Yes (FCM/APNs)                             |
+| Works offline     | ✅ Yes                                      | ❌ No                                         |
+| Use cases         | Reminders, timers                           | Orders, messages, offers                      |
+| Examples          | Lunch reminder at 1 PM, daily cart reminder | Order out for delivery, new restaurant nearby |
 
 ### Android Notification Architecture
 
@@ -842,12 +886,12 @@ Notification Drawer
 - Each channel has its own sound, vibration, and priority
 - Users can **mute only Offers** while keeping Orders enabled
 
-| Channel | Examples |
-|---------|---------|
-| `orders` | Your order is confirmed, Order out for delivery |
-| `offers` | Festival sale, Discount coupon |
-| `reminders` | Lunch at 1 PM, Cart abandoned |
-| `cart` | Item back in stock |
+| Channel     | Examples                                        |
+| ----------- | ----------------------------------------------- |
+| `orders`    | Your order is confirmed, Order out for delivery |
+| `offers`    | Festival sale, Discount coupon                  |
+| `reminders` | Lunch at 1 PM, Cart abandoned                   |
+| `cart`      | Item back in stock                              |
 
 ### Why Notifee?
 
@@ -861,27 +905,27 @@ Notification Drawer
 
 ### Notification Use Cases
 
-| Type | Example |
-|------|---------|
-| Basic | "Welcome to Foodie" |
-| Big Text | Festival offer with long description |
-| Image | Pizza offer with banner image |
-| Inbox / Multiple | "3 new restaurant offers" |
-| Progress | "Preparing Order (0–100%)" |
-| Ongoing | "Delivery in progress" |
-| Scheduled | "Lunch reminder" |
-| Grouped | Multiple offers grouped together |
-| Action | Accept / Dismiss coupon |
+| Type             | Example                               |
+| ---------------- | ------------------------------------- |
+| Basic            | "Welcome to Foodie"                   |
+| Big Text         | Festival offer with long description  |
+| Image            | Pizza offer with banner image         |
+| Inbox / Multiple | "3 new restaurant offers"             |
+| Progress         | "Preparing Order (0–100%)"            |
+| Ongoing          | "Delivery in progress"                |
+| Scheduled        | "Lunch reminder"                      |
+| Grouped          | Multiple offers grouped together      |
+| Action           | Accept / Dismiss coupon               |
 | Data (FCM Ready) | Open restaurant / cart / offer screen |
-| Actionable | Spotify-like media controls |
+| Actionable       | Spotify-like media controls           |
 
 ### Every Notification Has 3 Layers
 
-| Layer | Properties |
-|-------|-----------|
-| **UI** | title, body, image, icon |
+| Layer        | Properties                              |
+| ------------ | --------------------------------------- |
+| **UI**       | title, body, image, icon                |
 | **Behavior** | sound, vibration, priority, auto-cancel |
-| **Data** | restaurantId, cartId, offerId, screen |
+| **Data**     | restaurantId, cartId, offerId, screen   |
 
 ---
 
@@ -901,7 +945,7 @@ Restaurant Details Screen opens
 Restaurant ID = 42 shown
 ```
 
-![Deep linking](https://a.storyblok.com/f/47007/2400x1656/74915beb5d/deep-link-direct-deferred-fallback.png/m/2880x0/filters:quality(80))
+![Deep linking](<https://a.storyblok.com/f/47007/2400x1656/74915beb5d/deep-link-direct-deferred-fallback.png/m/2880x0/filters:quality(80)>)
 
 > **Business benefit:** Higher conversion rate.
 
@@ -912,35 +956,41 @@ scheme://path/parameter?query=value
 foodie://restaurant/42?coupon=FIRST50
 ```
 
-| Part | Role | Example |
-|------|------|---------|
-| `scheme` | App identity | `foodie://` |
-| `path` | Route / screen | `restaurant/` |
-| `parameter` | Dynamic value | `42` |
-| `query params` | Extra data | `?coupon=FIRST50` |
+| Part           | Role           | Example           |
+| -------------- | -------------- | ----------------- |
+| `scheme`       | App identity   | `foodie://`       |
+| `path`         | Route / screen | `restaurant/`     |
+| `parameter`    | Dynamic value  | `42`              |
+| `query params` | Extra data     | `?coupon=FIRST50` |
 
 ### Three Types of Deep Links
 
 **Type 1 — Custom URL Scheme**
+
 ```
 foodie://cart
 foodie://restaurant/42
 ```
+
 - ✅ No website needed
 - ✅ Easy to configure
 - ⚠️ Works only if app is installed
 
 **Type 2 — Universal Links (iOS)**
+
 ```
 https://foodie.com/cart
 ```
+
 - If app installed → opens app
 - Otherwise → opens website
 
 **Type 3 — Android App Links**
+
 ```
 https://foodie.com/restaurant/42
 ```
+
 - Verified with Android
 - Safer than custom schemes
 
@@ -957,47 +1007,47 @@ Example: Camera intent → camera opens.
 
 ### React Native Linking API
 
-| Method | When it's used |
-|--------|---------------|
-| `Linking.getInitialURL()` | App launched **from a closed state** |
-| `Linking.addEventListener("url")` | App **already running** |
+| Method                            | When it's used                       |
+| --------------------------------- | ------------------------------------ |
+| `Linking.getInitialURL()`         | App launched **from a closed state** |
+| `Linking.addEventListener("url")` | App **already running**              |
 
 > - **App closed** → No JS exists yet → use `getInitialURL()`
 > - **App running** → JS is alive → use event listener
 
 ### Deep Link Data Types
 
-| Type | Example |
-|------|---------|
-| Path params | `foodie://restaurant/15` |
+| Type         | Example                                |
+| ------------ | -------------------------------------- |
+| Path params  | `foodie://restaurant/15`               |
 | Query params | `foodie://restaurant/15?coupon=SAVE10` |
-| Fragment | `foodie://profile/orders#active` |
+| Fragment     | `foodie://profile/orders#active`       |
 
 ### Firebase + Deep Links
 
 > Firebase does **not navigate** — it only **delivers data**.
 
-| App State | Firebase Handler |
-|-----------|-----------------|
-| Foreground | `onMessage()` |
+| App State  | Firebase Handler            |
+| ---------- | --------------------------- |
+| Foreground | `onMessage()`               |
 | Background | `onNotificationOpenedApp()` |
-| Quit | `getInitialNotification()` |
+| Quit       | `getInitialNotification()`  |
 
 ### Industry Terms
 
-| Term | Meaning |
-|------|---------|
-| **ROX** | Return on experience |
-| **Conversion rate** | % of users who complete an action |
-| **Retention rate** | % of users who return |
-| **Cold start** | App is closed — starting fresh |
-| **Warm start** | App already in memory — resumes quickly |
-| **Background** | App is minimized but still in memory |
+| Term                | Meaning                                 |
+| ------------------- | --------------------------------------- |
+| **ROX**             | Return on experience                    |
+| **Conversion rate** | % of users who complete an action       |
+| **Retention rate**  | % of users who return                   |
+| **Cold start**      | App is closed — starting fresh          |
+| **Warm start**      | App already in memory — resumes quickly |
+| **Background**      | App is minimized but still in memory    |
 
 ---
 
 <div align="center">
 
-*React Native Learning Project — Foodie App*
+_React Native Learning Project — Foodie App_
 
 </div>
