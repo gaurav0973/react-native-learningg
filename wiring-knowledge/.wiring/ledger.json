@@ -1,0 +1,1292 @@
+{
+  "version": 1,
+  "files": [
+    {
+      "path": "01-internals/01-what-is-an-app.md",
+      "title": "What is an app \u2014 APK, AAB, IPA, signing",
+      "owns": [
+        "apk-aab-ipa",
+        "app-signing",
+        "version-code-name",
+        "keystore"
+      ],
+      "prereqs": [],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/02-metro-and-the-js-bundle.md",
+      "title": "Metro and the JavaScript bundle",
+      "owns": [
+        "metro-bundler",
+        "js-bundle",
+        "entry-point-chain"
+      ],
+      "prereqs": [
+        "01-internals/01-what-is-an-app.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/03-app-lifecycle-and-appstate.md",
+      "title": "App lifecycle and AppState",
+      "owns": [
+        "app-lifecycle",
+        "appstate",
+        "activity-lifecycle-bridge"
+      ],
+      "prereqs": [
+        "01-internals/02-metro-and-the-js-bundle.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/04-process-death-and-ram.md",
+      "title": "Process death, RAM, and what survives",
+      "owns": [
+        "process-death",
+        "ram-vs-disk",
+        "cold-start-vs-warm-start"
+      ],
+      "prereqs": [
+        "01-internals/03-app-lifecycle-and-appstate.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/05-three-build-loops.md",
+      "title": "The three build loops",
+      "owns": [
+        "fast-refresh",
+        "reload-loop",
+        "full-rebuild",
+        "native-deps-trigger"
+      ],
+      "prereqs": [
+        "01-internals/02-metro-and-the-js-bundle.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/06-native-crashes-and-logcat.md",
+      "title": "Native crashes, ADB, and logcat",
+      "owns": [
+        "native-crash",
+        "redbox-vs-native",
+        "adb-logcat"
+      ],
+      "prereqs": [
+        "01-internals/01-what-is-an-app.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/07-density-dp-and-pixel-ratio.md",
+      "title": "Density, dp/pt, and PixelRatio",
+      "owns": [
+        "density",
+        "dp-pt",
+        "pixel-ratio",
+        "physical-vs-logical-pixels"
+      ],
+      "prereqs": [],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/08-what-the-platform-lacks.md",
+      "title": "What React Native is not \u2014 no DOM, cascade, or browser",
+      "owns": [
+        "no-dom",
+        "no-css-cascade",
+        "no-hover",
+        "no-media-queries",
+        "no-cookies"
+      ],
+      "prereqs": [],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/09-hermes-and-the-js-engine.md",
+      "title": "Hermes and the JavaScript engine",
+      "owns": [
+        "hermes",
+        "js-engine",
+        "bytecode"
+      ],
+      "prereqs": [
+        "01-internals/02-metro-and-the-js-bundle.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/10-jsi-turbomodules-and-native-access.md",
+      "title": "JSI, TurboModules, and native access",
+      "owns": [
+        "jsi",
+        "old-bridge",
+        "turbomodules",
+        "native-modules-mechanism"
+      ],
+      "prereqs": [
+        "01-internals/09-hermes-and-the-js-engine.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/11-fabric-render-pipeline.md",
+      "title": "Fabric, reconciliation, and the thread model",
+      "owns": [
+        "fabric",
+        "render-pipeline",
+        "thread-model",
+        "reconciliation-commit"
+      ],
+      "prereqs": [
+        "01-internals/10-jsi-turbomodules-and-native-access.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/12-os-permission-lifecycle.md",
+      "title": "OS permission lifecycle",
+      "owns": [
+        "manifest-permission",
+        "runtime-permission",
+        "permission-grant-states"
+      ],
+      "prereqs": [
+        "01-internals/01-what-is-an-app.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/13-notification-os-pipeline.md",
+      "title": "How the OS displays notifications",
+      "owns": [
+        "notification-os-pipeline",
+        "notification-channels-mechanism"
+      ],
+      "prereqs": [
+        "01-internals/10-jsi-turbomodules-and-native-access.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/14-deep-link-intents-and-cold-start.md",
+      "title": "Intents, cold start, and deep link delivery",
+      "owns": [
+        "android-intent",
+        "deep-link-cold-start",
+        "universal-app-links"
+      ],
+      "prereqs": [
+        "01-internals/04-process-death-and-ram.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "01-internals/15-expo-vs-react-native-cli.md",
+      "title": "Expo vs React Native CLI \u2014 who owns native",
+      "owns": [
+        "expo-managed",
+        "expo-bare",
+        "rn-cli-ownership"
+      ],
+      "prereqs": [
+        "01-internals/01-what-is-an-app.md",
+        "01-internals/05-three-build-loops.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/01-core-ui-primitives.md",
+      "title": "View, Text, StyleSheet, Pressable, TextInput",
+      "owns": [
+        "view-text-stylesheet",
+        "pressable",
+        "textinput-api",
+        "statusbar"
+      ],
+      "prereqs": [
+        "01-internals/08-what-the-platform-lacks.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/02-scrollview-flatlist-image.md",
+      "title": "ScrollView, FlatList, Image, ImageBackground",
+      "owns": [
+        "scrollview",
+        "flatlist",
+        "image-component",
+        "imagebackground",
+        "virtualization-basics"
+      ],
+      "prereqs": [
+        "02-implementations/01-core-ui-primitives.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/03-flashlist-and-pull-to-refresh.md",
+      "title": "FlashList, recycling, and RefreshControl",
+      "owns": [
+        "flashlist",
+        "pull-to-refresh",
+        "refreshcontrol"
+      ],
+      "prereqs": [
+        "02-implementations/02-scrollview-flatlist-image.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/04-react-navigation-wiring.md",
+      "title": "React Navigation \u2014 stacks, tabs, nested navigators",
+      "owns": [
+        "navigation-container",
+        "stack-navigator",
+        "bottom-tabs",
+        "nested-stacks",
+        "native-stack"
+      ],
+      "prereqs": [
+        "02-implementations/01-core-ui-primitives.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/05-context-and-providers.md",
+      "title": "Context API \u2014 CartProvider and AddressProvider",
+      "owns": [
+        "context-api",
+        "createcontext",
+        "usecontext",
+        "cart-provider",
+        "address-provider"
+      ],
+      "prereqs": [
+        "03-patterns/01-ui-as-function-of-state.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/06-asyncstorage-and-storage-service.md",
+      "title": "AsyncStorage and storageService",
+      "owns": [
+        "asyncstorage",
+        "storage-service",
+        "json-serialization-storage"
+      ],
+      "prereqs": [
+        "01-internals/04-process-death-and-ram.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/07-useeffect-and-side-effects.md",
+      "title": "useEffect, dependency arrays, and cleanup",
+      "owns": [
+        "useeffect",
+        "dependency-array",
+        "effect-cleanup-order"
+      ],
+      "prereqs": [
+        "03-patterns/01-ui-as-function-of-state.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/08-axios-and-api-client.md",
+      "title": "axios, apiClient, and react-native-config",
+      "owns": [
+        "axios",
+        "api-client",
+        "react-native-config",
+        "api-base-url"
+      ],
+      "prereqs": [
+        "02-implementations/07-useeffect-and-side-effects.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/09-lottie-animations.md",
+      "title": "Lottie \u2014 JSON-driven animations",
+      "owns": [
+        "lottie",
+        "lottie-vs-gif"
+      ],
+      "prereqs": [
+        "02-implementations/01-core-ui-primitives.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/10-animated-api-and-skeleton.md",
+      "title": "Animated API \u2014 Value, timing, loop",
+      "owns": [
+        "animated-api",
+        "animated-value",
+        "animated-view"
+      ],
+      "prereqs": [
+        "02-implementations/01-core-ui-primitives.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/11-geolocation-and-permissions-android.md",
+      "title": "Geolocation, PermissionsAndroid, useCurrentLocation",
+      "owns": [
+        "geolocation-api",
+        "permissions-android",
+        "use-current-location"
+      ],
+      "prereqs": [
+        "01-internals/12-os-permission-lifecycle.md",
+        "03-patterns/07-custom-hook-extraction.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/12-notifee-local-notifications.md",
+      "title": "Notifee \u2014 channels, scheduling, foreground events",
+      "owns": [
+        "notifee",
+        "notification-channels-api",
+        "scheduled-notifications"
+      ],
+      "prereqs": [
+        "01-internals/13-notification-os-pipeline.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/13-deep-linking-linking-api.md",
+      "title": "Deep linking \u2014 Linking config and listeners",
+      "owns": [
+        "linking-api",
+        "linking-config",
+        "getinitialurl",
+        "url-event-listener"
+      ],
+      "prereqs": [
+        "02-implementations/04-react-navigation-wiring.md",
+        "01-internals/14-deep-link-intents-and-cold-start.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "02-implementations/14-accessibility-props.md",
+      "title": "Accessibility props and the accessibility tree",
+      "owns": [
+        "accessibility-label",
+        "accessibility-props",
+        "screen-reader-tree"
+      ],
+      "prereqs": [
+        "02-implementations/01-core-ui-primitives.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/01-ui-as-function-of-state.md",
+      "title": "UI as a function of state",
+      "owns": [
+        "state-driven-ui",
+        "conditional-rendering",
+        "react-rerender"
+      ],
+      "prereqs": [],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/02-derived-state.md",
+      "title": "Derived state \u2014 one source of truth",
+      "owns": [
+        "derived-state",
+        "usememo-derived"
+      ],
+      "prereqs": [
+        "03-patterns/01-ui-as-function-of-state.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/03-four-screen-states.md",
+      "title": "The four states of every screen",
+      "owns": [
+        "four-screen-states",
+        "loading-empty-error-loaded"
+      ],
+      "prereqs": [
+        "03-patterns/01-ui-as-function-of-state.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/04-hydration-gating-pattern.md",
+      "title": "Hydration gating \u2014 restore then save",
+      "owns": [
+        "hydration-gating",
+        "dehydration",
+        "isHydrated-guard"
+      ],
+      "prereqs": [
+        "02-implementations/06-asyncstorage-and-storage-service.md",
+        "02-implementations/05-context-and-providers.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/05-controlled-components.md",
+      "title": "Controlled vs uncontrolled inputs",
+      "owns": [
+        "controlled-components",
+        "controlled-input"
+      ],
+      "prereqs": [
+        "03-patterns/01-ui-as-function-of-state.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/06-debounce-and-throttle.md",
+      "title": "Debouncing and throttling",
+      "owns": [
+        "debounce",
+        "throttle",
+        "rate-limiting"
+      ],
+      "prereqs": [
+        "03-patterns/05-controlled-components.md",
+        "02-implementations/07-useeffect-and-side-effects.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/07-custom-hook-extraction.md",
+      "title": "Extracting custom hooks",
+      "owns": [
+        "custom-hooks",
+        "hook-extraction"
+      ],
+      "prereqs": [
+        "02-implementations/07-useeffect-and-side-effects.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/08-optimistic-updates-and-prefetch.md",
+      "title": "Optimistic updates, prefetch, stale-while-revalidate",
+      "owns": [
+        "optimistic-updates",
+        "prefetch",
+        "stale-while-revalidate",
+        "never-blank-screen"
+      ],
+      "prereqs": [
+        "03-patterns/03-four-screen-states.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/09-pagination-loops.md",
+      "title": "Server-side vs client-side pagination",
+      "owns": [
+        "pagination",
+        "server-pagination",
+        "client-pagination"
+      ],
+      "prereqs": [
+        "02-implementations/03-flashlist-and-pull-to-refresh.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/10-feedback-selection.md",
+      "title": "Feedback selection \u2014 inline, toast, sheet, alert",
+      "owns": [
+        "feedback-patterns",
+        "snackbar-undo",
+        "tap-feedback"
+      ],
+      "prereqs": [
+        "03-patterns/01-ui-as-function-of-state.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/11-mobile-forms-and-validation.md",
+      "title": "Mobile forms \u2014 keyboard types, autofill, validate on blur",
+      "owns": [
+        "form-validation-on-blur",
+        "keyboard-types",
+        "otp-autofill",
+        "useref-forwardref-pattern"
+      ],
+      "prereqs": [
+        "03-patterns/05-controlled-components.md",
+        "02-implementations/01-core-ui-primitives.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/12-platform-back-button-flow.md",
+      "title": "Android back button \u2014 BackHandler flow",
+      "owns": [
+        "backhandler",
+        "double-tap-exit",
+        "platform-back-conventions"
+      ],
+      "prereqs": [
+        "02-implementations/04-react-navigation-wiring.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/13-permission-request-flow.md",
+      "title": "Permission request flow \u2014 ask when needed",
+      "owns": [
+        "permission-request-flow",
+        "never-ask-again-settings"
+      ],
+      "prereqs": [
+        "01-internals/12-os-permission-lifecycle.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "03-patterns/14-state-management-evolution.md",
+      "title": "State management evolution \u2014 useState to Zustand",
+      "owns": [
+        "prop-drilling",
+        "provider-hell",
+        "redux-overview",
+        "zustand-overview"
+      ],
+      "prereqs": [
+        "02-implementations/05-context-and-providers.md"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "04-style-patterns/01-flexbox-and-layout-defaults.md",
+      "title": "Flexbox defaults in React Native",
+      "owns": [
+        "flexbox",
+        "flex-direction-column",
+        "justify-align"
+      ],
+      "prereqs": [
+        "01-internals/08-what-the-platform-lacks.md"
+      ],
+      "anchors": [
+        "terms-and-terminology",
+        "the-master-diagram",
+        "default-column",
+        "flex-one",
+        "justify-and-align",
+        "row-when-needed",
+        "where-this-shows-up-in-the-repo",
+        "wiring"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "04-style-patterns/02-margin-padding-and-positioning.md",
+      "title": "Margin, padding, absolute, overflow",
+      "owns": [
+        "margin-padding",
+        "absolute-positioning",
+        "overflow-hidden"
+      ],
+      "prereqs": [
+        "04-style-patterns/01-flexbox-and-layout-defaults.md"
+      ],
+      "anchors": [
+        "terms-and-terminology",
+        "the-master-diagram",
+        "margin-vs-padding",
+        "absolute-positioning",
+        "overflow-hidden",
+        "where-this-shows-up-in-the-repo",
+        "wiring"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "04-style-patterns/03-safe-area-and-insets.md",
+      "title": "SafeAreaView and notch handling",
+      "owns": [
+        "safe-area",
+        "safeareaview",
+        "notch-insets-layout"
+      ],
+      "prereqs": [
+        "01-internals/07-density-dp-and-pixel-ratio.md"
+      ],
+      "anchors": [
+        "terms-and-terminology",
+        "the-master-diagram",
+        "safe-area-provider",
+        "safe-area-view",
+        "floating-ui-insets",
+        "where-this-shows-up-in-the-repo",
+        "wiring"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "04-style-patterns/04-responsive-dimensions-and-assets.md",
+      "title": "Dimensions API and @2x/@3x assets",
+      "owns": [
+        "dimensions-api",
+        "asset-scales",
+        "responsive-layout"
+      ],
+      "prereqs": [
+        "01-internals/07-density-dp-and-pixel-ratio.md"
+      ],
+      "anchors": [
+        "terms-and-terminology",
+        "the-master-diagram",
+        "dimensions-api",
+        "percentage-width",
+        "asset-scales",
+        "where-this-shows-up-in-the-repo",
+        "wiring"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "04-style-patterns/05-stylesheet-composition-no-cascade.md",
+      "title": "StyleSheet composition without cascade",
+      "owns": [
+        "stylesheet-composition",
+        "style-arrays",
+        "conditional-styles",
+        "platform-styles"
+      ],
+      "prereqs": [
+        "01-internals/08-what-the-platform-lacks.md",
+        "04-style-patterns/01-flexbox-and-layout-defaults.md"
+      ],
+      "anchors": [
+        "terms-and-terminology",
+        "the-master-diagram",
+        "style-arrays",
+        "conditional-styles",
+        "stylesheet-create",
+        "where-this-shows-up-in-the-repo",
+        "wiring"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "04-style-patterns/06-touch-targets-and-thumb-zone.md",
+      "title": "Touch targets, thumb zone, reachability",
+      "owns": [
+        "touch-targets",
+        "thumb-zone",
+        "44pt-48dp"
+      ],
+      "prereqs": [
+        "04-style-patterns/01-flexbox-and-layout-defaults.md"
+      ],
+      "anchors": [
+        "terms-and-terminology",
+        "the-master-diagram",
+        "thumb-zone",
+        "touch-target-size",
+        "hitslop-pattern",
+        "where-this-shows-up-in-the-repo",
+        "wiring"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "04-style-patterns/07-sticky-footer-and-floating-ui.md",
+      "title": "Sticky footer CTA and floating components",
+      "owns": [
+        "sticky-footer",
+        "floating-cart-bar",
+        "floating-outside-scroll"
+      ],
+      "prereqs": [
+        "04-style-patterns/02-margin-padding-and-positioning.md"
+      ],
+      "anchors": [
+        "terms-and-terminology",
+        "the-master-diagram",
+        "outside-scrollview",
+        "floating-cart-bar",
+        "scroll-padding",
+        "where-this-shows-up-in-the-repo",
+        "wiring"
+      ],
+      "status": "written"
+    },
+    {
+      "path": "04-style-patterns/08-skeleton-shimmer-construction.md",
+      "title": "Skeleton cards and shimmer construction",
+      "owns": [
+        "skeleton-loading",
+        "shimmer-effect",
+        "skeleton-card"
+      ],
+      "prereqs": [
+        "02-implementations/10-animated-api-and-skeleton.md",
+        "03-patterns/03-four-screen-states.md"
+      ],
+      "anchors": [
+        "terms-and-terminology",
+        "the-master-diagram",
+        "placeholder-blocks",
+        "shimmer-layer",
+        "overflow-clips-shimmer",
+        "where-this-shows-up-in-the-repo",
+        "wiring"
+      ],
+      "status": "written"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "apk-aab-ipa",
+      "title": "Apk Aab Ipa",
+      "aliases": [],
+      "owner": "01-internals/01-what-is-an-app.md",
+      "anchor": "#apk-internal-structure",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "app-signing",
+      "title": "App Signing",
+      "aliases": [],
+      "owner": "01-internals/01-what-is-an-app.md",
+      "anchor": "#signing-and-versioning",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "version-code-name",
+      "title": "Version Code Name",
+      "aliases": [],
+      "owner": "01-internals/01-what-is-an-app.md",
+      "anchor": "#signing-and-versioning",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "keystore",
+      "title": "Keystore",
+      "aliases": [],
+      "owner": "01-internals/01-what-is-an-app.md",
+      "anchor": "#signing-and-versioning",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "metro-bundler",
+      "title": "Metro Bundler",
+      "aliases": [],
+      "owner": "01-internals/02-metro-and-the-js-bundle.md",
+      "anchor": "#the-master-diagram",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "js-bundle",
+      "title": "Js Bundle",
+      "aliases": [],
+      "owner": "01-internals/02-metro-and-the-js-bundle.md",
+      "anchor": "#dev-vs-prod-delivery",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "entry-point-chain",
+      "title": "Entry Point Chain",
+      "aliases": [],
+      "owner": "01-internals/02-metro-and-the-js-bundle.md",
+      "anchor": "#entry-point-chain",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "app-lifecycle",
+      "title": "App Lifecycle",
+      "aliases": [],
+      "owner": "01-internals/03-app-lifecycle-and-appstate.md",
+      "anchor": "#lifecycle-state-machine",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "appstate",
+      "title": "Appstate",
+      "aliases": [],
+      "owner": "01-internals/03-app-lifecycle-and-appstate.md",
+      "anchor": "#android-activity-bridge",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "activity-lifecycle-bridge",
+      "title": "Activity Lifecycle Bridge",
+      "aliases": [],
+      "owner": "01-internals/03-app-lifecycle-and-appstate.md",
+      "anchor": "#android-activity-bridge",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "process-death",
+      "title": "Process Death",
+      "aliases": [],
+      "owner": "01-internals/04-process-death-and-ram.md",
+      "anchor": "#process-death-inside-rn",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "ram-vs-disk",
+      "title": "Ram Vs Disk",
+      "aliases": [],
+      "owner": "01-internals/04-process-death-and-ram.md",
+      "anchor": "#what-survives",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "cold-start-vs-warm-start",
+      "title": "Cold Start Vs Warm Start",
+      "aliases": [],
+      "owner": "01-internals/04-process-death-and-ram.md",
+      "anchor": "#cold-warm-process-restart",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "fast-refresh",
+      "title": "Fast Refresh",
+      "aliases": [],
+      "owner": "01-internals/05-three-build-loops.md",
+      "anchor": "#fast-refresh",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "reload-loop",
+      "title": "Reload Loop",
+      "aliases": [],
+      "owner": "01-internals/05-three-build-loops.md",
+      "anchor": "#reload-loop",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "full-rebuild",
+      "title": "Full Rebuild",
+      "aliases": [],
+      "owner": "01-internals/05-three-build-loops.md",
+      "anchor": "#full-rebuild",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "native-deps-trigger",
+      "title": "Native Deps Trigger",
+      "aliases": [],
+      "owner": "01-internals/05-three-build-loops.md",
+      "anchor": "#which-loop",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "native-crash",
+      "title": "Native Crash",
+      "aliases": [],
+      "owner": "01-internals/06-native-crashes-and-logcat.md",
+      "anchor": "#redbox-vs-native",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "redbox-vs-native",
+      "title": "Redbox Vs Native",
+      "aliases": [],
+      "owner": "01-internals/06-native-crashes-and-logcat.md",
+      "anchor": "#redbox-vs-native",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "adb-logcat",
+      "title": "Adb Logcat",
+      "aliases": [],
+      "owner": "01-internals/06-native-crashes-and-logcat.md",
+      "anchor": "#adb-logcat-pipeline",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "density",
+      "title": "Density",
+      "aliases": [],
+      "owner": "01-internals/07-density-dp-and-pixel-ratio.md",
+      "anchor": "#why-not-px",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "dp-pt",
+      "title": "Dp Pt",
+      "aliases": [],
+      "owner": "01-internals/07-density-dp-and-pixel-ratio.md",
+      "anchor": "#why-not-px",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "pixel-ratio",
+      "title": "Pixel Ratio",
+      "aliases": [],
+      "owner": "01-internals/07-density-dp-and-pixel-ratio.md",
+      "anchor": "#pixelratio-api",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "physical-vs-logical-pixels",
+      "title": "Physical Vs Logical Pixels",
+      "aliases": [],
+      "owner": "01-internals/07-density-dp-and-pixel-ratio.md",
+      "anchor": "#why-not-px",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "no-dom",
+      "title": "No Dom",
+      "aliases": [],
+      "owner": "01-internals/08-what-the-platform-lacks.md",
+      "anchor": "#no-dom",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "no-css-cascade",
+      "title": "No Css Cascade",
+      "aliases": [],
+      "owner": "01-internals/08-what-the-platform-lacks.md",
+      "anchor": "#no-css-cascade",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "no-hover",
+      "title": "No Hover",
+      "aliases": [],
+      "owner": "01-internals/08-what-the-platform-lacks.md",
+      "anchor": "#no-hover",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "no-media-queries",
+      "title": "No Media Queries",
+      "aliases": [],
+      "owner": "01-internals/08-what-the-platform-lacks.md",
+      "anchor": "#no-media-queries",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "no-cookies",
+      "title": "No Cookies",
+      "aliases": [],
+      "owner": "01-internals/08-what-the-platform-lacks.md",
+      "anchor": "#no-cookies",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "hermes",
+      "title": "Hermes",
+      "aliases": [],
+      "owner": "01-internals/09-hermes-and-the-js-engine.md",
+      "anchor": "#why-hermes-bytecode",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "js-engine",
+      "title": "Js Engine",
+      "aliases": [],
+      "owner": "01-internals/09-hermes-and-the-js-engine.md",
+      "anchor": "#engine-comparison",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "bytecode",
+      "title": "Bytecode",
+      "aliases": [],
+      "owner": "01-internals/09-hermes-and-the-js-engine.md",
+      "anchor": "#why-hermes-bytecode",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "jsi",
+      "title": "Jsi",
+      "aliases": [],
+      "owner": "01-internals/10-jsi-turbomodules-and-native-access.md",
+      "anchor": "#old-bridge-vs-jsi",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "old-bridge",
+      "title": "Old Bridge",
+      "aliases": [],
+      "owner": "01-internals/10-jsi-turbomodules-and-native-access.md",
+      "anchor": "#old-bridge-vs-jsi",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "turbomodules",
+      "title": "Turbomodules",
+      "aliases": [],
+      "owner": "01-internals/10-jsi-turbomodules-and-native-access.md",
+      "anchor": "#turbomodules-lazy-load",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "native-modules-mechanism",
+      "title": "Native Modules Mechanism",
+      "aliases": [],
+      "owner": "01-internals/10-jsi-turbomodules-and-native-access.md",
+      "anchor": "#native-access-example",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "fabric",
+      "title": "Fabric",
+      "aliases": [],
+      "owner": "01-internals/11-fabric-render-pipeline.md",
+      "anchor": "#fabric-pipeline",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "render-pipeline",
+      "title": "Render Pipeline",
+      "aliases": [],
+      "owner": "01-internals/11-fabric-render-pipeline.md",
+      "anchor": "#fabric-pipeline",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "thread-model",
+      "title": "Thread Model",
+      "aliases": [],
+      "owner": "01-internals/11-fabric-render-pipeline.md",
+      "anchor": "#thread-model",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "reconciliation-commit",
+      "title": "Reconciliation Commit",
+      "aliases": [],
+      "owner": "01-internals/11-fabric-render-pipeline.md",
+      "anchor": "#reconciliation-commit",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "manifest-permission",
+      "title": "Manifest Permission",
+      "aliases": [],
+      "owner": "01-internals/12-os-permission-lifecycle.md",
+      "anchor": "#manifest-declaration",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "runtime-permission",
+      "title": "Runtime Permission",
+      "aliases": [],
+      "owner": "01-internals/12-os-permission-lifecycle.md",
+      "anchor": "#runtime-request",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "permission-grant-states",
+      "title": "Permission Grant States",
+      "aliases": [],
+      "owner": "01-internals/12-os-permission-lifecycle.md",
+      "anchor": "#runtime-request",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "notification-os-pipeline",
+      "title": "Notification Os Pipeline",
+      "aliases": [],
+      "owner": "01-internals/13-notification-os-pipeline.md",
+      "anchor": "#the-master-diagram",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "notification-channels-mechanism",
+      "title": "Notification Channels Mechanism",
+      "aliases": [],
+      "owner": "01-internals/13-notification-os-pipeline.md",
+      "anchor": "#channel-mechanism",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "android-intent",
+      "title": "Android Intent",
+      "aliases": [],
+      "owner": "01-internals/14-deep-link-intents-and-cold-start.md",
+      "anchor": "#intent-filter",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "deep-link-cold-start",
+      "title": "Deep Link Cold Start",
+      "aliases": [],
+      "owner": "01-internals/14-deep-link-intents-and-cold-start.md",
+      "anchor": "#cold-vs-warm-delivery",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "universal-app-links",
+      "title": "Universal App Links",
+      "aliases": [],
+      "owner": "01-internals/14-deep-link-intents-and-cold-start.md",
+      "anchor": "#link-types",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "expo-managed",
+      "title": "Expo Managed",
+      "aliases": [],
+      "owner": "01-internals/15-expo-vs-react-native-cli.md",
+      "anchor": "#managed-vs-bare",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "expo-bare",
+      "title": "Expo Bare",
+      "aliases": [],
+      "owner": "01-internals/15-expo-vs-react-native-cli.md",
+      "anchor": "#prebuild-bridge",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    },
+    {
+      "id": "rn-cli-ownership",
+      "title": "Rn Cli Ownership",
+      "aliases": [],
+      "owner": "01-internals/15-expo-vs-react-native-cli.md",
+      "anchor": "#this-repo-is-cli",
+      "sources": [],
+      "depends_on": [],
+      "status": "written"
+    }
+  ],
+  "dropped": [
+    {
+      "source": "README.md \u00a75 Redux boilerplate file list",
+      "reason": "conceptual comparison only \u2014 covered as aliases under state-management-evolution, not a separate implementation"
+    },
+    {
+      "source": "README.md \u00a713 Firebase + Deep Links handlers",
+      "reason": "future/FCM integration reference \u2014 not implemented in this repo's code path"
+    },
+    {
+      "source": "README.md \u00a713 ROX/conversion/retention glossary",
+      "reason": "business vocabulary, not a technical concept for this knowledge base"
+    },
+    {
+      "source": "navigation.md \u00a79 Daily Workflow terminal commands",
+      "reason": "tooling commands \u2014 already owned by three-build-loops"
+    },
+    {
+      "source": "src/screens/TestScreen.js",
+      "reason": "scratch/test screen with no learning concept"
+    },
+    {
+      "source": "learning-docs/public/*.png",
+      "reason": "image assets referenced by source docs, not concepts"
+    }
+  ]
+}

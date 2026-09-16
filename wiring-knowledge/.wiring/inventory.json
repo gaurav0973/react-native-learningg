@@ -1,0 +1,4621 @@
+{
+  "root": "C:\\Users\\GAURAV MAURYA\\Desktop\\react-native-cli\\first",
+  "docs": [
+    {
+      "path": "CLAUDE.md",
+      "lines": 61,
+      "words": 671,
+      "headings": [
+        {
+          "level": 1,
+          "text": "CLAUDE.md",
+          "line": 1
+        },
+        {
+          "level": 2,
+          "text": "Project",
+          "line": 5
+        },
+        {
+          "level": 2,
+          "text": "Commands",
+          "line": 9
+        },
+        {
+          "level": 2,
+          "text": "Architecture",
+          "line": 37
+        },
+        {
+          "level": 2,
+          "text": "Platform notes",
+          "line": 57
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "lines": 1003,
+      "words": 3853,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83c\udf55 Foodie \u2014 React Native Learning Project",
+          "line": 3
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udcda Table of Contents",
+          "line": 15
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83e\uddf1 Core UI Primitives",
+          "line": 35
+        },
+        {
+          "level": 3,
+          "text": "Components",
+          "line": 37
+        },
+        {
+          "level": 3,
+          "text": "FlexBox",
+          "line": 43
+        },
+        {
+          "level": 3,
+          "text": "Positions",
+          "line": 52
+        },
+        {
+          "level": 3,
+          "text": "SafeAreaView",
+          "line": 59
+        },
+        {
+          "level": 3,
+          "text": "Other Concepts",
+          "line": 64
+        },
+        {
+          "level": 3,
+          "text": "UI Snapshot",
+          "line": 74
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udcdc ScrollView, FlatList & Images",
+          "line": 80
+        },
+        {
+          "level": 3,
+          "text": "ScrollView",
+          "line": 82
+        },
+        {
+          "level": 3,
+          "text": "Rendering Lists",
+          "line": 88
+        },
+        {
+          "level": 3,
+          "text": "ScrollView vs FlatList",
+          "line": 93
+        },
+        {
+          "level": 3,
+          "text": "Image Component",
+          "line": 101
+        },
+        {
+          "level": 3,
+          "text": "FlatList Deep Dive",
+          "line": 111
+        },
+        {
+          "level": 3,
+          "text": "ImageBackground",
+          "line": 124
+        },
+        {
+          "level": 3,
+          "text": "Positioning",
+          "line": 129
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83d\uddfa\ufe0f React Navigation",
+          "line": 140
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \u2699\ufe0f State-Driven UI",
+          "line": 162
+        },
+        {
+          "level": 3,
+          "text": "Concepts",
+          "line": 166
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83c\udf10 Context API, Redux & Zustand",
+          "line": 179
+        },
+        {
+          "level": 3,
+          "text": "The Problem \u2014 Prop Drilling",
+          "line": 181
+        },
+        {
+          "level": 3,
+          "text": "Context API",
+          "line": 187
+        },
+        {
+          "level": 3,
+          "text": "Why Redux Was Introduced",
+          "line": 215
+        },
+        {
+          "level": 3,
+          "text": "Zustand",
+          "line": 231
+        },
+        {
+          "level": 3,
+          "text": "State Management Evolution",
+          "line": 235
+        },
+        {
+          "level": 3,
+          "text": "Vocabulary",
+          "line": 245
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udd01 Derived State, useEffect & Side Effects",
+          "line": 258
+        },
+        {
+          "level": 3,
+          "text": "What Is a Side Effect?",
+          "line": 260
+        },
+        {
+          "level": 3,
+          "text": "Derived State",
+          "line": 267
+        },
+        {
+          "level": 3,
+          "text": "Component Lifecycle",
+          "line": 272
+        },
+        {
+          "level": 3,
+          "text": "useEffect",
+          "line": 281
+        },
+        {
+          "level": 3,
+          "text": "Dependency Array",
+          "line": 294
+        },
+        {
+          "level": 3,
+          "text": "Cleanup",
+          "line": 302
+        },
+        {
+          "level": 3,
+          "text": "Floating Components",
+          "line": 317
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udd0d Controlled Components, Debouncing & Throttling",
+          "line": 331
+        },
+        {
+          "level": 3,
+          "text": "Controlled Components",
+          "line": 333
+        },
+        {
+          "level": 3,
+          "text": "Debouncing",
+          "line": 346
+        },
+        {
+          "level": 3,
+          "text": "Custom Hooks",
+          "line": 367
+        },
+        {
+          "level": 3,
+          "text": "Throttling",
+          "line": 374
+        },
+        {
+          "level": 3,
+          "text": "Debouncing vs Throttling \u2014 Core Difference",
+          "line": 423
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83d\udcbe AsyncStorage & Hydration",
+          "line": 430
+        },
+        {
+          "level": 3,
+          "text": "The Problem",
+          "line": 432
+        },
+        {
+          "level": 3,
+          "text": "Persistent Storage",
+          "line": 443
+        },
+        {
+          "level": 3,
+          "text": "AsyncStorage",
+          "line": 455
+        },
+        {
+          "level": 3,
+          "text": "Hydration & Dehydration",
+          "line": 489
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83c\udfac Lottie, FlashList & Pull-to-Refresh",
+          "line": 500
+        },
+        {
+          "level": 3,
+          "text": "Lottie",
+          "line": 502
+        },
+        {
+          "level": 3,
+          "text": "FlashList",
+          "line": 515
+        },
+        {
+          "level": 3,
+          "text": "Pull to Refresh",
+          "line": 522
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83d\udcc4 Pagination & Animated API",
+          "line": 536
+        },
+        {
+          "level": 3,
+          "text": "Why Pagination?",
+          "line": 538
+        },
+        {
+          "level": 3,
+          "text": "Two Types of Pagination",
+          "line": 548
+        },
+        {
+          "level": 3,
+          "text": "Animated API \u2014 Skeleton Loading",
+          "line": 564
+        },
+        {
+          "level": 2,
+          "text": "11 \u00b7 \ud83d\udccd Location & GPS",
+          "line": 591
+        },
+        {
+          "level": 3,
+          "text": "Why Location?",
+          "line": 593
+        },
+        {
+          "level": 3,
+          "text": "Why Can't My App Read Location Directly?",
+          "line": 603
+        },
+        {
+          "level": 3,
+          "text": "How GPS Works",
+          "line": 609
+        },
+        {
+          "level": 3,
+          "text": "Android Permission Types",
+          "line": 631
+        },
+        {
+          "level": 3,
+          "text": "Android Permission Lifecycle",
+          "line": 640
+        },
+        {
+          "level": 3,
+          "text": "How JS Accesses GPS \u2014 The Bridge",
+          "line": 652
+        },
+        {
+          "level": 3,
+          "text": "Implementation Steps",
+          "line": 666
+        },
+        {
+          "level": 4,
+          "text": "Files Touched",
+          "line": 668
+        },
+        {
+          "level": 4,
+          "text": "Step 1 \u2014 Install the Package",
+          "line": 677
+        },
+        {
+          "level": 4,
+          "text": "Step 2 \u2014 Manifest Permission",
+          "line": 687
+        },
+        {
+          "level": 4,
+          "text": "Step 3 \u2014 Custom Hook",
+          "line": 699
+        },
+        {
+          "level": 4,
+          "text": "Step 4 \u2014 UI in AddressScreen",
+          "line": 757
+        },
+        {
+          "level": 4,
+          "text": "Full Permission Lifecycle",
+          "line": 778
+        },
+        {
+          "level": 2,
+          "text": "12 \u00b7 \ud83d\udd14 Local Push Notifications",
+          "line": 791
+        },
+        {
+          "level": 3,
+          "text": "What Is a Notification?",
+          "line": 793
+        },
+        {
+          "level": 3,
+          "text": "Why Can't React Native Show Notifications Directly?",
+          "line": 799
+        },
+        {
+          "level": 3,
+          "text": "Two Types of Notifications",
+          "line": 805
+        },
+        {
+          "level": 3,
+          "text": "Android Notification Architecture",
+          "line": 815
+        },
+        {
+          "level": 3,
+          "text": "Notification Channels",
+          "line": 839
+        },
+        {
+          "level": 3,
+          "text": "Why Notifee?",
+          "line": 852
+        },
+        {
+          "level": 3,
+          "text": "Notification Use Cases",
+          "line": 862
+        },
+        {
+          "level": 3,
+          "text": "Every Notification Has 3 Layers",
+          "line": 878
+        },
+        {
+          "level": 2,
+          "text": "13 \u00b7 \ud83d\udd17 Deep Linking",
+          "line": 888
+        },
+        {
+          "level": 3,
+          "text": "Real-World Example",
+          "line": 893
+        },
+        {
+          "level": 3,
+          "text": "URL Anatomy",
+          "line": 908
+        },
+        {
+          "level": 3,
+          "text": "Three Types of Deep Links",
+          "line": 922
+        },
+        {
+          "level": 3,
+          "text": "How Android Handles a Deep Link",
+          "line": 947
+        },
+        {
+          "level": 3,
+          "text": "Android Intent",
+          "line": 951
+        },
+        {
+          "level": 3,
+          "text": "React Native Linking API",
+          "line": 958
+        },
+        {
+          "level": 3,
+          "text": "Deep Link Data Types",
+          "line": 968
+        },
+        {
+          "level": 3,
+          "text": "Firebase + Deep Links",
+          "line": 976
+        },
+        {
+          "level": 3,
+          "text": "Industry Terms",
+          "line": 986
+        }
+      ]
+    },
+    {
+      "path": "navigation.md",
+      "lines": 697,
+      "words": 2460,
+      "headings": [
+        {
+          "level": 1,
+          "text": "React Navigation Guide (Beginner Friendly)",
+          "line": 1
+        },
+        {
+          "level": 2,
+          "text": "Table of Contents",
+          "line": 9
+        },
+        {
+          "level": 2,
+          "text": "1. What is React Navigation?",
+          "line": 26
+        },
+        {
+          "level": 2,
+          "text": "2. Key Concepts You Must Know",
+          "line": 47
+        },
+        {
+          "level": 3,
+          "text": "Screen",
+          "line": 49
+        },
+        {
+          "level": 3,
+          "text": "Navigator",
+          "line": 60
+        },
+        {
+          "level": 3,
+          "text": "`Stack.Navigator`",
+          "line": 72
+        },
+        {
+          "level": 3,
+          "text": "`Stack.Screen`",
+          "line": 82
+        },
+        {
+          "level": 3,
+          "text": "`NavigationContainer`",
+          "line": 93
+        },
+        {
+          "level": 3,
+          "text": "`navigation` prop",
+          "line": 105
+        },
+        {
+          "level": 3,
+          "text": "`route` prop",
+          "line": 126
+        },
+        {
+          "level": 3,
+          "text": "Params (route parameters)",
+          "line": 140
+        },
+        {
+          "level": 2,
+          "text": "3. Two Layers: JavaScript vs Native",
+          "line": 159
+        },
+        {
+          "level": 3,
+          "text": "Rule of thumb",
+          "line": 172
+        },
+        {
+          "level": 2,
+          "text": "4. Step-by-Step Setup (Follow This Order)",
+          "line": 185
+        },
+        {
+          "level": 3,
+          "text": "Step 1 \u2014 Install core navigation package",
+          "line": 189
+        },
+        {
+          "level": 3,
+          "text": "Step 2 \u2014 Install required peer dependencies",
+          "line": 199
+        },
+        {
+          "level": 3,
+          "text": "Step 3 \u2014 Install a navigator type",
+          "line": 214
+        },
+        {
+          "level": 3,
+          "text": "Step 4 \u2014 Configure Android native files",
+          "line": 228
+        },
+        {
+          "level": 4,
+          "text": "4a. `MainActivity.kt`",
+          "line": 232
+        },
+        {
+          "level": 4,
+          "text": "4b. `AndroidManifest.xml`",
+          "line": 255
+        },
+        {
+          "level": 4,
+          "text": "4c. Windows path fix (this project only)",
+          "line": 267
+        },
+        {
+          "level": 3,
+          "text": "Step 5 \u2014 Rebuild the native app",
+          "line": 275
+        },
+        {
+          "level": 3,
+          "text": "Step 6 \u2014 Wrap the app with `SafeAreaProvider`",
+          "line": 302
+        },
+        {
+          "level": 3,
+          "text": "Step 7 \u2014 Create the navigator",
+          "line": 324
+        },
+        {
+          "level": 3,
+          "text": "Step 8 \u2014 Use the navigator in `App.jsx`",
+          "line": 357
+        },
+        {
+          "level": 3,
+          "text": "Step 9 \u2014 Navigate from a screen or component",
+          "line": 376
+        },
+        {
+          "level": 2,
+          "text": "5. How This Project Is Wired",
+          "line": 409
+        },
+        {
+          "level": 3,
+          "text": "File responsibilities",
+          "line": 427
+        },
+        {
+          "level": 2,
+          "text": "6. Navigating Between Screens",
+          "line": 442
+        },
+        {
+          "level": 3,
+          "text": "Go to a screen",
+          "line": 444
+        },
+        {
+          "level": 3,
+          "text": "Navigate to the same screen again",
+          "line": 453
+        },
+        {
+          "level": 3,
+          "text": "Set screen title in the header",
+          "line": 461
+        },
+        {
+          "level": 3,
+          "text": "Hide the header",
+          "line": 482
+        },
+        {
+          "level": 2,
+          "text": "7. Passing Data Between Screens",
+          "line": 500
+        },
+        {
+          "level": 3,
+          "text": "Sending params",
+          "line": 502
+        },
+        {
+          "level": 3,
+          "text": "Reading params",
+          "line": 515
+        },
+        {
+          "level": 3,
+          "text": "Typing params (optional, for TypeScript)",
+          "line": 529
+        },
+        {
+          "level": 2,
+          "text": "8. Going Back",
+          "line": 535
+        },
+        {
+          "level": 3,
+          "text": "User presses Android back button",
+          "line": 537
+        },
+        {
+          "level": 3,
+          "text": "Programmatic back",
+          "line": 541
+        },
+        {
+          "level": 3,
+          "text": "Check if you can go back",
+          "line": 547
+        },
+        {
+          "level": 2,
+          "text": "9. Daily Workflow (What to Run and When)",
+          "line": 557
+        },
+        {
+          "level": 3,
+          "text": "Normal JS-only changes (UI, styles, navigation logic)",
+          "line": 559
+        },
+        {
+          "level": 3,
+          "text": "Added a new screen `.js` file (no new npm packages)",
+          "line": 564
+        },
+        {
+          "level": 3,
+          "text": "Installed a new npm package (especially navigation-related)",
+          "line": 569
+        },
+        {
+          "level": 3,
+          "text": "Changed `MainActivity.kt` or `AndroidManifest.xml`",
+          "line": 577
+        },
+        {
+          "level": 3,
+          "text": "Recommended two-terminal setup",
+          "line": 582
+        },
+        {
+          "level": 2,
+          "text": "10. Native Stack vs JS Stack",
+          "line": 594
+        },
+        {
+          "level": 2,
+          "text": "11. Common Errors and Fixes",
+          "line": 607
+        },
+        {
+          "level": 3,
+          "text": "`Can't find ViewManager 'RNSScreenContentWrapper'`",
+          "line": 609
+        },
+        {
+          "level": 3,
+          "text": "`RNGestureHandlerModule could not be found`",
+          "line": 623
+        },
+        {
+          "level": 3,
+          "text": "Metro bundles fine but app crashes on device",
+          "line": 631
+        },
+        {
+          "level": 3,
+          "text": "`Filename longer than 260 characters` (Windows)",
+          "line": 639
+        },
+        {
+          "level": 3,
+          "text": "Metro crash during `npm install`",
+          "line": 651
+        },
+        {
+          "level": 2,
+          "text": "12. Official Docs Links",
+          "line": 663
+        },
+        {
+          "level": 2,
+          "text": "Quick Checklist \u2014 Adding Navigation to a New React Native CLI Project",
+          "line": 679
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\readme.md",
+      "lines": 200,
+      "words": 1071,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcda Learning Docs \u2014 Index",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation \u2014 Completed Questions",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\u2705 Completed Questions",
+          "line": 14
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udcd6 Module Details",
+          "line": 39
+        },
+        {
+          "level": 3,
+          "text": "Module 1 \u2014 What Is an App?",
+          "line": 41
+        },
+        {
+          "level": 3,
+          "text": "Module 2 \u2014 App Lifecycle & AppState",
+          "line": 50
+        },
+        {
+          "level": 3,
+          "text": "Module 3 \u2014 Process Death & State Survival",
+          "line": 59
+        },
+        {
+          "level": 3,
+          "text": "Module 4 \u2014 The Three Build Loops",
+          "line": 68
+        },
+        {
+          "level": 3,
+          "text": "Module 5 \u2014 Native Crashes & Debugging",
+          "line": 77
+        },
+        {
+          "level": 3,
+          "text": "Module 6 \u2014 Density, PixelRatio & Safe Areas",
+          "line": 86
+        },
+        {
+          "level": 3,
+          "text": "Module 7 \u2014 The Four States of Every Screen",
+          "line": 95
+        },
+        {
+          "level": 3,
+          "text": "Module 8 \u2014 Perceived Speed & Optimistic Updates",
+          "line": 104
+        },
+        {
+          "level": 3,
+          "text": "Module 9 \u2014 Reachability & Touch Targets",
+          "line": 113
+        },
+        {
+          "level": 3,
+          "text": "Module 10 \u2014 Platform Conventions & Android Back Button",
+          "line": 122
+        },
+        {
+          "level": 3,
+          "text": "Module 11 \u2014 Feedback Patterns",
+          "line": 131
+        },
+        {
+          "level": 3,
+          "text": "Module 12 \u2014 Mobile Forms & Login UX",
+          "line": 140
+        },
+        {
+          "level": 3,
+          "text": "Module 13 \u2014 Accessibility Testing with VoiceOver & TalkBack",
+          "line": 152
+        },
+        {
+          "level": 3,
+          "text": "Module 14 \u2014 What Does NOT Exist in React Native",
+          "line": 163
+        },
+        {
+          "level": 3,
+          "text": "Module 15 \u2014 React Native Internal Architecture",
+          "line": 174
+        },
+        {
+          "level": 3,
+          "text": "Module 16 \u2014 Expo vs React Native CLI",
+          "line": 185
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\readme.md",
+      "lines": 111,
+      "words": 709,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcda Foundation \u2014 Learning Index",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation Modules",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\u2705 Completed Modules",
+          "line": 15
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udcd6 Module Details",
+          "line": 38
+        },
+        {
+          "level": 3,
+          "text": "Module 11 \u2014 Feedback Patterns",
+          "line": 40
+        },
+        {
+          "level": 3,
+          "text": "Module 12 \u2014 Mobile Forms & Login UX",
+          "line": 49
+        },
+        {
+          "level": 3,
+          "text": "Module 13 \u2014 Accessibility Testing with VoiceOver & TalkBack",
+          "line": 61
+        },
+        {
+          "level": 3,
+          "text": "Module 14 \u2014 What Does NOT Exist in React Native",
+          "line": 74
+        },
+        {
+          "level": 3,
+          "text": "Module 15 \u2014 React Native Internal Architecture",
+          "line": 85
+        },
+        {
+          "level": 3,
+          "text": "Module 16 \u2014 Expo vs React Native CLI",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\1\\read.md",
+      "lines": 106,
+      "words": 418,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 1 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: What Is an App?",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Topics Covered",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 31
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Entire Build Flow",
+          "line": 49
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\1\\readme.md",
+      "lines": 642,
+      "words": 2021,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 1 \u2014 Deep Dive Notes",
+          "line": 1
+        },
+        {
+          "level": 3,
+          "text": "React Native: What Actually Is an App?",
+          "line": 3
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83c\udfe0 What Actually Is an App?",
+          "line": 14
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udd04 Complete Production Pipeline",
+          "line": 61
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83d\udcf1 APK Internal Structure",
+          "line": 125
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udc1b Debug Build vs Release Build",
+          "line": 149
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \u2699\ufe0f Metro's Role",
+          "line": 205
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83c\udf10 APK vs AAB",
+          "line": 246
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udd0f APK Signing Architecture",
+          "line": 298
+        },
+        {
+          "level": 3,
+          "text": "The Trust System",
+          "line": 302
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83d\udddd\ufe0f Keystore Anatomy",
+          "line": 342
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \u26a0\ufe0f Why Losing a Keystore Is Dangerous",
+          "line": 370
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83d\udd11 Debug Keystore vs Release Keystore",
+          "line": 403
+        },
+        {
+          "level": 2,
+          "text": "11 \u00b7 \ud83d\udd22 versionCode vs versionName",
+          "line": 437
+        },
+        {
+          "level": 2,
+          "text": "12 \u00b7 \ud83d\udcd0 Semantic Versioning",
+          "line": 476
+        },
+        {
+          "level": 2,
+          "text": "13 \u00b7 \ud83d\ude80 React Native Release Build \u2014 Full Android Pipeline",
+          "line": 504
+        },
+        {
+          "level": 2,
+          "text": "14 \u00b7 \ud83d\udd0d Android Installation Verification Flow",
+          "line": 548
+        },
+        {
+          "level": 2,
+          "text": "15 \u00b7 \ud83c\udf4e Android vs iOS Build Ecosystem",
+          "line": 582
+        },
+        {
+          "level": 2,
+          "text": "16 \u00b7 \ud83d\uddc3\ufe0f Important Native Files",
+          "line": 624
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\10\\read.md",
+      "lines": 110,
+      "words": 654,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 10 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Platform Conventions & Android Back",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 34
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 52
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Android Back Button Flow",
+          "line": 66
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\10\\readme.md",
+      "lines": 479,
+      "words": 2073,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 10 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Platform Conventions & Android Back Button",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83c\udfaf First Principle \u2014 Native Experiences",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83e\udd16\ud83c\udf4e Platform Conventions \u2014 Android vs iOS",
+          "line": 53
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \u2b05\ufe0f React Native BackHandler API",
+          "line": 109
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \u2705 Return `true` vs `false` \u2014 Critical Rule",
+          "line": 167
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83d\udd01 Double Tap to Exit (Production Android UX)",
+          "line": 205
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udd0d useFocusEffect vs useEffect",
+          "line": 274
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83e\udded React Navigation & Back Behavior",
+          "line": 341
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83c\udfed Production Patterns Checklist",
+          "line": 390
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83c\udf54 Foodie App \u2014 Current State & Upgrades",
+          "line": 431
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83d\udcbc Interview Questions",
+          "line": 455
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\11\\read.md",
+      "lines": 97,
+      "words": 429,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 11 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Feedback Patterns",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 30
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 43
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Feedback Decision Architecture",
+          "line": 55
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 79
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\11\\readme.md",
+      "lines": 223,
+      "words": 823,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 11 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Feedback Patterns",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83c\udfaf First Principle \u2014 Immediate Feedback",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83c\udf33 Feedback Decision Tree",
+          "line": 47
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83d\udd04 Universal Tap Feedback Lifecycle",
+          "line": 89
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \u21a9\ufe0f Snackbar Lifecycle \u2014 The Undo Pattern",
+          "line": 131
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83d\udccb Bottom Sheet Interaction Flow",
+          "line": 164
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udcca Feedback Patterns \u2014 When to Use Each",
+          "line": 202
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\12\\read.md",
+      "lines": 112,
+      "words": 571,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 12 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Mobile Forms & Login UX",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 34
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 50
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Complete Login Form Architecture",
+          "line": 63
+        },
+        {
+          "level": 3,
+          "text": "useRef + forwardRef tunnel",
+          "line": 80
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\12\\readme.md",
+      "lines": 465,
+      "words": 1462,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 12 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Mobile Forms & Login UX",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83d\udd04 Mobile Form Lifecycle",
+          "line": 20
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \u2328\ufe0f Keyboard Selection Decision Tree",
+          "line": 84
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83d\udd10 Autofill Architecture (Android + iOS)",
+          "line": 129
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udcf1 OTP Autofill Flow",
+          "line": 171
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \u2705 Validation Timing \u2014 onBlur, not onChange",
+          "line": 219
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83c\udfaf Focus Management \u2014 useRef & forwardRef",
+          "line": 287
+        },
+        {
+          "level": 3,
+          "text": "useRef \u2014 create a handle to the input",
+          "line": 310
+        },
+        {
+          "level": 3,
+          "text": "forwardRef \u2014 pass ref through AppInput wrapper",
+          "line": 317
+        },
+        {
+          "level": 3,
+          "text": "Wiring in LoginScreen",
+          "line": 331
+        },
+        {
+          "level": 3,
+          "text": "Memory card",
+          "line": 341
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udcd0 Keyboard Layout \u2014 AvoidingView, Dismiss & Scroll",
+          "line": 359
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83c\udf54 Foodie Login \u2014 Complete Form Architecture",
+          "line": 389
+        },
+        {
+          "level": 3,
+          "text": "File responsibilities",
+          "line": 419
+        },
+        {
+          "level": 3,
+          "text": "Data flow (controlled inputs)",
+          "line": 428
+        },
+        {
+          "level": 3,
+          "text": "Submit success / failure (planned)",
+          "line": 445
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\13\\read.md",
+      "lines": 107,
+      "words": 596,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 13 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Accessibility & Screen Readers",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 33
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 48
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Screen Reader Architecture",
+          "line": 62
+        },
+        {
+          "level": 3,
+          "text": "Testing pipeline",
+          "line": 78
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 89
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\13\\readme.md",
+      "lines": 405,
+      "words": 1654,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 13 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Accessibility Testing with VoiceOver & TalkBack",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83d\udc41\ufe0f Why Accessibility Matters \u2014 The Thought Process",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udd0a How a Screen Reader Sees Your App",
+          "line": 50
+        },
+        {
+          "level": 3,
+          "text": "Visual UI (what you design)",
+          "line": 54
+        },
+        {
+          "level": 3,
+          "text": "What TalkBack / VoiceOver reads",
+          "line": 62
+        },
+        {
+          "level": 3,
+          "text": "What screen readers ignore",
+          "line": 78
+        },
+        {
+          "level": 3,
+          "text": "What screen readers need",
+          "line": 87
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83c\udf33 The Accessibility Tree",
+          "line": 100
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83c\udff7\ufe0f Key React Native Accessibility Props",
+          "line": 127
+        },
+        {
+          "level": 3,
+          "text": "Label sources (priority)",
+          "line": 138
+        },
+        {
+          "level": 3,
+          "text": "Example \u2014 labeled input",
+          "line": 147
+        },
+        {
+          "level": 3,
+          "text": "Example \u2014 button with loading state",
+          "line": 158
+        },
+        {
+          "level": 3,
+          "text": "Example \u2014 hide decorative icon from tree",
+          "line": 170
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83e\uddea The Accessibility Testing Flow",
+          "line": 184
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udd17 Accessibility Label Flow",
+          "line": 225
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udcf1 Enabling VoiceOver & TalkBack",
+          "line": 264
+        },
+        {
+          "level": 3,
+          "text": "iOS \u2014 VoiceOver",
+          "line": 266
+        },
+        {
+          "level": 3,
+          "text": "Android \u2014 TalkBack",
+          "line": 276
+        },
+        {
+          "level": 3,
+          "text": "Testing gestures to learn",
+          "line": 286
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83c\udf54 Foodie Login \u2014 Real Flow to Test",
+          "line": 299
+        },
+        {
+          "level": 3,
+          "text": "Files involved",
+          "line": 317
+        },
+        {
+          "level": 3,
+          "text": "What to verify",
+          "line": 325
+        },
+        {
+          "level": 3,
+          "text": "Current gap in AppInput (fix target)",
+          "line": 336
+        },
+        {
+          "level": 3,
+          "text": "Test script (run blind)",
+          "line": 365
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \u26a0\ufe0f Common Accessibility Mistakes",
+          "line": 383
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\14\\read.md",
+      "lines": 105,
+      "words": 667,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 14 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: What Does NOT Exist",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udd25 The 9 Differences at a Glance \u2014 Memorize This Table",
+          "line": 34
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 52
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Web vs React Native Architecture",
+          "line": 65
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 87
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\14\\readme.md",
+      "lines": 393,
+      "words": 1697,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 14 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: What Does NOT Exist",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83c\udfaf First Principle \u2014 React Native Is Not a Browser",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udd25 The 9 Differences at a Glance \u2014 Memorize This Table",
+          "line": 38
+        },
+        {
+          "level": 3,
+          "text": "\u26a0\ufe0f Gotcha #4 \u2014 Flex Direction Default",
+          "line": 54
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83c\udfd7\ufe0f Browser vs React Native Architecture",
+          "line": 83
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udeab DOM Does NOT Exist",
+          "line": 119
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83c\udfa8 CSS Cascade Does NOT Exist",
+          "line": 156
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udc46 Hover Does NOT Exist \u2014 Touch States Do",
+          "line": 197
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udcd0 Media Queries Do NOT Exist",
+          "line": 249
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83d\udd17 Deep Linking Replaces URLs",
+          "line": 286
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83c\udf6a Cookies Do NOT Exist \u2014 Manual Token Storage",
+          "line": 319
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83d\udd04 Browser APIs That Don't Exist",
+          "line": 356
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\15\\read.md",
+      "lines": 104,
+      "words": 620,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 15 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Internal Architecture",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udd25 Architecture Glossary \u2014 Memorize This Table",
+          "line": 34
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 48
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f React Native Architecture",
+          "line": 64
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 85
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\15\\readme.md",
+      "lines": 410,
+      "words": 1499,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 15 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Internal Architecture",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83c\udfaf First Principle \u2014 JavaScript Controls Native Components",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udcda Architecture Glossary \u2014 Memorize This Table",
+          "line": 44
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83c\udfd7\ufe0f The Big Picture \u2014 How Your App Runs",
+          "line": 60
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udcf1 Native App vs React Native",
+          "line": 96
+        },
+        {
+          "level": 3,
+          "text": "Native App Flow",
+          "line": 98
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \u26a1 Hermes \u2014 JavaScript Engine",
+          "line": 140
+        },
+        {
+          "level": 3,
+          "text": "JavaScript Engines Comparison",
+          "line": 156
+        },
+        {
+          "level": 3,
+          "text": "Why Hermes Is Different",
+          "line": 173
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udd17 JSI \u2014 JavaScript Interface",
+          "line": 188
+        },
+        {
+          "level": 3,
+          "text": "Old Bridge vs JSI",
+          "line": 192
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83c\udfa8 Fabric \u2014 New Rendering Engine",
+          "line": 226
+        },
+        {
+          "level": 3,
+          "text": "Old Renderer vs Fabric",
+          "line": 230
+        },
+        {
+          "level": 3,
+          "text": "Fabric Rendering Pipeline",
+          "line": 242
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83c\udf33 What Is a Shadow Tree?",
+          "line": 270
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83d\udce6 TurboModules \u2014 Lazy Native Modules",
+          "line": 296
+        },
+        {
+          "level": 3,
+          "text": "TurboModules vs Old Modules",
+          "line": 308
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83d\ude80 New Architecture \u2014 Four Pieces Together",
+          "line": 338
+        },
+        {
+          "level": 2,
+          "text": "11 \u00b7 \ud83e\uddf5 Thread Architecture",
+          "line": 375
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\16\\read.md",
+      "lines": 108,
+      "words": 608,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 16 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Expo vs CLI",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udd25 Two Workflows at a Glance \u2014 Memorize This Table",
+          "line": 33
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 48
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Expo vs Bare CLI Architecture",
+          "line": 62
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 89
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\16\\readme.md",
+      "lines": 418,
+      "words": 1540,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 16 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Expo vs CLI",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83c\udfaf First Principle \u2014 An Ownership Decision",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udd25 Two Workflows at a Glance \u2014 Memorize This Table",
+          "line": 50
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83d\udee0\ufe0f What Is React Native CLI?",
+          "line": 66
+        },
+        {
+          "level": 3,
+          "text": "Android folder structure",
+          "line": 84
+        },
+        {
+          "level": 3,
+          "text": "iOS folder structure",
+          "line": 95
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udce6 What Is Expo?",
+          "line": 111
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83d\udd00 Managed Workflow vs Bare Workflow",
+          "line": 139
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udcf1 How Expo Go Runs vs Bare CLI",
+          "line": 166
+        },
+        {
+          "level": 3,
+          "text": "Expo Go (development)",
+          "line": 168
+        },
+        {
+          "level": 3,
+          "text": "Bare CLI (this project)",
+          "line": 186
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83e\udde9 Expo SDK vs Native Modules",
+          "line": 211
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \u26a1 Why Expo Feels Easier",
+          "line": 237
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83d\udea7 Where Expo Hits Limits",
+          "line": 257
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83c\udfd7\ufe0f What Is `expo prebuild`?",
+          "line": 289
+        },
+        {
+          "level": 3,
+          "text": "Managed \u2192 Bare path",
+          "line": 312
+        },
+        {
+          "level": 2,
+          "text": "11 \u00b7 \ud83d\udce5 Native Dependency Installation",
+          "line": 322
+        },
+        {
+          "level": 2,
+          "text": "12 \u00b7 \ud83d\udd28 Build Pipeline Comparison",
+          "line": 358
+        },
+        {
+          "level": 3,
+          "text": "CLI Build (this project)",
+          "line": 360
+        },
+        {
+          "level": 3,
+          "text": "Expo Build",
+          "line": 366
+        },
+        {
+          "level": 2,
+          "text": "13 \u00b7 \ud83d\udd10 Permissions Workflow",
+          "line": 384
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\2\\read.md",
+      "lines": 82,
+      "words": 259,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 2 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: App Lifecycle & AppState",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f AppState Architecture",
+          "line": 30
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\2\\readme.md",
+      "lines": 448,
+      "words": 1189,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 2 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: App Lifecycle & AppState",
+          "line": 5
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83d\udd04 Complete Mobile App Lifecycle",
+          "line": 22
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udc46 User Actions \u2192 Lifecycle State",
+          "line": 79
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83e\udd16 Android Activity Lifecycle \u2192 React Native AppState",
+          "line": 144
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83c\udf4e iOS Lifecycle \u2192 React Native AppState",
+          "line": 214
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83c\udf09 Native Lifecycle \u2192 JavaScript (AppState Bridge)",
+          "line": 271
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udd14 AppState + Notifications",
+          "line": 330
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udd17 AppState + Deep Linking",
+          "line": 366
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \u26a1 Resource Management Based on AppState",
+          "line": 405
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\3\\read.md",
+      "lines": 149,
+      "words": 605,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 3 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Process Death & State Survival",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 32
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Process Death Architecture",
+          "line": 43
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\uddee State Survival Matrix \u2014 RAM vs Persistent Storage",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\3\\readme.md",
+      "lines": 336,
+      "words": 1273,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 3 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Simulating Process Death & State Survival",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83e\udde0 The Fundamental \u2014 Phone RAM",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udc80 What Is Process Death?",
+          "line": 58
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83d\udd04 Process Death vs Cold Start",
+          "line": 80
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udcf1 Activity vs Process",
+          "line": 102
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83e\udd16 Android Memory Manager",
+          "line": 142
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \u2620\ufe0f What Happens Inside React Native During Process Death?",
+          "line": 160
+        },
+        {
+          "level": 3,
+          "text": "Before Process Death",
+          "line": 162
+        },
+        {
+          "level": 3,
+          "text": "Android kills the process",
+          "line": 181
+        },
+        {
+          "level": 3,
+          "text": "New Process Starts (PID 3921)",
+          "line": 192
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udca7 State Hydration Flow (AsyncStorage)",
+          "line": 210
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83d\ude80 Cold Start vs Warm Start vs Process Death",
+          "line": 261
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83e\uddee State Survival Matrix \u2014 RAM vs Persistent Storage",
+          "line": 290
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\4\\read.md",
+      "lines": 81,
+      "words": 375,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 4 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: The Three Build Loops",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Build Loop Architecture",
+          "line": 31
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things to Remember",
+          "line": 63
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\4\\readme.md",
+      "lines": 406,
+      "words": 1579,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 4 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: The Three Build Loops",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83d\udd00 The Three Build Loops \u2014 Overview",
+          "line": 21
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83c\udfdb\ufe0f React Native Development Architecture",
+          "line": 53
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \u26a1 Fast Refresh Pipeline \u2014 The Fastest Loop",
+          "line": 90
+        },
+        {
+          "level": 3,
+          "text": "What Fast Refresh Preserves vs Resets",
+          "line": 123
+        },
+        {
+          "level": 3,
+          "text": "Fast Refresh Failure Cases",
+          "line": 134
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udd04 Reload Pipeline \u2014 Restart JavaScript Only",
+          "line": 164
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83c\udfd7\ufe0f Full Rebuild Pipeline \u2014 Native Compilation",
+          "line": 202
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\ude87 Metro's Role in Every Loop",
+          "line": 256
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udd25 Hermes Behavior Across Loops",
+          "line": 285
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83e\uddee State Preservation Matrix",
+          "line": 333
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83c\udf33 Which Changes Need Which Loop?",
+          "line": 351
+        },
+        {
+          "level": 3,
+          "text": "Quick Reference \u2014 What needs what",
+          "line": 378
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\5\\read.md",
+      "lines": 116,
+      "words": 509,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 5 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: ADB, Logcat & Native Crashes",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udee0\ufe0f ADB Commands Mind Map",
+          "line": 32
+        },
+        {
+          "level": 2,
+          "text": "\ud83c\udfd7\ufe0f Native Crash Architecture",
+          "line": 63
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\5\\readme.md",
+      "lines": 295,
+      "words": 1178,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 5 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Finding Native Crashes with ADB Logcat & Xcode Console",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83d\udd0c ADB Architecture",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udcdc Where Logcat Lives Inside Android",
+          "line": 70
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83d\udd34 RedBox vs Native Crash",
+          "line": 119
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \u2620\ufe0f Complete Android Native Crash Pipeline",
+          "line": 159
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83d\udd0d Anatomy of a Logcat Crash",
+          "line": 210
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83d\udd2c Crash Investigation Workflow",
+          "line": 253
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\6\\read.md",
+      "lines": 125,
+      "words": 665,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 6 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Density, PixelRatio & Safe Areas",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 34
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 50
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Responsive Screen Architecture",
+          "line": 62
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\uddee Asset Size Cheat Sheet",
+          "line": 95
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\6\\readme.md",
+      "lines": 374,
+      "words": 1409,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 6 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Density, PixelRatio, Retina Assets & Safe Areas",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83d\udcd0 Why React Native Doesn't Use px",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udd2c DPI \u2014 Dots Per Inch",
+          "line": 55
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83e\udd16 Android dp vs \ud83c\udf4e iOS pt",
+          "line": 75
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udd22 PixelRatio API",
+          "line": 105
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83d\uddbc\ufe0f @1x, @2x, @3x Images",
+          "line": 143
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83c\udf2b\ufe0f Why Images Become Blurry",
+          "line": 173
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \u2705 Correct Asset Strategy",
+          "line": 198
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83d\udcf1 Safe Areas, Notches & Insets",
+          "line": 227
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83d\udee1\ufe0f react-native-safe-area-context",
+          "line": 256
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83c\udfa8 Figma to Screen \u2014 Responsive Pipeline",
+          "line": 295
+        },
+        {
+          "level": 2,
+          "text": "11 \u00b7 \ud83e\uddd8 Yoga Layout Engine's Role",
+          "line": 342
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\7\\read.md",
+      "lines": 113,
+      "words": 651,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 7 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: The Four States of Every Screen",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 34
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 52
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Screen State Architecture",
+          "line": 65
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\7\\readme.md",
+      "lines": 515,
+      "words": 2087,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 7 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: The Four States of Every Screen",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83c\udfaf Why Every Screen Has Four States",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udd04 State Machine Thinking",
+          "line": 45
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \u23f3 Loading State \u2014 Skeleton & Spinners",
+          "line": 104
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udced Empty State",
+          "line": 152
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83d\udd34 Error State",
+          "line": 205
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \u2705 Loaded State",
+          "line": 270
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udd01 Complete Screen Lifecycle",
+          "line": 316
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83d\udee0\ufe0f Implementation Pattern in React Native",
+          "line": 376
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83c\udf54 Foodie App \u2014 Real Examples",
+          "line": 448
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83d\udcbc Interview Questions",
+          "line": 493
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\8\\read.md",
+      "lines": 129,
+      "words": 751,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 8 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Perceived Speed & Optimistic Updates",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 34
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 53
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Perceived Speed Architecture",
+          "line": 67
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddbc\ufe0f Reference Diagrams",
+          "line": 98
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 111
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\8\\readme.md",
+      "lines": 515,
+      "words": 2382,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 8 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Perceived Speed, Optimistic Updates & Prefetch",
+          "line": 5
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \u26a1 Why Performance Matters",
+          "line": 20
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udcca TTI, FPS & What \"Fast\" Means",
+          "line": 55
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \ud83d\udeab Never Show a Blank Screen",
+          "line": 98
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83e\uddb4 Skeleton, Prefetch & Stale-While-Revalidate",
+          "line": 141
+        },
+        {
+          "level": 3,
+          "text": "Skeleton UI",
+          "line": 145
+        },
+        {
+          "level": 3,
+          "text": "Prefetch",
+          "line": 163
+        },
+        {
+          "level": 3,
+          "text": "Stale-While-Revalidate",
+          "line": 196
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83d\ude80 Optimistic Updates",
+          "line": 218
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83e\uddf5 React Native Threading Architecture",
+          "line": 295
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udd04 Reconciliation, Re-renders & Profiling",
+          "line": 348
+        },
+        {
+          "level": 3,
+          "text": "Re-render pipeline",
+          "line": 354
+        },
+        {
+          "level": 3,
+          "text": "React separates \"what\" from \"how\"",
+          "line": 366
+        },
+        {
+          "level": 3,
+          "text": "Profiling workflow",
+          "line": 377
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83d\udccb Perceived Speed Playbook",
+          "line": 418
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83c\udf54 Foodie App \u2014 Real Examples",
+          "line": 462
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83d\udcbc Interview Questions",
+          "line": 489
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\9\\read.md",
+      "lines": 117,
+      "words": 698,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udccb Module 9 \u2014 Summary",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native Foundation: Reachability & Touch Targets",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udccc Flows to Remember",
+          "line": 18
+        },
+        {
+          "level": 2,
+          "text": "\u26a1 Short Notes",
+          "line": 34
+        },
+        {
+          "level": 2,
+          "text": "\u2753 Quick Q&A",
+          "line": 52
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\uddfa\ufe0f Thumb Zone Architecture",
+          "line": 66
+        },
+        {
+          "level": 2,
+          "text": "\ud83d\udcd0 Touch Target Cheat Sheet",
+          "line": 86
+        },
+        {
+          "level": 2,
+          "text": "\ud83e\udde0 Things You Should Remember Forever",
+          "line": 99
+        }
+      ]
+    },
+    {
+      "path": "learning-docs\\foundation\\9\\readme.md",
+      "lines": 399,
+      "words": 1907,
+      "headings": [
+        {
+          "level": 1,
+          "text": "\ud83d\udcd6 Module 9 \u2014 Deep Dive Notes",
+          "line": 3
+        },
+        {
+          "level": 3,
+          "text": "React Native: Reachability, Thumb Zones & Touch Targets",
+          "line": 4
+        },
+        {
+          "level": 2,
+          "text": "1 \u00b7 \ud83e\udd1a Why Reachability Matters",
+          "line": 19
+        },
+        {
+          "level": 2,
+          "text": "2 \u00b7 \ud83d\udc4d The Thumb Zone Principle",
+          "line": 52
+        },
+        {
+          "level": 2,
+          "text": "3 \u00b7 \u2b07\ufe0f Primary Actions at the Bottom",
+          "line": 85
+        },
+        {
+          "level": 2,
+          "text": "4 \u00b7 \ud83d\udccc Sticky Footer CTA",
+          "line": 122
+        },
+        {
+          "level": 2,
+          "text": "5 \u00b7 \ud83d\udc46 Touch Targets \u2014 44pt / 48dp Rule",
+          "line": 166
+        },
+        {
+          "level": 2,
+          "text": "6 \u00b7 \ud83c\udfaf hitSlop \u2014 Expand Touch Area Without Changing Layout",
+          "line": 215
+        },
+        {
+          "level": 2,
+          "text": "7 \u00b7 \ud83d\udee1\ufe0f Safe Area + Sticky Footer Pattern",
+          "line": 251
+        },
+        {
+          "level": 2,
+          "text": "8 \u00b7 \ud83d\udd18 FAB vs Sticky Footer",
+          "line": 302
+        },
+        {
+          "level": 2,
+          "text": "9 \u00b7 \ud83c\udf54 Foodie App \u2014 Real Examples",
+          "line": 341
+        },
+        {
+          "level": 2,
+          "text": "10 \u00b7 \ud83d\udcbc Interview Questions",
+          "line": 376
+        }
+      ]
+    }
+  ],
+  "code": [
+    {
+      "path": ".eslintrc.js",
+      "lines": 4,
+      "exports": [],
+      "imports": []
+    },
+    {
+      "path": ".prettierrc.js",
+      "lines": 5,
+      "exports": [],
+      "imports": []
+    },
+    {
+      "path": "App.jsx",
+      "lines": 37,
+      "exports": [],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useEffect"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "StatusBar"
+          ]
+        },
+        {
+          "module": "./src/navigation/AppNavigator",
+          "names": [
+            "AppNavigator"
+          ]
+        },
+        {
+          "module": "./src/context/AddressContext",
+          "names": [
+            "AddressProvider"
+          ]
+        },
+        {
+          "module": "./src/context/CartContext",
+          "names": [
+            "CartProvider"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "index.js",
+      "lines": 18,
+      "exports": [],
+      "imports": [
+        {
+          "module": "react-native",
+          "names": [
+            "AppRegistry"
+          ]
+        },
+        {
+          "module": "react-native-safe-area-context",
+          "names": [
+            "SafeAreaProvider"
+          ]
+        },
+        {
+          "module": "./App",
+          "names": []
+        },
+        {
+          "module": "./app.json",
+          "names": [
+            "name"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "__tests__\\App.test.tsx",
+      "lines": 13,
+      "exports": [],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-test-renderer",
+          "names": []
+        },
+        {
+          "module": "../App",
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "android\\app\\src\\main\\java\\com\\first\\MainActivity.kt",
+      "lines": 32,
+      "exports": [],
+      "imports": []
+    },
+    {
+      "path": "android\\app\\src\\main\\java\\com\\first\\MainApplication.kt",
+      "lines": 27,
+      "exports": [],
+      "imports": []
+    },
+    {
+      "path": "ios\\first\\AppDelegate.swift",
+      "lines": 48,
+      "exports": [],
+      "imports": []
+    },
+    {
+      "path": "src\\api\\client.js",
+      "lines": 10,
+      "exports": [
+        "apiClient"
+      ],
+      "imports": [
+        {
+          "module": "axios",
+          "names": []
+        },
+        {
+          "module": "react-native-config",
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "src\\api\\restaurantApi.js",
+      "lines": 20,
+      "exports": [
+        "getRestaurantById",
+        "getRestaurants",
+        "searchRestaurants"
+      ],
+      "imports": [
+        {
+          "module": "./client",
+          "names": [
+            "apiClient"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\AddressCart.js",
+      "lines": 94,
+      "exports": [
+        "AddressCard"
+      ],
+      "imports": [
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "Pressable",
+            "StyleSheet"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\AppInput.js",
+      "lines": 64,
+      "exports": [
+        "AppInput"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "forwardRef"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "StyleSheet",
+            "Text",
+            "TextInput",
+            "View"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\BackgroundImage.js",
+      "lines": 36,
+      "exports": [
+        "BackgroundImage"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Image",
+            "StyleSheet"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\BannerCarousel.js",
+      "lines": 51,
+      "exports": [
+        "BannerCarousel"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "../data/bannerData",
+          "names": [
+            "bannerData"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\BillSummary.js",
+      "lines": 63,
+      "exports": [
+        "BillSummary"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "StyleSheet"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\CartItem.js",
+      "lines": 89,
+      "exports": [
+        "CartItem"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useContext"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "Pressable",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "../context/CartContext",
+          "names": [
+            "CartContext"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\CategoriesRow.js",
+      "lines": 30,
+      "exports": [
+        "CategoriesRow"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "ScrollView",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "../data/categories",
+          "names": [
+            "categories"
+          ]
+        },
+        {
+          "module": "./CategoryChip",
+          "names": [
+            "CategoryChip"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\CategoryChip.js",
+      "lines": 24,
+      "exports": [
+        "CategoryChip"
+      ],
+      "imports": [
+        {
+          "module": "react-native",
+          "names": [
+            "StyleSheet",
+            "Text",
+            "View"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\FloatingCartBar.js",
+      "lines": 75,
+      "exports": [
+        "FloatingCartBar"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useContext"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "Pressable",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "../context/CartContext",
+          "names": [
+            "CartContext"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\FruitCard.js",
+      "lines": 42,
+      "exports": [
+        "FruitCard"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "StyleSheet"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\Header.js",
+      "lines": 59,
+      "exports": [
+        "Header"
+      ],
+      "imports": [
+        {
+          "module": "@react-navigation/native",
+          "names": [
+            "useNavigation"
+          ]
+        },
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "StyleSheet",
+            "Pressable"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\MenuItem.js",
+      "lines": 118,
+      "exports": [
+        "MenuItem"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useContext"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "Pressable",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "../context/CartContext",
+          "names": [
+            "CartContext"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\OfferBanner.js",
+      "lines": 48,
+      "exports": [
+        "OfferBanner"
+      ],
+      "imports": [
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "lottie-react-native",
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\OfferCarousel.js",
+      "lines": 104,
+      "exports": [
+        "OfferCarousel"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useEffect",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "Dimensions",
+            "StyleSheet",
+            "View"
+          ]
+        },
+        {
+          "module": "@shopify/flash-list",
+          "names": [
+            "FlashList"
+          ]
+        },
+        {
+          "module": "../data/offers",
+          "names": [
+            "OFFERS"
+          ]
+        },
+        {
+          "module": "./OfferBanner",
+          "names": [
+            "OfferBanner"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\RestaurantCard.js",
+      "lines": 113,
+      "exports": [
+        "RestaurantCard"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "StyleSheet",
+            "Pressable"
+          ]
+        },
+        {
+          "module": "./BackgroundImage",
+          "names": [
+            "BackgroundImage"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\RestaurantFeed.js",
+      "lines": 37,
+      "exports": [
+        "RestaurantFeed"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "@shopify/flash-list",
+          "names": [
+            "FlashList"
+          ]
+        },
+        {
+          "module": "../data/restaurantData",
+          "names": [
+            "restaurantData"
+          ]
+        },
+        {
+          "module": "./RestaurantCard",
+          "names": [
+            "RestaurantCard"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\RestaurantInfo.js",
+      "lines": 84,
+      "exports": [
+        "RestaurantInfo"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useEffect"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "../services/notificationService",
+          "names": [
+            "showOfferNotification"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\SearchBar.js",
+      "lines": 34,
+      "exports": [
+        "SearchBar"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "TextInput",
+            "StyleSheet"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\components\\SkeletonCard.js",
+      "lines": 110,
+      "exports": [
+        "SkeletonCard"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useEffect",
+            "useRef"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "StyleSheet",
+            "Animated"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\context\\AddressContext.js",
+      "lines": 106,
+      "exports": [
+        "AddressContext",
+        "AddressProvider",
+        "useAddress"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "createContext",
+            "useContext",
+            "useEffect",
+            "useMemo",
+            "useState"
+          ]
+        },
+        {
+          "module": "../services/storageService",
+          "names": [
+            "getData",
+            "saveData",
+            "STORAGE_KEYS"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\context\\CartContext.js",
+      "lines": 114,
+      "exports": [
+        "CartContext",
+        "CartProvider"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "createContext",
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "module": "../services/storageService",
+          "names": [
+            "saveData",
+            "getData",
+            "STORAGE_KEYS"
+          ]
+        },
+        {
+          "module": "../services/notificationService",
+          "names": [
+            "showCartNotification"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\data\\bannerData.js",
+      "lines": 33,
+      "exports": [
+        "bannerData"
+      ],
+      "imports": [
+        {
+          "module": "../assets/images/b1.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/images/b2.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/images/b3.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/images/b4.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/images/b5.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/images/b6.jpg",
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "src\\data\\categories.js",
+      "lines": 11,
+      "exports": [
+        "categories"
+      ],
+      "imports": []
+    },
+    {
+      "path": "src\\data\\icons.js",
+      "lines": 18,
+      "exports": [
+        "CartIcon",
+        "FruitIcon",
+        "HomeIcon",
+        "ProfileIcon",
+        "SearchIcon"
+      ],
+      "imports": [
+        {
+          "module": "react-native",
+          "names": [
+            "Text"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\data\\menuData.js",
+      "lines": 35,
+      "exports": [
+        "menuData"
+      ],
+      "imports": []
+    },
+    {
+      "path": "src\\data\\offers.js",
+      "lines": 14,
+      "exports": [
+        "OFFERS"
+      ],
+      "imports": [
+        {
+          "module": "../assets/lottie/lottie_banner_testing.json",
+          "names": []
+        },
+        {
+          "module": "../assets/lottie/splash_json.json",
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "src\\data\\refreshRestaurantData.js",
+      "lines": 69,
+      "exports": [
+        "refreshRestaurantData"
+      ],
+      "imports": [
+        {
+          "module": "../assets/cards/b1.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b2.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b3.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b4.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b5.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b6.jpg",
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "src\\data\\restaurantData.js",
+      "lines": 69,
+      "exports": [
+        "restaurantData"
+      ],
+      "imports": [
+        {
+          "module": "../assets/cards/b1.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b2.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b3.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b4.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b5.jpg",
+          "names": []
+        },
+        {
+          "module": "../assets/cards/b6.jpg",
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "src\\hooks\\useCurrentLocation.js",
+      "lines": 77,
+      "exports": [
+        "useCurrentLocation"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useState"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "PermissionsAndroid",
+            "Platform"
+          ]
+        },
+        {
+          "module": "@react-native-community/geolocation",
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "src\\hooks\\useDebounce.js",
+      "lines": 19,
+      "exports": [
+        "useDebounce"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useEffect",
+            "useState"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\hooks\\useLoginForm.js",
+      "lines": 48,
+      "exports": [
+        "useLoginForm"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useState"
+          ]
+        },
+        {
+          "module": "../utils/validators",
+          "names": [
+            "isValidEmail",
+            "isValidPassword"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\navigation\\AppNavigator.js",
+      "lines": 12,
+      "exports": [
+        "AppNavigator"
+      ],
+      "imports": [
+        {
+          "module": "@react-navigation/native",
+          "names": [
+            "NavigationContainer"
+          ]
+        },
+        {
+          "module": "./linking",
+          "names": [
+            "linking"
+          ]
+        },
+        {
+          "module": "./BottomTabs",
+          "names": [
+            "BottomTabs"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\navigation\\BottomTabs.js",
+      "lines": 54,
+      "exports": [
+        "BottomTabs"
+      ],
+      "imports": [
+        {
+          "module": "@react-navigation/bottom-tabs",
+          "names": [
+            "createBottomTabNavigator"
+          ]
+        },
+        {
+          "module": "./HomeStack",
+          "names": [
+            "HomeStack"
+          ]
+        },
+        {
+          "module": "../screens/FruitExplorerScreen",
+          "names": [
+            "FruitExplorerScreen"
+          ]
+        },
+        {
+          "module": "./CartStack",
+          "names": [
+            "CartStack"
+          ]
+        },
+        {
+          "module": "../screens/LoginScreen",
+          "names": []
+        },
+        {
+          "module": "../data/icons",
+          "names": [
+            "CartIcon",
+            "FruitIcon",
+            "HomeIcon",
+            "ProfileIcon"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\navigation\\CartStack.js",
+      "lines": 18,
+      "exports": [
+        "CartStack"
+      ],
+      "imports": [
+        {
+          "module": "@react-navigation/native-stack",
+          "names": [
+            "createNativeStackNavigator"
+          ]
+        },
+        {
+          "module": "../screens/AddressScreen",
+          "names": [
+            "AddressScreen"
+          ]
+        },
+        {
+          "module": "../screens/CartScreen",
+          "names": [
+            "CartScreen"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\navigation\\HomeStack.js",
+      "lines": 13,
+      "exports": [
+        "HomeStack"
+      ],
+      "imports": [
+        {
+          "module": "@react-navigation/native-stack",
+          "names": [
+            "createNativeStackNavigator"
+          ]
+        },
+        {
+          "module": "../screens/HomeScreen",
+          "names": [
+            "HomeScreen"
+          ]
+        },
+        {
+          "module": "../screens/RestaurantScreen",
+          "names": [
+            "RestaurantScreen"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\navigation\\linking.js",
+      "lines": 23,
+      "exports": [
+        "linking"
+      ],
+      "imports": []
+    },
+    {
+      "path": "src\\screens\\AddressScreen.js",
+      "lines": 285,
+      "exports": [
+        "AddressScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useState"
+          ]
+        },
+        {
+          "module": "@shopify/flash-list",
+          "names": [
+            "FlashList"
+          ]
+        },
+        {
+          "module": "react-native-safe-area-context",
+          "names": [
+            "SafeAreaView"
+          ]
+        },
+        {
+          "module": "../components/AddressCart",
+          "names": [
+            "AddressCard"
+          ]
+        },
+        {
+          "module": "../context/AddressContext",
+          "names": [
+            "useAddress"
+          ]
+        },
+        {
+          "module": "../hooks/useCurrentLocation",
+          "names": [
+            "useCurrentLocation"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\screens\\CartScreen.js",
+      "lines": 149,
+      "exports": [
+        "CartScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useContext"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "Pressable",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "@shopify/flash-list",
+          "names": [
+            "FlashList"
+          ]
+        },
+        {
+          "module": "../context/CartContext",
+          "names": [
+            "CartContext"
+          ]
+        },
+        {
+          "module": "../components/CartItem",
+          "names": [
+            "CartItem"
+          ]
+        },
+        {
+          "module": "../components/BillSummary",
+          "names": [
+            "BillSummary"
+          ]
+        },
+        {
+          "module": "react-native-safe-area-context",
+          "names": [
+            "SafeAreaView"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\screens\\FruitExplorerScreen.js",
+      "lines": 161,
+      "exports": [
+        "FruitExplorerScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useEffect",
+            "useState"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "Text",
+            "View",
+            "ActivityIndicator",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "react-native-safe-area-context",
+          "names": [
+            "SafeAreaView"
+          ]
+        },
+        {
+          "module": "@shopify/flash-list",
+          "names": [
+            "FlashList"
+          ]
+        },
+        {
+          "module": "../components/FruitCard",
+          "names": [
+            "FruitCard"
+          ]
+        },
+        {
+          "module": "../components/SkeletonCard",
+          "names": [
+            "SkeletonCard"
+          ]
+        },
+        {
+          "module": "../services/fruitService",
+          "names": [
+            "getAllFruits"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\screens\\HomeScreen.js",
+      "lines": 203,
+      "exports": [
+        "HomeScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useEffect",
+            "useMemo",
+            "useRef",
+            "useState"
+          ]
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text",
+            "StyleSheet",
+            "RefreshControl",
+            "Animated"
+          ]
+        },
+        {
+          "module": "../components/RestaurantCard",
+          "names": [
+            "RestaurantCard"
+          ]
+        },
+        {
+          "module": "../components/Header",
+          "names": [
+            "Header"
+          ]
+        },
+        {
+          "module": "../components/SearchBar",
+          "names": [
+            "SearchBar"
+          ]
+        },
+        {
+          "module": "../components/CategoriesRow",
+          "names": [
+            "CategoriesRow"
+          ]
+        },
+        {
+          "module": "../components/OfferCarousel",
+          "names": [
+            "OfferCarousel"
+          ]
+        },
+        {
+          "module": "../hooks/useDebounce",
+          "names": [
+            "useDebounce"
+          ]
+        },
+        {
+          "module": "../data/restaurantData",
+          "names": [
+            "restaurantData"
+          ]
+        },
+        {
+          "module": "../data/refreshRestaurantData",
+          "names": [
+            "refreshRestaurantData"
+          ]
+        },
+        {
+          "module": "react-native-safe-area-context",
+          "names": [
+            "SafeAreaView"
+          ]
+        },
+        {
+          "module": "@shopify/flash-list",
+          "names": [
+            "FlashList"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\screens\\LoginScreen.js",
+      "lines": 131,
+      "exports": [
+        "LoginScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": [
+            "useRef"
+          ]
+        },
+        {
+          "module": "../components/AppInput",
+          "names": [
+            "AppInput"
+          ]
+        },
+        {
+          "module": "../hooks/useLoginForm",
+          "names": [
+            "useLoginForm"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\screens\\ProfileScreen.js",
+      "lines": 24,
+      "exports": [
+        "ProfileScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "Text",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "react-native-safe-area-context",
+          "names": [
+            "SafeAreaView"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\screens\\RestaurantScreen.js",
+      "lines": 115,
+      "exports": [
+        "RestaurantScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native-safe-area-context",
+          "names": [
+            "SafeAreaView"
+          ]
+        },
+        {
+          "module": "../components/BackgroundImage",
+          "names": [
+            "BackgroundImage"
+          ]
+        },
+        {
+          "module": "../components/RestaurantInfo",
+          "names": [
+            "RestaurantInfo"
+          ]
+        },
+        {
+          "module": "../data/menuData",
+          "names": [
+            "menuData"
+          ]
+        },
+        {
+          "module": "../components/MenuItem",
+          "names": [
+            "MenuItem"
+          ]
+        },
+        {
+          "module": "../components/FloatingCartBar",
+          "names": [
+            "FloatingCartBar"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\screens\\SearchScreen.js",
+      "lines": 26,
+      "exports": [
+        "SearchScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "Text",
+            "StyleSheet"
+          ]
+        },
+        {
+          "module": "react-native-safe-area-context",
+          "names": [
+            "SafeAreaView"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\screens\\TestScreen.js",
+      "lines": 11,
+      "exports": [
+        "TestScreen"
+      ],
+      "imports": [
+        {
+          "module": "react",
+          "names": []
+        },
+        {
+          "module": "react-native",
+          "names": [
+            "View",
+            "Text"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\services\\fruitService.js",
+      "lines": 10,
+      "exports": [
+        "getAllFruits"
+      ],
+      "imports": []
+    },
+    {
+      "path": "src\\services\\notificationService.js",
+      "lines": 279,
+      "exports": [
+        "cancelLunchReminder",
+        "createNotificationChannels",
+        "groupedNotification",
+        "progressNotification",
+        "requestNotificationPermission",
+        "scheduleDailyLunchReminder",
+        "scheduleLunchReminder",
+        "showBasicNotification",
+        "showBigTextOffer",
+        "showCartNotification",
+        "showOfferImage",
+        "showOfferNotification",
+        "showWelcomeNotification"
+      ],
+      "imports": [
+        {
+          "module": "react-native",
+          "names": [
+            "PermissionsAndroid",
+            "Platform"
+          ]
+        },
+        {
+          "module": "@notifee/react-native",
+          "names": [
+            "AndroidStyle",
+            "TriggerType"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\services\\storageService.js",
+      "lines": 55,
+      "exports": [
+        "STORAGE_KEYS",
+        "clearStorage",
+        "getData",
+        "removeData",
+        "saveData"
+      ],
+      "imports": [
+        {
+          "module": "@react-native-async-storage/async-storage",
+          "names": [
+            "createAsyncStorage"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "src\\utils\\validators.js",
+      "lines": 12,
+      "exports": [
+        "isValidEmail",
+        "isValidPassword"
+      ],
+      "imports": []
+    }
+  ],
+  "configs": [
+    "android\\app\\src\\main\\AndroidManifest.xml",
+    "android\\gradle.properties",
+    "app.json",
+    "babel.config.js",
+    "ios\\Podfile",
+    "ios\\first\\Info.plist",
+    "jest.config.js",
+    "metro.config.js",
+    "package.json",
+    "tsconfig.json"
+  ],
+  "diagram_files": [
+    "diagrams\\location-permission-flow.excalidraw",
+    "diagrams\\pagination-flow.excalidraw",
+    "learning-docs\\foundation\\12\\useRef-forwardRef-flow.excalidraw",
+    "notification-system-flow.excalidraw"
+  ],
+  "external_modules": [
+    [
+      "react",
+      32
+    ],
+    [
+      "react-native",
+      29
+    ],
+    [
+      "react-native-safe-area-context",
+      8
+    ],
+    [
+      "@shopify/flash-list",
+      6
+    ],
+    [
+      "@react-navigation/native",
+      2
+    ],
+    [
+      "@react-navigation/native-stack",
+      2
+    ],
+    [
+      "react-test-renderer",
+      1
+    ],
+    [
+      "axios",
+      1
+    ],
+    [
+      "react-native-config",
+      1
+    ],
+    [
+      "lottie-react-native",
+      1
+    ],
+    [
+      "@react-native-community/geolocation",
+      1
+    ],
+    [
+      "@react-navigation/bottom-tabs",
+      1
+    ],
+    [
+      "@notifee/react-native",
+      1
+    ],
+    [
+      "@react-native-async-storage/async-storage",
+      1
+    ]
+  ],
+  "external_symbols": [
+    [
+      "react-native:StyleSheet",
+      23
+    ],
+    [
+      "react-native:View",
+      21
+    ],
+    [
+      "react-native:Text",
+      20
+    ],
+    [
+      "react:useEffect",
+      9
+    ],
+    [
+      "react:useState",
+      9
+    ],
+    [
+      "react-native:Pressable",
+      7
+    ],
+    [
+      "react-native-safe-area-context:SafeAreaView",
+      7
+    ],
+    [
+      "@shopify/flash-list:FlashList",
+      6
+    ],
+    [
+      "react:useContext",
+      5
+    ],
+    [
+      "react:useRef",
+      4
+    ],
+    [
+      "react-native:TextInput",
+      2
+    ],
+    [
+      "react-native:Animated",
+      2
+    ],
+    [
+      "react:createContext",
+      2
+    ],
+    [
+      "react:useMemo",
+      2
+    ],
+    [
+      "react-native:PermissionsAndroid",
+      2
+    ],
+    [
+      "react-native:Platform",
+      2
+    ],
+    [
+      "@react-navigation/native-stack:createNativeStackNavigator",
+      2
+    ],
+    [
+      "react-native:StatusBar",
+      1
+    ],
+    [
+      "react-native:AppRegistry",
+      1
+    ],
+    [
+      "react-native-safe-area-context:SafeAreaProvider",
+      1
+    ],
+    [
+      "react:forwardRef",
+      1
+    ],
+    [
+      "react-native:Image",
+      1
+    ],
+    [
+      "react-native:ScrollView",
+      1
+    ],
+    [
+      "@react-navigation/native:useNavigation",
+      1
+    ],
+    [
+      "react-native:Dimensions",
+      1
+    ],
+    [
+      "@react-navigation/native:NavigationContainer",
+      1
+    ],
+    [
+      "@react-navigation/bottom-tabs:createBottomTabNavigator",
+      1
+    ],
+    [
+      "react-native:ActivityIndicator",
+      1
+    ],
+    [
+      "react-native:RefreshControl",
+      1
+    ],
+    [
+      "@notifee/react-native:AndroidStyle",
+      1
+    ],
+    [
+      "@notifee/react-native:TriggerType",
+      1
+    ],
+    [
+      "@react-native-async-storage/async-storage:createAsyncStorage",
+      1
+    ]
+  ],
+  "totals": {
+    "doc_files": 37,
+    "doc_lines": 10556,
+    "headings": 525,
+    "code_files": 59,
+    "code_lines": 3683
+  }
+}
